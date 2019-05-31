@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "edweezu-plan-n-go-client",
+    "name": "plan-n-go-client",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+}
