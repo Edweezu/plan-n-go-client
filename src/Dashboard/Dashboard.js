@@ -1,5 +1,6 @@
 import React from 'react'
 import TripsContext from '../TripsContext'
+import { Link } from 'react-router-dom'
 
 export default class Dashboard extends React.Component {
 
@@ -8,18 +9,20 @@ export default class Dashboard extends React.Component {
 
     render () {
         const { store } = this.context
+       
         console.log('storeeeee', store)
         return (
             <main className='dashboard'>
                 <section className='upcoming-dashboard'>
                     <h2>Upcoming Trips</h2>
-                    <ol>
-                        {store.map((trip) => {
-                            return <li>
-                                {trip.name}
-                            </li>
-                        })}
-                    </ol>
+                    <ul>
+                        {store.map(trip =>
+                            <li key={trip.id}>
+                                <Link to={"/trip/" + trip.id}>{trip.name}</Link>
+                            </li>                    
+                        )}
+                    </ul>
+                    <Link to='/add-trip'>Add a Trip</Link>
                 </section>
             </main>
         )

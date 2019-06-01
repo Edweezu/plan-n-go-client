@@ -8,27 +8,29 @@ import CreateAccount from '../CreateAccount/CreateAccount'
 import Login from '../Login/Login'
 import Dashboard from '../Dashboard/Dashboard'
 import store from '../store.js'
+import Trip from '../Trip/Trip'
+import AddTrip from '../AddTrip/AddTrip'
 
 class App extends React.Component {
 
   constructor (props) {
     super (props)
     this.state = {
-      store: []
+      // store: []
     }
   }
 
 
-  componentDidMount() {
-    this.setState({
-      store
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     store
+  //   })
+  // }
 
 
   render () {
 
-    const { store } = this.state
+    // const { store } = this.state
 
     const contextValue = {
       store
@@ -43,6 +45,8 @@ class App extends React.Component {
           <Route path ='/register' component ={CreateAccount}/>
           <Route path ='/login' component ={Login}/>
           <Route path ='/dashboard' component ={Dashboard}/>
+          <Route path ='/trip/:id' component ={Trip}/>
+          <Route path ='/add-trip' component ={AddTrip}/>
 
         </Switch>
       </TripsContext.Provider>

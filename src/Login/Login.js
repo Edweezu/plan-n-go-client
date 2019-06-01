@@ -12,15 +12,15 @@ export default class Login extends React.Component {
 
     render () {
         return (
-            <form class='login-form' onSubmit={this.handleSubmit}>
+            <form className='login-form' onSubmit={this.handleSubmit}>
                 <div className='signup-element'>
-                    <label for='username'>
+                    <label htmlFor='username'>
                         Username    
                     </label>
                     <input id='username' name='username' type='text' placeholder='demo'/>
                 </div>
                 <div className='signup-element'>
-                    <label for='password'>
+                    <label htmlFor='password'>
                         Password    
                     </label>
                     <input id='password' name='password' type='text' placeholder='Testing123'/>
