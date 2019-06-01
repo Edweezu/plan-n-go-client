@@ -10,6 +10,7 @@ import Dashboard from '../Dashboard/Dashboard'
 import store from '../store.js'
 import Trip from '../Trip/Trip'
 import AddTrip from '../AddTrip/AddTrip'
+import Footer from '../Footer/Footer'
 
 class App extends React.Component {
 
@@ -50,7 +51,9 @@ class App extends React.Component {
 
         </Switch>
       </TripsContext.Provider>
+      <Footer />
      </main>
+     
     )
   }
 }

@@ -1,0 +1,44 @@
+.fas {
+    margin-right: 3px;
+}
+
+.contact-item {
+    display: inline-block;
+    padding-right: 0.8rem;
+    margin: 0 auto;
+}
+
+/* .contact-item a {
+    color: white;
+} */
+
+.mail {
+    padding-left: 0.9rem;
+}
+
+/* .copyright {
+    text-align: center;
+} */
+
+.copyright p {
+    font-size: 0.7rem;
+}
+
+footer {
+    /* text-align :center; */
+    width: 100%;
+    /* background-color: #272833;
+    color: white; */
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    line-height: 0.6rem;
+}
+
+footer ul {
+    margin-block-start: 0em;
+    margin-block-end: 0rem;
+}
+
+li {
+    list-style: none
+}
