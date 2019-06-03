@@ -9,6 +9,8 @@ export default [
                 flight_num:  123,
                 depart_date: "2019-06-20",
                 depart_time: "07:00",
+                arrival_date: "2019-06-22",
+                arrival_time: "10:00",
                 unix_time: 1559319300,
                 seats: '46A'
             }
