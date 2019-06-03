@@ -56,7 +56,7 @@ export default class Trip extends React.Component
                     <h3>Current Flights</h3>
                     <ol>
                         {trip.flights.map(flight => (
-                            <div>
+                            <div key={flight.id}>
                                 <li className='flight-results-list'>
                                     <strong>Flight : {flight.airline}</strong> 
                                 </li>
@@ -75,7 +75,94 @@ export default class Trip extends React.Component
                         ))}                            
                     </ol>       
                 </section>
-
+                <section className='trip-destination-form'>
+                    {/*this button is going to hide and show a form based off of state. will implement when I add interactivity.*/}
+                    <h2>Activities / Destinations</h2>
+                    <button>Add a Destination</button>
+                    <form>
+                        <div className="form-section">
+                            <label htmlFor="destination">Destination Name</label>
+                            <input type="text" name="destination" />
+                        </div>
+                        <div className="form-section">
+                            <label htmlFor="date">Date</label>
+                            <input type="date" name="date"/>
+                        </div>
+                        <div className="form-section">
+                            <label htmlFor="address">Address</label>
+                            <input type="text" name="address" />
+                        </div>
+                        <div className="form-section">
+                            <label htmlFor="notes">Destination Notes</label>
+                            <textarea rows="5" name="notes" ></textarea>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
+                <section className='trip-destination-list'>
+                    <h3>Current Destinations</h3>
+                    <ol>
+                        {trip.destinations.map(destination => (
+                            <div key={destination.id}>
+                                <li className='flight-results-list'>
+                                    <strong>Destination : {destination.name}</strong> 
+                                </li>
+                                <span>
+                                     Activity Date : {destination.date}
+                                </span>
+                                <div>
+                                    Address : {destination.Address}
+                                </div>
+                                <div>
+                                    <button>
+                                        Edit
+                                    </button>
+                                    <button>
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        ))}                            
+                    </ol>       
+                </section>
+                <section className='trip-packing-list'>
+                    <h2>Packing List</h2>
+                    <h3>
+                        <input type="text" name="list-search" />
+                        <button type="submit">Search</button>
+                    </h3>
+                    <div className='add-form-fields'>
+                        <div>
+                            <button>Add an Item</button>
+                        </div>
+                        <label htmlFor="add-item">Item Name</label>
+                        <input type="text" name="add-item" />
+                    </div>
+                    <button type="submit">Submit</button>     
+                </section>
+                <section className='trip-packing-results'>
+                <h3>Current Destinations</h3>
+                    <ol>
+                        {trip.list.map(item => (
+                            <div key={item.id}>
+                                <li className='flight-results-list'>
+                                   {item.name}
+                                </li>
+                                <div>
+                                    <button>
+                                        Check 
+                                    </button>
+                                    <button>
+                                        Edit
+                                    </button>
+                                    <button>
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        ))}                            
+                    </ol>       
+                </section>
             </main>
         )
     }

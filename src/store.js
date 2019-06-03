@@ -15,7 +15,7 @@ export default [
                 seats: '46A'
             }
         ],
-        places: [
+        destinations: [
             {
                 id: 1,
                 name: 'Disneyland',
@@ -44,7 +44,7 @@ export default [
                 seats: '13A'
             }
         ],
-        places: [
+        destinations: [
             {
                 id: 1,
                 name: 'Golden Gate Bridge',
