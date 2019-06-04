@@ -2,7 +2,7 @@ import React from 'react'
 
 const TripsContext = React.createContext({
     list: [],
-    places: [],
+    destinations: [],
     flights: [],
     store: []
 })

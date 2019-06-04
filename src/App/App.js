@@ -32,11 +32,13 @@ class App extends React.Component {
   render () {
 
     // const { store } = this.state
-
+    
     const contextValue = {
       store
     }
 
+    console.log('beforeee')
+    
     return (
      <main className='app'>
       <Nav />
