@@ -14,13 +14,13 @@ export default function CreateAccount(props) {
                 <label htmlFor='password'>
                     Password    
                 </label>
-                <input id='password' name='password' type='text'/>
+                <input id='password' name='password' type='password'/>
             </div>
             <div className='signup-element'>
                 <label htmlFor='confirm-pw'>
                     Confirm Password    
                 </label>
-                <input id='confirm-pw' name='confirm-pw' type='text'/>
+                <input id='confirm-pw' name='confirm-pw' type='password'/>
             </div>
             <div className='signup-button'>
                 {/* <button type='submit'>Create an Account</button> */}

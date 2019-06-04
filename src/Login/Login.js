@@ -23,7 +23,7 @@ export default class Login extends React.Component {
                     <label htmlFor='password'>
                         Password    
                     </label>
-                    <input id='password' name='password' type='text' placeholder='Testing123'/>
+                    <input id='password' name='password' type='password' placeholder='Testing123'/>
                 </div>
                 <div className='signin-button'>
                     <Link to='/dashboard'>Sign in</Link>
