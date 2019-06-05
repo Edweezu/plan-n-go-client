@@ -47,7 +47,7 @@ class App extends React.Component {
           <Route exact path ='/' component ={LandingPage}/>
           <Route path ='/register' component ={CreateAccount}/>
           <Route path ='/login' component ={Login}/>
-          <Route path ='/dashboard' component ={Dashboard}/>
+          <Route path ='/dashboard/:userName' component ={Dashboard}/>
           <Route path ='/trip/:id' component ={Trip}/>
           <Route path ='/add-trip' component ={AddTrip}/>
 

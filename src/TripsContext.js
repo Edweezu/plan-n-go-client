@@ -4,7 +4,8 @@ const TripsContext = React.createContext({
     list: [],
     destinations: [],
     flights: [],
-    store: []
+    store: [],
+    users: []
 })
 
 export default TripsContext;
