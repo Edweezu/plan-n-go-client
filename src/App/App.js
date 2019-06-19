@@ -17,10 +17,13 @@ class App extends React.Component {
   constructor (props) {
     super (props)
     this.state = {
-      // store: []
+      username: ''
     }
   }
 
+  // handleUserLogin = (username)  => {
+    
+  // }
 
   // componentDidMount() {
   //   this.setState({
@@ -37,8 +40,6 @@ class App extends React.Component {
       store
     }
 
-    console.log('beforeee')
-    
     return (
      <main className='app'>
       <Nav />
@@ -47,7 +48,7 @@ class App extends React.Component {
           <Route exact path ='/' component ={LandingPage}/>
           <Route path ='/register' component ={CreateAccount}/>
           <Route path ='/login' component ={Login}/>
-          <Route path ='/dashboard/:userName' component ={Dashboard}/>
+          <Route path ='/dashboard' component ={Dashboard}/>
           <Route path ='/trip/:id' component ={Trip}/>
           <Route path ='/add-trip' component ={AddTrip}/>
 

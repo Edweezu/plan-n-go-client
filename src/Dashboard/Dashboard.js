@@ -6,12 +6,11 @@ import { Link } from 'react-router-dom'
 export default class Dashboard extends React.Component {
 
     static contextType = TripsContext
-
+    
 
     render () {
         const { store } = this.context
-       
-        console.log('storeeeee', store)
+        
         return (
             <main className='dashboard'>
                 <section className='upcoming-dashboard'>

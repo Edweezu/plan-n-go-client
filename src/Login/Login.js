@@ -1,49 +1,81 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import{ getUserFromUserName } from '../trips-helper'
+import { Link } from 'react-router-dom' 
+import TripsContext from '../TripsContext'
+import UsersApiService from '../services/users-api-service'
+import TokenService from '../services/token-service'
 
 export default class Login extends React.Component {
 
-    // static contextType = TripsContext
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
+    static contextType = TripsContext
+    
 
-    // }
-
-    state = {
-        username: ''
+    constructor (props) {
+        super (props)
+        this.state = {
+            error: null
+        }
     }
 
-    changeUsername = (username) => {
+    handleLoginSuccess = () => {
+        const { location, history } = this.props
+        const destination = (location.state || {}).from || '/dashboard'
+        console.log('destinationnn', destination)
+        history.push(destination)
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
         this.setState({
-            username
+            error: null
         })
+
+        const { username, password} = e.target
+
+        return UsersApiService.postLogin({
+            username: username.value,
+            password: password.value
+        })
+            .then(responseJson => {
+               username.value = ''
+               password.value = ''
+               TokenService.saveAuthToken(responseJson.authToken)
+               this.handleLoginSuccess()
+            })
+            .catch(responseJson => {
+                this.setState({
+                    error: responseJson.error
+                })
+            })
+
     }
 
 
     render () {
-
-        const { username } = this.state
-        console.log('usernameeee', username)
-
+        const { error } = this.state
         return (
             <form className='login-form' onSubmit={this.handleSubmit}>
+                <div role='alert'>
+                    {error && <p className='red'>{error}</p>}
+                </div>
                 <div className='signup-element'>
                     <label htmlFor='username'>
                         Username    
                     </label>
-                    <input id='username' name='username' type='text' placeholder='demo' onChange={(e) => this.changeUsername(e.target.value)}/>
+                    <input id='username' name='username' type='text' placeholder='demo' required/>
                 </div>
                 <div className='signup-element'>
                     <label htmlFor='password'>
                         Password    
                     </label>
-                    <input id='password' name='password' type='password' placeholder='Testing123'/>
+                    <input id='password' name='password' type='password' placeholder='Testing123!' required/>
                 </div>
                 <div className='signin-button'>
-                    <Link to={`/dashboard/${username}`}>Sign in</Link>
-                    {/* <button type='submit'>Sign In </button> */}
+                    {/* <Link to={`/dashboard`}>Sign in</Link> */}
+                    <button type='submit'>
+                        Sign In 
+                    </button>
                 </div>
+                
                 <div>
                     <Link to='/register'>Don't have an account? Create one.</Link>
                 </div>
