@@ -5,7 +5,7 @@ import TripsContext from '../TripsContext.js'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import CreateAccount from '../CreateAccount/CreateAccount'
-import Login from '../Login/Login'
+import LoginPage from '../LoginPage/LoginPage'
 import Dashboard from '../Dashboard/Dashboard'
 import store from '../store.js'
 import Trip from '../Trip/Trip'
@@ -17,40 +17,68 @@ class App extends React.Component {
   constructor (props) {
     super (props)
     this.state = {
-      username: ''
+      username: '',
+      login: null,
+      tripList: [],
+      error: null
     }
   }
 
-  // handleUserLogin = (username)  => {
-    
-  // }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     store
-  //   })
-  // }
+  componentDidMount() {
+    
+  }
+
+  isLoggedIn = () => {
+    this.setState({
+      login: true
+    })
+  }
+  isLoggedOut = () => {
+    this.setState({
+      login: false
+    })
+  }
+
+  setTripList = (tripList) => {
+    this.setState({
+      tripList
+    })
+  }
+
+  setError = (error) => {
+    this.setState({
+      error
+    })
+  }
 
 
   render () {
 
-    // const { store } = this.state
     
     const contextValue = {
-      store
+      store,
+      
+      loggedOut: this.isLoggedOut,
+      loggedIn: this.isLoggedIn,
+      tripList: this.state.tripList,
+      setTripList: this.setTripList,
+      setError: this.setError
     }
+
+    console.log('real state', this.state)
 
     return (
      <main className='app'>
-      <Nav />
       <TripsContext.Provider value={contextValue}>
+        <Nav /> 
         <Switch>
-          <Route exact path ='/' component ={LandingPage}/>
-          <Route path ='/register' component ={CreateAccount}/>
-          <Route path ='/login' component ={Login}/>
-          <Route path ='/dashboard' component ={Dashboard}/>
-          <Route path ='/trip/:id' component ={Trip}/>
-          <Route path ='/add-trip' component ={AddTrip}/>
+          <Route exact path ={'/'} component ={LandingPage}/>
+          <Route path ={'/register'} component ={CreateAccount}/>
+          <Route path ={'/login'} component ={LoginPage}/>
+          <Route path ={'/dashboard'} component ={Dashboard}/>
+          <Route path ={'/trip/:id'} component ={Trip}/>
+          <Route path ={'/add-trip'} component ={AddTrip}/>
 
         </Switch>
       </TripsContext.Provider>

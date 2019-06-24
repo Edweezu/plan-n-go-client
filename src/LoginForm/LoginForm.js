@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import TripsContext from '../TripsContext'
 import UsersApiService from '../services/users-api-service'
 import TokenService from '../services/token-service'
+import config from '../config'
 
 export default class Login extends React.Component {
 
     static contextType = TripsContext
+
     
 
     constructor (props) {
@@ -14,13 +16,6 @@ export default class Login extends React.Component {
         this.state = {
             error: null
         }
-    }
-
-    handleLoginSuccess = () => {
-        const { location, history } = this.props
-        const destination = (location.state || {}).from || '/dashboard'
-        console.log('destinationnn', destination)
-        history.push(destination)
     }
 
     handleSubmit = (e) => {
@@ -39,7 +34,9 @@ export default class Login extends React.Component {
                username.value = ''
                password.value = ''
                TokenService.saveAuthToken(responseJson.authToken)
-               this.handleLoginSuccess()
+               this.context.loggedIn()
+               console.log('authtokennnn', responseJson.authToken)
+               this.props.onLoginSuccess()
             })
             .catch(responseJson => {
                 this.setState({

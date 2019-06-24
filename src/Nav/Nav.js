@@ -1,16 +1,67 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import TokenService from '../services/token-service'
+import TripsContext from '../TripsContext';
 
 
 class Nav extends React.Component {
+    
+        static contextType = TripsContext
+
+        handleLogoutClick = () => {
+            this.context.loggedOut()
+            TokenService.clearAuthToken()
+            TokenService.clearCallbackBeforeExpiry()
+        }
+
+        renderLogoutLink() {
+            return (
+              <div className='Header__logged-in'>
+                <Link to='/dashboard'>
+                    Plan-n-Go
+                </Link>
+                {' '}
+                <Link
+                  onClick={this.handleLogoutClick}
+                  to='/'>
+                  Logout
+                </Link>
+              </div>
+            )
+          }
+        
+          renderLoginLink() {
+            return (
+              <div className='Header__not-logged-in'>
+                <Link to ='/'>
+                    Plan-n-Go
+                </Link>
+                {' '}
+                <Link
+                  to='/register'>
+                  Create an Account
+                </Link>
+                {' '}
+                <Link
+                  to='/login'>
+                  Log in
+                </Link>
+              </div>
+            )
+          }
+
+        
     render () {
+        console.log('tokennn', TokenService.hasAuthToken())
+        console.log('contexttt', this.context)
+
+        // const { login } = this.context
         return (
             <nav className='nav'>
-                <Link to="/">Home</Link>
-                {' '}
-                <Link to="/register">Create an Account</Link>
-                {' '}
-                <Link to="/login">Log In</Link>
+                {TokenService.hasAuthToken()
+                    ? this.renderLogoutLink()
+                    : this.renderLoginLink()
+                }
             </nav>   
         )
     }
