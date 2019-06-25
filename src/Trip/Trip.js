@@ -13,7 +13,69 @@ export default class Trip extends React.Component
    static contextType = TripsContext
 
    componentDidMount() {
-       
+    const tripid = this.props.match.params
+
+    Promise.all([
+        fetch(`${config.API_ENDPOINT}/trips`, {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`
+          }
+        }), 
+
+        fetch(`${config.API_ENDPOINT}/trips/${tripid.id}/flights`, {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`
+          }
+        }), 
+
+        fetch(`${config.API_ENDPOINT}/trips/${tripid.id}/destinations`, {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`
+          }
+        }), 
+
+        fetch(`${config.API_ENDPOINT}/trips/${tripid.id}/packing_list`, {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`
+          }
+        }), 
+      ])
+      .then(([tripRes, flightRes, destinationRes, listRes]) => {
+            if (!tripRes.ok)
+                return tripRes.json().then(e => Promise.reject(e))
+            if (!flightRes.ok)
+                return flightRes.json().then(e => Promise.reject(e))
+            if (!destinationRes.ok)
+                return destinationRes.json().then(e => Promise.reject(e))
+            if (!listRes.ok)
+                return listRes.json().then(e => Promise.reject(e))
+            
+            return Promise.all([
+                tripRes.json(),
+                flightRes.json(),
+                destinationRes.json(),
+                listRes.json(),
+            ])
+      })
+      .then(([tripList, flights, destinations, packing_list]) => {
+        this.context.setTripList(tripList)
+        this.context.setFlights(flights)
+        this.context.setDestinations(destinations)
+        this.context.setList(packing_list)
+      })
+      .catch(error => {
+          console.error({
+              error
+          })
+      })
    }
 
     handleAddFlight = (e) => {
@@ -60,7 +122,7 @@ export default class Trip extends React.Component
     render () {
         
         const { id } = this.props.match.params
-        const { store, flights, tripList, destinations, packing_list } = this.context
+        const { store, flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
 
         // const trip = findTrip(store, id)
         const trip = findTrip(tripList, id)
@@ -71,7 +133,7 @@ export default class Trip extends React.Component
         return (
             <main className='trip-main'>
                 <header>
-                    <h1>{trip.name}</h1>
+                    <h1>{trip.length == 0 ? trip.trip_name : trip[0].trip_name}</h1>
                 </header>
                 <section className='trip-flight-form'>
                     {/*this button is going to hide and show a form based off of state. will implement when I add interactivity.*/}

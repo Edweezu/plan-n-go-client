@@ -49,6 +49,24 @@ class App extends React.Component {
     })
   }
 
+  setFlights = (flights) => {
+    this.setState({
+      flights
+    })
+  }
+
+  setDestinations = (destinations) => {
+    this.setState({
+      destinations
+    })
+  }
+
+  setList = (packing_list) => {
+    this.setState({
+      packing_list
+    })
+  }
+
   deleteTrip = (tripid) => {
     console.log('inside of deletetrip')
     const { tripList } = this.state
@@ -94,6 +112,9 @@ class App extends React.Component {
       destinations: this.state.destinations,
       packing_list: this.state.packing_list,
       setTripList: this.setTripList,
+      setFlights: this.setFlights,
+      setDestinations: this.setDestinations,
+      setList: this.setList,
       deleteTrip : this.deleteTrip,
       addTrip: this.addTrip,
       addFlight: this.addFlight,
