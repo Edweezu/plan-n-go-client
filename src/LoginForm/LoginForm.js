@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import TripsContext from '../TripsContext'
 import UsersApiService from '../services/users-api-service'
 import TokenService from '../services/token-service'
-import config from '../config'
+// import config from '../config'
 
 export default class Login extends React.Component {
 

@@ -79,7 +79,8 @@ class App extends React.Component {
       loggedIn: this.isLoggedIn,
       tripList: this.state.tripList,
       setTripList: this.setTripList,
-      deleteTrip : this.deleteTrip
+      deleteTrip : this.deleteTrip,
+      addTrip: this.addTrip
       // setError: this.setError
     }
 

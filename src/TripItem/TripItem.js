@@ -1,7 +1,7 @@
 import React from 'react'
 import TripsContext from '../TripsContext'
 import { Link } from 'react-router-dom'
-import Trip from '../Trip/Trip';
+// import Trip from '../Trip/Trip';
 import config from '../config'
 import TokenService from '../services/token-service'
 
@@ -36,7 +36,6 @@ class TripItem extends React.Component {
             // return res.json()
         })
         .then(() => {
-            console.log('hiiii')
             this.context.deleteTrip(tripid)
             // allow parent to perform extra behaviour
             // this.props.onDeleteNote(tripid)
@@ -54,7 +53,7 @@ class TripItem extends React.Component {
         return (
             <section className='trip-item'>
                 <h2 className='Note__title'>
-                    <Link to={"/trip" + id}>
+                    <Link to={"/trip/" + id}>
                         {name}
                     </Link>
                 </h2>

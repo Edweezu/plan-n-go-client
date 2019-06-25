@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import config from '../config'
 import TokenService from '../services/token-service'
+import TripsContext from '../TripsContext';
 
 export default class AddTrip extends React.Component {
+
+    static contextType = TripsContext
 
     state = {
         error: null
@@ -22,7 +25,8 @@ export default class AddTrip extends React.Component {
             notes: notes.value
         }
         console.log('new trippp', newTrip)
-        return fetch(`${config.API_ENDPOINT}/trip`, {
+        return fetch(`${config.API_ENDPOINT}/trips`, {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
@@ -37,7 +41,8 @@ export default class AddTrip extends React.Component {
             return res.json()
         })
         .then(trip => {
-            
+            this.context.addTrip(trip)
+            this.props.history.push('/dashboard')
         })
         .catch(error => {
             this.setState({
@@ -58,25 +63,25 @@ export default class AddTrip extends React.Component {
                         <label htmlFor='city'>
                             Destination City*  
                         </label>
-                        <input id='city' name='city' type='text'/>
+                        <input id='city' name='city' type='text' required/>
                     </div>
                     <div className='signup-element'>
                         <label htmlFor='trip-name'>
-                            Trip Name    
+                            Trip Name*
                         </label>
-                        <input id='trip_name' name='trip_name' type='text'/>
+                        <input id='trip_name' name='trip_name' type='text' required/>
                     </div>
                     <div className='signup-element'>
                         <label htmlFor='start-date'>
                             Start Date*   
                         </label>
-                        <input id='start_date' name='start_date' type='date'/>
+                        <input id='start_date' name='start_date' type='date' required/>
                     </div>
                     <div className='signup-element'>
                         <label htmlFor='end-date'>
                             End Date* 
                         </label>
-                        <input id='end_date' name='end_date' type='date'/>
+                        <input id='end_date' name='end_date' type='date' required/>
                     </div>
                     <div className='signup-element'>
                         <label htmlFor='notes'>
@@ -88,7 +93,7 @@ export default class AddTrip extends React.Component {
                         <button type='submit'>
                             Add Trip
                         </button>
-                        <Link to ='/dashboard'>Add Trip</Link>
+                        {/* <Link to ='/dashboard'>Add Trip</Link> */}
                     </div>
                     <div>
                         <Link to ='/dashboard'>Cancel</Link>
