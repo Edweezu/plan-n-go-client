@@ -3,7 +3,7 @@ import config from '../config'
 
 const TripApiService = {
     getTrips() {
-        return fetch(`${config.API_ENDPOINT}/trip`, {
+        return fetch(`${config.API_ENDPOINT}/trips`, {
             headers:{
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
@@ -16,7 +16,7 @@ const TripApiService = {
             return res.json()
             }
         )
-    }
+    },
 }
 
 export default TripApiService

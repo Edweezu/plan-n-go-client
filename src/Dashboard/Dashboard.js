@@ -3,6 +3,7 @@ import TripsContext from '../TripsContext'
 import { Link } from 'react-router-dom'
 // import Trip from '../Trip/Trip'
 import TripApiService from '../services/trip-api-service'
+import TripItem from '../TripItem/TripItem'
 
 export default class Dashboard extends React.Component {
 
@@ -10,20 +11,15 @@ export default class Dashboard extends React.Component {
 
     state = {
         error: null,
-        tripList: []
     }
     
     componentDidMount() {
         TripApiService.getTrips()
-            .then(trips => this.setTripList(trips))
+            .then(trips => this.context.setTripList(trips))
             .catch(err => this.setError(err))
     }
 
-    setTripList = (tripList) => {
-        this.setState({
-          tripList
-        })
-      }
+    
 
     setError = (error) => {
         this.setState({
@@ -32,13 +28,22 @@ export default class Dashboard extends React.Component {
     }
 
     renderTrips() {
-        const { tripList } = this.state
+        const { tripList } = this.context
         console.log('triplisttt', tripList)
         return tripList.map(trip => 
             <li key={trip.id}>
-                <Link to={"/trip/" + trip.id}>{trip.trip_name}</Link>
+                {/* <Link to={"/trip/" + trip.id}>{trip.trip_name}</Link>
                 {' '}
-                <button>Delete</button>
+
+                <button>Delete</button> */}
+                <TripItem
+                    id={trip.id}
+                    name={trip.trip_name}
+                    city={trip.city}
+                    startDate={trip.start_date}
+                    endDate={trip.end_date}
+                    notes={trip.notes}
+                />
             </li>       
         )
     }

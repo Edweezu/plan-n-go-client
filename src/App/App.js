@@ -19,8 +19,8 @@ class App extends React.Component {
     this.state = {
       username: '',
       login: null,
-      tripList: [],
-      error: null
+      error: null,
+      tripList: []
     }
   }
 
@@ -46,9 +46,25 @@ class App extends React.Component {
     })
   }
 
-  setError = (error) => {
+  deleteTrip = (tripid) => {
+    console.log('inside of deletetrip')
+    const { tripList } = this.state
+    const trips = tripList.filter(trip => trip.id !== tripid)
+
     this.setState({
-      error
+      tripList: trips
+    })
+  }
+  
+  
+
+  addTrip = (trip) => {
+    console.log('inside of addtrip')
+    this.setState({
+      tripList: [
+        ...this.state.tripList,
+        trip
+      ]
     })
   }
 
@@ -63,7 +79,8 @@ class App extends React.Component {
       loggedIn: this.isLoggedIn,
       tripList: this.state.tripList,
       setTripList: this.setTripList,
-      setError: this.setError
+      deleteTrip : this.deleteTrip
+      // setError: this.setError
     }
 
     console.log('real state', this.state)

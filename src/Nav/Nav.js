@@ -52,8 +52,9 @@ class Nav extends React.Component {
 
         
     render () {
-        console.log('tokennn', TokenService.hasAuthToken())
-        console.log('contexttt', this.context)
+        // console.log('tokennn', TokenService.hasAuthToken())
+        // console.log('contexttt', this.context)
+
 
         // const { login } = this.context
         return (
