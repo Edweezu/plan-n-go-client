@@ -20,7 +20,10 @@ class App extends React.Component {
       username: '',
       login: null,
       error: null,
-      tripList: []
+      tripList: [],
+      flights: [],
+      destinations: [],
+      packing_list: []
     }
   }
 
@@ -68,19 +71,34 @@ class App extends React.Component {
     })
   }
 
+  addFlight = (flight) => {
+    console.log('inside of addFlight')
+    this.setState({
+      flights: [
+        ...this.state.flights,
+        flight
+      ]
+    })
+  }
+
 
   render () {
 
     
     const contextValue = {
       store,
-      
       loggedOut: this.isLoggedOut,
       loggedIn: this.isLoggedIn,
       tripList: this.state.tripList,
+      flights: this.state.flights,
+      destinations: this.state.destinations,
+      packing_list: this.state.packing_list,
       setTripList: this.setTripList,
       deleteTrip : this.deleteTrip,
-      addTrip: this.addTrip
+      addTrip: this.addTrip,
+      addFlight: this.addFlight,
+      
+
       // setError: this.setError
     }
 
