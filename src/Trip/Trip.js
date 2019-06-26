@@ -8,6 +8,7 @@ import config from '../config'
 import { format } from 'date-fns'
 import FlightForm from '../FlightForm/FlightForm'
 import UpdateFlightForm from '../UpdateFlightForm/UpdateFlightForm'
+import DestinationForm from '../DestinationForm/DestinationForm'
 
 export default class Trip extends React.Component 
 {
@@ -84,7 +85,7 @@ export default class Trip extends React.Component
     render () {
         
         const { id } = this.props.match.params
-        const { flights=[], tripList=[], destinations=[], packing_list=[] , done } = this.context
+        const { flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
 
         const trip = findTrip(tripList, id)
         console.log('trippp', trip)
@@ -92,17 +93,11 @@ export default class Trip extends React.Component
         return (
             <main className='trip-main'>
                 <header>
-                    <h1>{trip.length == 0 ? trip.trip_name : trip[0].trip_name}</h1>
+                    <h1>{trip.length === 0 ? trip.trip_name : trip[0].trip_name}</h1>
                 </header>
-                <section className='trip-flight-form'>
-                    <h2>Flights</h2>
-                    <button type='button' onClick={this.context.changeFlight}>Add a Flight</button>
-                    {!done ? (
-                        <FlightForm 
-                            tripid={id}
-                        />
-                    ) : null}     
-                </section>
+                <FlightForm 
+                    tripid={id}
+                />
                 <section className='trip-flight-list'>
                     <h3>Current Flights</h3>
                     <ol>
@@ -118,20 +113,14 @@ export default class Trip extends React.Component
                                     tripid={id}
                                     flightid={flight.id}
                                 />
-                                {/* <div>
-                                    <button>
-                                        Edit
-                                    </button>
-                                    <button >
-                                        Delete
-                                    </button>
-                                </div> */}
                             </div>
-                        ))}                            
+                        ))}                         
                     </ol>       
                 </section>
-                <section className='trip-destination-form'>
-                    {/*this button is going to hide and show a form based off of state. will implement when I add interactivity.*/}
+                <DestinationForm 
+                    tripid={id}
+                />
+                {/* <section className='trip-destination-form'>
                     <h2>Activities / Destinations</h2>
                     <button>Add a Destination</button>
                     <form>
@@ -153,7 +142,7 @@ export default class Trip extends React.Component
                         </div>
                         <button type="submit">Submit</button>
                     </form>
-                </section>
+                </section> */}
                 <section className='trip-destination-list'>
                     <h3>Current Destinations</h3>
                     <ol>

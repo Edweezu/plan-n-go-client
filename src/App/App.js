@@ -7,7 +7,6 @@ import LandingPage from '../LandingPage/LandingPage'
 import CreateAccount from '../CreateAccount/CreateAccount'
 import LoginPage from '../LoginPage/LoginPage'
 import Dashboard from '../Dashboard/Dashboard'
-import store from '../store.js'
 import Trip from '../Trip/Trip'
 import AddTrip from '../AddTrip/AddTrip'
 import Footer from '../Footer/Footer'
@@ -74,12 +73,6 @@ class App extends React.Component {
     })
   }
 
-  changeFlight = () => {
-    console.log('done statee', this.state.done)
-    this.setState({
-      done: !this.state.done
-    })
-  }
 
   deleteTrip = (tripid) => {
     console.log('inside of deletetrip')
@@ -113,6 +106,15 @@ class App extends React.Component {
       done: true
     })
   }
+
+  addDestination = (destination) => {
+    this.setState({
+      destinations: [
+        ...this.state.destinations,
+        destination
+      ]
+    })
+  }
   
   updateFlight = (updatedFlight) => {
     console.log('inside of update flight')
@@ -134,10 +136,8 @@ class App extends React.Component {
 
     
     const contextValue = {
-      store,
       done: this.state.done,
       setFlightDone: this.setFlightDone,
-      changeFlight: this.changeFlight,
       loggedOut: this.isLoggedOut,
       loggedIn: this.isLoggedIn,
       tripList: this.state.tripList,
@@ -152,7 +152,8 @@ class App extends React.Component {
       addTrip: this.addTrip,
       addFlight: this.addFlight,
       updateFlight: this.updateFlight,
-      deleteFlight: this.deleteFlight
+      deleteFlight: this.deleteFlight,
+      addDestination: this.addDestination
 
       // setError: this.setError
     }

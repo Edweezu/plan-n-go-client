@@ -8,6 +8,23 @@ class FlightForm extends React.Component {
 
     static contextType = TripsContext
 
+    state = {
+        showForm: false
+    }
+
+    handleEditForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
+    }
+
+    handleSubmitForm = () => {
+        this.setState({
+            showForm: false
+        })
+    }
+
+
     handleAddFlight = (e) => {
         e.preventDefault()
 
@@ -47,7 +64,7 @@ class FlightForm extends React.Component {
             depart_time.value = ''
             seats.value = ''
             flight_notes.value = ''
-            this.context.setFlightDone()
+            this.handleSubmitForm()
             this.context.addFlight(flight)
         })
         .catch(err => {
@@ -58,34 +75,43 @@ class FlightForm extends React.Component {
 
     render () {
         return (
-            <form onSubmit={this.handleAddFlight}>
-                <div className="form-section">
-                    <label htmlFor="airline">Airline *</label>
-                    <input type="text" name="airline" id="airline" required/>
-                </div>
-                <div className="form-section">
-                    <label htmlFor="flight_num">Flight #</label>
-                    <input type="number" name="flight_num" id="flight_num"/>
-                </div>
-                <div className="form-section">
-                    <label htmlFor="depart_date">Departure Date *</label>
-                    <input type="date" name="depart_date" id="depart_date" required/>
-                </div>
-                <div className="form-section">
-                    <label htmlFor="depart_time">Departure Time</label>
-                    <input type="time" name="depart_time" id="depart_time"/>
-                </div>
-                <div className="form-section">
-                    <label htmlFor="seats">Seats</label>
-                    <input type="text" name="seats" id="seats"/>
-                </div>
-                <div className="form-section">
-                    <label htmlFor="flight_notes">Notes</label>
-                    <input type='text' name="flight_notes" id="flight_notes"
-                    />
-                </div>
-                <button type="submit">Submit</button>
-            </form>
+            <section className='trip-flight-form'>
+                <h2>Flights</h2>
+                    <button type='button' onClick={this.handleEditForm}>
+                        Add a Flight
+                    </button>
+                {this.state.showForm ? (
+                    <form onSubmit={this.handleAddFlight}>
+                    <div className="form-section">
+                        <label htmlFor="airline">Airline *</label>
+                        <input type="text" name="airline" id="airline" required/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="flight_num">Flight #</label>
+                        <input type="number" name="flight_num" id="flight_num"/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="depart_date">Departure Date *</label>
+                        <input type="date" name="depart_date" id="depart_date" required/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="depart_time">Departure Time</label>
+                        <input type="time" name="depart_time" id="depart_time"/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="seats">Seats</label>
+                        <input type="text" name="seats" id="seats"/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="flight_notes">Notes</label>
+                        <input type='text' name="flight_notes" id="flight_notes"
+                        />
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+                ) : null}
+                
+            </section>
         )
     }
 }
