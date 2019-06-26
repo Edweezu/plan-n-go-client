@@ -123,11 +123,27 @@ class App extends React.Component {
     })
   }
 
+  updateDestination = (updatedDestination) => {
+    console.log('inside of update flight')
+    this.setState({
+      destinations: this.state.destinations.map((destination) => (destination.id !== updatedDestination.id) ? destination : updatedDestination)
+    })
+  }
+
   deleteFlight = (flightid) => {
     console.log('inside of delete flight')
     this.setState({
       flights: this.state.flights.filter(flight => {
-        return flight.id !==flightid
+        return flight.id !== flightid
+      })
+    })
+  }
+
+  deleteDestination = (destinationid) => {
+    console.log('inside of delete destination')
+    this.setState({
+      destinations: this.state.destinations.filter(destination => {
+        return destination.id !== destinationid
       })
     })
   }
@@ -153,7 +169,9 @@ class App extends React.Component {
       addFlight: this.addFlight,
       updateFlight: this.updateFlight,
       deleteFlight: this.deleteFlight,
-      addDestination: this.addDestination
+      deleteDestination: this.deleteDestination,
+      addDestination: this.addDestination,
+      updateDestination: this.updateDestination
 
       // setError: this.setError
     }

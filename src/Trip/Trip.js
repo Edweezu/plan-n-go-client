@@ -9,6 +9,7 @@ import { format } from 'date-fns'
 import FlightForm from '../FlightForm/FlightForm'
 import UpdateFlightForm from '../UpdateFlightForm/UpdateFlightForm'
 import DestinationForm from '../DestinationForm/DestinationForm'
+import UpdateDestinationForm from '../UpdateDestinationForm/UpdateDestinationForm';
 
 export default class Trip extends React.Component 
 {
@@ -120,29 +121,6 @@ export default class Trip extends React.Component
                 <DestinationForm 
                     tripid={id}
                 />
-                {/* <section className='trip-destination-form'>
-                    <h2>Activities / Destinations</h2>
-                    <button>Add a Destination</button>
-                    <form>
-                        <div className="form-section">
-                            <label htmlFor="destination_name">Destination Name</label>
-                            <input type="text" name="destination_name" id="destination_name"/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="destination_date">Date</label>
-                            <input type="destination_date" name="date" id="destination_date"/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="address">Address</label>
-                            <input type="text" name="address" id="address"/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="destination_notes">Destination Notes</label>
-                            <textarea rows="5" name="destination_notes" id="destination_notes"></textarea>
-                        </div>
-                        <button type="submit">Submit</button>
-                    </form>
-                </section> */}
                 <section className='trip-destination-list'>
                     <h3>Current Destinations</h3>
                     <ol>
@@ -157,14 +135,10 @@ export default class Trip extends React.Component
                                 <div>
                                     Address : {destination.address}
                                 </div>
-                                <div>
-                                    <button>
-                                        Edit
-                                    </button>
-                                    <button>
-                                        Delete
-                                    </button>
-                                </div>
+                                <UpdateDestinationForm 
+                                    tripid={id}
+                                    destinationid={destination.id}
+                                />  
                             </div>
                         ))}                            
                     </ol>       
