@@ -115,6 +115,29 @@ class UpdateFlightForm extends React.Component {
         })
     }
 
+    handleDeleteFlight = () => {
+        let { tripid, flightid } = this.props
+
+        fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${flightid}`, {
+            method: 'DELETE',
+            headers: {
+                'content': 'application-json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            }
+        })
+        .then(data => {
+            this.context.deleteFlight(flightid)
+        })
+        .catch(err => {
+            console.error(err)
+        })
+    }
+
     handleChangeAirline = (e) => {
         this.setState({
             airline: e.target.value
@@ -174,7 +197,7 @@ class UpdateFlightForm extends React.Component {
                     <button onClick={this.handleEditForm}>
                         Edit
                     </button>
-                    <button >
+                    <button onClick={this.handleDeleteFlight}>
                         Delete
                     </button>
                 </div>

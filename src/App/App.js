@@ -121,6 +121,15 @@ class App extends React.Component {
     })
   }
 
+  deleteFlight = (flightid) => {
+    console.log('inside of delete flight')
+    this.setState({
+      flights: this.state.flights.filter(flight => {
+        return flight.id !==flightid
+      })
+    })
+  }
+
   render () {
 
     
@@ -142,7 +151,8 @@ class App extends React.Component {
       deleteTrip : this.deleteTrip,
       addTrip: this.addTrip,
       addFlight: this.addFlight,
-      updateFlight: this.updateFlight
+      updateFlight: this.updateFlight,
+      deleteFlight: this.deleteFlight
 
       // setError: this.setError
     }
