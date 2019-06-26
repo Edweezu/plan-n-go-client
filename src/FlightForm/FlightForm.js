@@ -81,8 +81,8 @@ class FlightForm extends React.Component {
                 </div>
                 <div className="form-section">
                     <label htmlFor="flight_notes">Notes</label>
-                    <textarea rows='5' name="flight_notes" id="flight_notes">
-                    </textarea> 
+                    <input type='text' name="flight_notes" id="flight_notes"
+                    />
                 </div>
                 <button type="submit">Submit</button>
             </form>

@@ -2,6 +2,7 @@ import React from 'react'
 import TripsContext from '../TripsContext';
 import config from '../config'
 import TokenService from '../services/token-service'
+import { format } from 'date-fns'
 
 class UpdateFlightForm extends React.Component {
 
@@ -15,10 +16,11 @@ class UpdateFlightForm extends React.Component {
         depart_date: '',
         depart_time: '',
         seats: '',
-        flight_notes: ''
+        flight_notes: '',
+        trip_id: ''
     }
 
-    handleGetFlight= () => {
+    componentDidMount() {
         const { tripid, flightid } = this.props
         
         fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${flightid} `, {
@@ -34,6 +36,15 @@ class UpdateFlightForm extends React.Component {
             return res.json()
         })
         .then(responseJson => {
+
+            responseJson.depart_date = format(responseJson.depart_date, 'YYYY-MM-DD')
+
+            for (let key in responseJson) {
+                if (responseJson[key] === null) {
+                    responseJson[key] = ''
+                }
+            }
+
             this.setState({
                 id: responseJson.id,
                 airline: responseJson.airline,
@@ -41,15 +52,67 @@ class UpdateFlightForm extends React.Component {
                 depart_date: responseJson.depart_date,
                 depart_time: responseJson.depart_time,
                 seats: responseJson.seats,
-                flight_notes: responseJson.airline
+                flight_notes: responseJson.flight_notes,
+                trip_id: responseJson.trip_id
             })
         })
     }
 
     handleEditFlight = (e) => {
         e.preventDefault()
-        
+        let { tripid, flightid } = this.props
 
+        let { id, airline, flight_num, depart_date, depart_time, seats, flight_notes, trip_id } = this.state
+
+        const newFlight = {
+            id,
+            airline,
+            flight_num,
+            depart_date,
+            depart_time,
+            seats,
+            flight_notes,
+            trip_id
+        }
+
+        console.log('newflighttt', newFlight)
+
+        fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${flightid}`, {
+            method: 'PATCH',
+            body: JSON.stringify(newFlight),
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(res => {
+            console.log('hi')
+            if (!res.ok)
+            return res.json().then(e => Promise.reject(e))
+        })
+        .then(responseJson => {
+            //returns nothing
+            this.resetFields(newFlight)
+            this.handleCancelForm()
+            this.context.updateFlight(newFlight)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+
+    }
+
+    resetFields = (newFlight) => {
+        this.setState({
+            id: newFlight.id || '',
+            airline: newFlight.airline || '',
+            flight_num: newFlight.flight_num || '',
+            depart_date: newFlight.depart_date || '',
+            depart_time: newFlight.depart_time || '',
+            seats: newFlight.seats || '',
+            flight_notes: newFlight.flight_notes || '',
+            trip_id: newFlight.trip_id || ''
+        })
     }
 
     handleChangeAirline = (e) => {
@@ -88,21 +151,35 @@ class UpdateFlightForm extends React.Component {
         })
     }
 
+    handleEditForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
+    }
+
+    handleCancelForm = () => {
+        this.setState({
+            showForm: false
+        })
+    }
+
+
     render () {
 
-        const { airline, flight_num, depart_date, depart_time, seats, flight_notes} = this.state
+        const { airline, flight_num, depart_date, depart_time, seats, flight_notes, showForm} = this.state
 
         return (
             <main className='UpdateFlightForm'>
                 <div>
-                    <button onClick={this.handleGetFlight}>
+                    <button onClick={this.handleEditForm}>
                         Edit
                     </button>
                     <button >
                         Delete
                     </button>
                 </div>
-                <form onSubmit={this.handleEditFlight}>
+                {showForm ? (
+                    <form onSubmit={this.handleEditFlight}>
                     <div className="form-section">
                         <label htmlFor="airline">Airline *</label>
                         <input type="text" name="airline" id="airline"
@@ -126,11 +203,14 @@ class UpdateFlightForm extends React.Component {
                     </div>
                     <div className="form-section">
                         <label htmlFor="flight_notes">Notes</label>
-                        <textarea rows='5' name="flight_notes" id="flight_notes" value={flight_notes} onChange={this.handleChangeNotes}>
-                        </textarea> 
+                        <input type='text' name="flight_notes" id="flight_notes" value={flight_notes} onChange={this.handleChangeNotes}
+                        />
                     </div>
                     <button type="submit">Submit</button>
+                    <button type="button" onClick={this.handleCancelForm}>Cancel</button>
                 </form>
+                ) : null}
+                
             </main>
             
         )
