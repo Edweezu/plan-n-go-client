@@ -21,7 +21,7 @@ class UpdateDestinationForm extends React.Component {
     componentDidMount() {
         const { tripid, destinationid } = this.props
         
-        fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${destinationid} `, {
+        fetch(`${config.API_ENDPOINT}/trips/${tripid}/destinations/${destinationid} `, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -70,7 +70,7 @@ class UpdateDestinationForm extends React.Component {
 
         console.log('newDestinationnn', newDestination)
 
-        fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${destinationid}`, {
+        fetch(`${config.API_ENDPOINT}/trips/${tripid}/destinations/${destinationid}`, {
             method: 'PATCH',
             body: JSON.stringify(newDestination),
             headers: {
@@ -108,7 +108,7 @@ class UpdateDestinationForm extends React.Component {
     handleDeleteDestination = () => {
         let { tripid, destinationid } = this.props
 
-        fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${destinationid}`, {
+        fetch(`${config.API_ENDPOINT}/trips/${tripid}/destinations/${destinationid}`, {
             method: 'DELETE',
             headers: {
                 'content': 'application-json',
@@ -167,7 +167,7 @@ class UpdateDestinationForm extends React.Component {
 
     render () {
 
-        const { destination_name, destination_date, address, destination_notes, trip_id, showForm} = this.state
+        const { destination_name, destination_date, address, destination_notes, showForm} = this.state
 
         return (
             <main className='UpdateFlightForm'>
@@ -186,8 +186,8 @@ class UpdateDestinationForm extends React.Component {
                             <input type="text" name="destination_name" id="destination_name" required value={destination_name} onChange={this.handleChangeName}/>
                         </div>
                         <div className="form-section">
-                            <label htmlFor="destination_date">Date</label>
-                            <input type="date" name="destination_date" id="destination_date" value={destination_date} onChange={this.handleChangeDate}/>
+                            <label htmlFor="destination_date">Date *</label>
+                            <input type="date" name="destination_date" id="destination_date" required value={destination_date} onChange={this.handleChangeDate}/>
                         </div>
                         <div className="form-section">
                             <label htmlFor="address">Address</label>

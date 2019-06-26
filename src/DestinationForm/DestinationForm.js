@@ -80,8 +80,8 @@ class DestinationForm extends React.Component {
                             <input type="text" name="destination_name" id="destination_name" required/>
                         </div>
                         <div className="form-section">
-                            <label htmlFor="destination_date">Date</label>
-                            <input type="date" name="destination_date" id="destination_date"/>
+                            <label htmlFor="destination_date">Date *</label>
+                            <input type="date" name="destination_date" id="destination_date" required/>
                         </div>
                         <div className="form-section">
                             <label htmlFor="address">Address</label>
