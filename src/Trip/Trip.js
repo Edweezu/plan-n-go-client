@@ -6,6 +6,8 @@ import './Trip.css'
 import TokenService from '../services/token-service'
 import config from '../config'
 import { format } from 'date-fns'
+import FlightForm from '../FlightForm/FlightForm'
+import UpdateFlightForm from '../UpdateFlightForm/UpdateFlightForm'
 
 export default class Trip extends React.Component 
 {
@@ -78,58 +80,11 @@ export default class Trip extends React.Component
       })
    }
 
-    handleAddFlight = (e) => {
-        e.preventDefault()
-
-        const tripid = this.props.match.params
-        console.log('tripiddd', tripid)
-
-        const { airline, flight_num, depart_date, depart_time, seats, flight_notes } = e.target
-
-        const newFlight = {
-            airline: airline.value,
-            flight_num: flight_num.value,
-            depart_date: depart_date.value,
-            depart_time: depart_time.value,
-            seats: seats.value,
-            flight_notes: flight_notes.value,
-        }
-
-        console.log('newwwflight', newFlight)
-        fetch(`${config.API_ENDPOINT}/trips/${tripid.id}/flights`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-            body: JSON.stringify(newFlight),
-        })
-        .then(res => {
-            if (!res.ok)
-            return res.json().then(e => Promise.reject(e))
-            return res.json()
-        })
-        .then(flight => {
-            console.log('posted flight', flight)
-            airline.value = ''
-            flight_num.value = ''
-            depart_date.value = ''
-            depart_time.value = ''
-            seats.value = ''
-            flight_notes.value = ''
-            this.context.setFlightDone()
-            this.context.addFlight(flight)
-        })
-        .catch(err => {
-            console.error({ err })
-        })
-    }
-
 
     render () {
         
         const { id } = this.props.match.params
-        const { store, flights=[], tripList=[], destinations=[], packing_list=[] , done, setFlightDone, changeFlight } = this.context
+        const { flights=[], tripList=[], destinations=[], packing_list=[] , done } = this.context
 
         const trip = findTrip(tripList, id)
         console.log('trippp', trip)
@@ -142,35 +97,10 @@ export default class Trip extends React.Component
                 <section className='trip-flight-form'>
                     <h2>Flights</h2>
                     <button type='button' onClick={this.context.changeFlight}>Add a Flight</button>
-                    {!this.context.done ? (
-                        <form onSubmit={this.handleAddFlight}>
-                        <div className="form-section">
-                            <label htmlFor="airline">Airline *</label>
-                            <input type="text" name="airline" id="airline" required/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="flight_num">Flight #</label>
-                            <input type="number" name="flight_num" id="flight_num"/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="depart_date">Departure Date *</label>
-                            <input type="date" name="depart_date" id="depart_date" required/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="depart_time">Departure Time</label>
-                            <input type="time" name="depart_time" id="depart_time"/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="seats">Seats</label>
-                            <input type="text" name="seats" id="seats"/>
-                        </div>
-                        <div className="form-section">
-                            <label htmlFor="flight_notes">Notes</label>
-                            <textarea rows='5' name="flight_notes" id="flight_notes">
-                            </textarea> 
-                        </div>
-                        <button type="submit">Submit</button>
-                    </form>
+                    {!done ? (
+                        <FlightForm 
+                            tripid={id}
+                        />
                     ) : null}     
                 </section>
                 <section className='trip-flight-list'>
@@ -184,14 +114,18 @@ export default class Trip extends React.Component
                                 <span>
                                     Departure Date : {format(flight.depart_date, 'YYYY-MM-DD')}
                                 </span>
-                                <div>
+                                <UpdateFlightForm 
+                                    tripid={id}
+                                    flightid={flight.id}
+                                />
+                                {/* <div>
                                     <button>
                                         Edit
                                     </button>
                                     <button >
                                         Delete
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         ))}                            
                     </ol>       

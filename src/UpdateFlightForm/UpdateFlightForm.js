@@ -1,0 +1,140 @@
+import React from 'react'
+import TripsContext from '../TripsContext';
+import config from '../config'
+import TokenService from '../services/token-service'
+
+class UpdateFlightForm extends React.Component {
+
+    static contextType = TripsContext
+
+    state = {
+        showForm: false,
+        id: '',
+        airline: '',
+        flight_num: '',
+        depart_date: '',
+        depart_time: '',
+        seats: '',
+        flight_notes: ''
+    }
+
+    handleGetFlight= () => {
+        const { tripid, flightid } = this.props
+        
+        fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${flightid} `, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(res => {
+            if (!res.ok)
+            return res.json().then(e => Promise.reject(e))
+            return res.json()
+        })
+        .then(responseJson => {
+            this.setState({
+                id: responseJson.id,
+                airline: responseJson.airline,
+                flight_num: responseJson.flight_num,
+                depart_date: responseJson.depart_date,
+                depart_time: responseJson.depart_time,
+                seats: responseJson.seats,
+                flight_notes: responseJson.airline
+            })
+        })
+    }
+
+    handleEditFlight = (e) => {
+        e.preventDefault()
+        
+
+    }
+
+    handleChangeAirline = (e) => {
+        this.setState({
+            airline: e.target.value
+        })
+    }
+
+    handleChangeFlightNum = (e) => {
+        this.setState({
+            flight_num: e.target.value
+        })
+    }
+
+    handleChangeDepartDate = (e) => {
+        this.setState({
+            depart_date: e.target.value
+        })
+    }
+
+    handleChangeDepartTime = (e) => {
+        this.setState({
+            depart_time : e.target.value
+        })
+    }
+
+    handleChangeSeats = (e) => {
+        this.setState({
+            seats : e.target.value
+        })
+    }
+
+    handleChangeNotes = (e) => {
+        this.setState({
+            flight_notes : e.target.value
+        })
+    }
+
+    render () {
+
+        const { airline, flight_num, depart_date, depart_time, seats, flight_notes} = this.state
+
+        return (
+            <main className='UpdateFlightForm'>
+                <div>
+                    <button onClick={this.handleGetFlight}>
+                        Edit
+                    </button>
+                    <button >
+                        Delete
+                    </button>
+                </div>
+                <form onSubmit={this.handleEditFlight}>
+                    <div className="form-section">
+                        <label htmlFor="airline">Airline *</label>
+                        <input type="text" name="airline" id="airline"
+                        value={airline} onChange={this.handleChangeAirline}required/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="flight_num">Flight #</label>
+                        <input type="number" name="flight_num" id="flight_num" value={flight_num} onChange={this.handleChangeFlightNum}/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="depart_date">Departure Date *</label>
+                        <input type="date" name="depart_date" id="depart_date" value={depart_date} onChange={this.handleChangeDepartDate}required/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="depart_time">Departure Time</label>
+                        <input type="time" name="depart_time" id="depart_time" value={depart_time} onChange={this.handleChangeDepartTime}/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="seats">Seats</label>
+                        <input type="text" name="seats" id="seats" value={seats} onChange={this.handleChangeSeats}/>
+                    </div>
+                    <div className="form-section">
+                        <label htmlFor="flight_notes">Notes</label>
+                        <textarea rows='5' name="flight_notes" id="flight_notes" value={flight_notes} onChange={this.handleChangeNotes}>
+                        </textarea> 
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </main>
+            
+        )
+    }
+}
+
+export default UpdateFlightForm
