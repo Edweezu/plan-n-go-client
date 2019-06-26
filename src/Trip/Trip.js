@@ -111,6 +111,13 @@ export default class Trip extends React.Component
         })
         .then(flight => {
             console.log('posted flight', flight)
+            airline.value = ''
+            flight_num.value = ''
+            depart_date.value = ''
+            depart_time.value = ''
+            seats.value = ''
+            flight_notes.value = ''
+            this.context.setFlightDone()
             this.context.addFlight(flight)
         })
         .catch(err => {
@@ -122,12 +129,9 @@ export default class Trip extends React.Component
     render () {
         
         const { id } = this.props.match.params
-        const { store, flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
+        const { store, flights=[], tripList=[], destinations=[], packing_list=[] , done, setFlightDone, changeFlight } = this.context
 
-        // const trip = findTrip(store, id)
         const trip = findTrip(tripList, id)
-        // console.log('storeee', store)
-        // console.log('id', id)
         console.log('trippp', trip)
 
         return (
@@ -136,10 +140,10 @@ export default class Trip extends React.Component
                     <h1>{trip.length == 0 ? trip.trip_name : trip[0].trip_name}</h1>
                 </header>
                 <section className='trip-flight-form'>
-                    {/*this button is going to hide and show a form based off of state. will implement when I add interactivity.*/}
                     <h2>Flights</h2>
-                    <button>Add a Flight</button>
-                    <form onSubmit={this.handleAddFlight}>
+                    <button type='button' onClick={this.context.changeFlight}>Add a Flight</button>
+                    {!this.context.done ? (
+                        <form onSubmit={this.handleAddFlight}>
                         <div className="form-section">
                             <label htmlFor="airline">Airline *</label>
                             <input type="text" name="airline" id="airline" required/>
@@ -167,6 +171,7 @@ export default class Trip extends React.Component
                         </div>
                         <button type="submit">Submit</button>
                     </form>
+                    ) : null}     
                 </section>
                 <section className='trip-flight-list'>
                     <h3>Current Flights</h3>
@@ -183,7 +188,7 @@ export default class Trip extends React.Component
                                     <button>
                                         Edit
                                     </button>
-                                    <button>
+                                    <button >
                                         Delete
                                     </button>
                                 </div>
@@ -221,13 +226,13 @@ export default class Trip extends React.Component
                         {destinations.map(destination => (
                             <div key={destination.id}>
                                 <li className='flight-results-list'>
-                                    <strong>Destination : {destination.name}</strong> 
+                                    <strong>Destination : {destination.destination_name}</strong> 
                                 </li>
                                 <span>
-                                     Activity Date : {destination.date}
+                                     Activity Date : {format(destination.destination_date, 'YYYY-MM-DD')}
                                 </span>
                                 <div>
-                                    Address : {destination.Address}
+                                    Address : {destination.address}
                                 </div>
                                 <div>
                                     <button>
@@ -269,7 +274,7 @@ export default class Trip extends React.Component
                         {packing_list.map(item => (
                             <div key={item.id}>
                                 <li className='flight-results-list'>
-                                   {item.name}
+                                   {item.item_name}
                                 </li>
                                 <div>
                                     <button>

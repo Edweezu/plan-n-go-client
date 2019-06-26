@@ -23,7 +23,8 @@ class App extends React.Component {
       tripList: [],
       flights: [],
       destinations: [],
-      packing_list: []
+      packing_list: [],
+      done: true
     }
   }
 
@@ -67,6 +68,19 @@ class App extends React.Component {
     })
   }
 
+  setFlightDone = () => {
+    this.setState({
+      done: true
+    })
+  }
+
+  changeFlight = () => {
+    console.log('done statee', this.state.done)
+    this.setState({
+      done: !this.state.done
+    })
+  }
+
   deleteTrip = (tripid) => {
     console.log('inside of deletetrip')
     const { tripList } = this.state
@@ -95,7 +109,8 @@ class App extends React.Component {
       flights: [
         ...this.state.flights,
         flight
-      ]
+      ],
+      done: true
     })
   }
 
@@ -105,6 +120,9 @@ class App extends React.Component {
     
     const contextValue = {
       store,
+      done: this.state.done,
+      setFlightDone: this.setFlightDone,
+      changeFlight: this.changeFlight,
       loggedOut: this.isLoggedOut,
       loggedIn: this.isLoggedIn,
       tripList: this.state.tripList,
