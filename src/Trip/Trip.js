@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import TripsContext from '../TripsContext'
 import { findTrip } from '../trips-helper'
 import './Trip.css'
@@ -10,11 +9,15 @@ import FlightForm from '../FlightForm/FlightForm'
 import UpdateFlightForm from '../UpdateFlightForm/UpdateFlightForm'
 import DestinationForm from '../DestinationForm/DestinationForm'
 import UpdateDestinationForm from '../UpdateDestinationForm/UpdateDestinationForm';
+import PackingListForm from '../PackingListForm/PackingListForm'
+import UpdatePackingListForm from '../UpdatePackingListForm/UpdatePackingListForm'
 
 export default class Trip extends React.Component 
 {
 
    static contextType = TripsContext
+
+
 
    componentDidMount() {
     const tripid = this.props.match.params
@@ -82,14 +85,13 @@ export default class Trip extends React.Component
       })
    }
 
-
     render () {
         
         const { id } = this.props.match.params
         const { flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
 
         const trip = findTrip(tripList, id)
-        console.log('trippp', trip)
+        // console.log('trippp', trip)
 
         return (
             <main className='trip-main'>
@@ -140,50 +142,37 @@ export default class Trip extends React.Component
                                     destinationid={destination.id}
                                 />  
                             </div>
-                        ))}                            
+                        ))}                         
                     </ol>       
                 </section>
                 <section className='trip-packing-list'>
                     <h2>Packing List</h2>
-                    <h3>
+                    {/* <h3>
                         <input type="text" name="list-search" />
                         <button type="submit">Search</button>
-                    </h3>
-                    <div className='add-form-fields'>
-                        <div>
-                            <button>Add an Item</button>
-                        </div>
-                        
-                    </div>
-                    <div className="form-section">
-                    <label htmlFor="add-item">Item Name</label>
-                        <input type="text" name="add-item" />
-                    </div>
-                    <div className="form-section">
-                            <label htmlFor="list_notes">Item Notes</label>
-                            <textarea rows="5" name="list_notes" id="list_notes"></textarea>
-                    </div>
-                    <button type="submit">Submit</button>     
+                    </h3> */}
+                    <PackingListForm
+                        tripid={id}
+                    />   
                 </section>
                 <section className='trip-packing-results'>
-                <h3>Packing List</h3>
                     <ol>
                         {packing_list.map(item => (
                             <div key={item.id}>
-                                <li className='flight-results-list'>
-                                   {item.item_name}
+                                <li className='flight-results-list' 
+                                    style={{
+                                        textDecoration : item.checked === true ? 'line-through' : 'none' 
+                                    }}
+                                >
+                                    {item.item_name}
                                 </li>
-                                <div>
-                                    <button>
-                                        Check 
-                                    </button>
-                                    <button>
-                                        Edit
-                                    </button>
-                                    <button>
-                                        Delete
-                                    </button>
-                                </div>
+                                <button onClick={() => this.context.handleCheckItem(item.id)}>
+                                    Check / Uncheck
+                                </button>
+                                <UpdatePackingListForm
+                                    tripid={id}
+                                    itemid={item.id}
+                                />
                             </div>
                         ))}                            
                     </ol>       

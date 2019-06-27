@@ -115,6 +115,15 @@ class App extends React.Component {
       ]
     })
   }
+
+  addPackingItem = (item) => {
+    this.setState({
+      packing_list: [
+        ...this.state.packing_list,
+        item
+      ]
+    })
+  }
   
   updateFlight = (updatedFlight) => {
     console.log('inside of update flight')
@@ -148,6 +157,26 @@ class App extends React.Component {
     })
   }
 
+  deleteItem = (itemid) => {
+    console.log('inside of delete item')
+    this.setState({
+      packing_list: this.state.packing_list.filter(item => {
+        return item.id !== itemid
+      })
+    })
+  }
+
+  handleCheckItem = (id) => {
+    this.setState({
+        packing_list: this.state.packing_list.map(item => {
+          if (item.id === id) {
+            item.checked = !item.checked
+          }
+          return item
+        })
+    })
+}   
+
   render () {
 
     
@@ -171,7 +200,10 @@ class App extends React.Component {
       deleteFlight: this.deleteFlight,
       deleteDestination: this.deleteDestination,
       addDestination: this.addDestination,
-      updateDestination: this.updateDestination
+      updateDestination: this.updateDestination,
+      addPackingItem: this.addPackingItem,
+      deleteItem: this.deleteItem,
+      handleCheckItem: this.handleCheckItem
 
       // setError: this.setError
     }
