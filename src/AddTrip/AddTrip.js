@@ -15,14 +15,14 @@ export default class AddTrip extends React.Component {
     handleAddTrip = (e) => {
         e.preventDefault()
 
-        const { city, trip_name, start_date, end_date, notes } = e.target
+        const { city, trip_name, start_date, end_date } = e.target
 
         const newTrip = {
             city: city.value,
             trip_name: trip_name.value,
             start_date: start_date.value,
             end_date: end_date.value,
-            notes: notes.value
+          
         }
         console.log('new trippp', newTrip)
         return fetch(`${config.API_ENDPOINT}/trips`, {
@@ -82,12 +82,6 @@ export default class AddTrip extends React.Component {
                             End Date* 
                         </label>
                         <input id='end_date' name='end_date' type='date' required/>
-                    </div>
-                    <div className='signup-element'>
-                        <label htmlFor='notes'>
-                            Trip Notes   
-                        </label>
-                        <textarea id='notes' name='notes' rows='5'/>
                     </div>
                     <div className='add-trip-button'>
                         <button type='submit'>

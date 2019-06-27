@@ -132,6 +132,13 @@ class App extends React.Component {
     })
   }
 
+  updateTrip = (updatedTrip) => {
+    console.log('inside of update trip')
+    this.setState({
+      tripList: this.state.tripList.map((trip) => (trip.id !== updatedTrip.id) ? trip : updatedTrip)
+    })
+  }
+
   updateDestination = (updatedDestination) => {
     console.log('inside of update flight')
     this.setState({
@@ -203,7 +210,8 @@ class App extends React.Component {
       updateDestination: this.updateDestination,
       addPackingItem: this.addPackingItem,
       deleteItem: this.deleteItem,
-      handleCheckItem: this.handleCheckItem
+      handleCheckItem: this.handleCheckItem,
+      updateTrip: this.updateTrip
 
       // setError: this.setError
     }

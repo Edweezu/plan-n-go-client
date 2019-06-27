@@ -11,7 +11,10 @@ const TripsContext = React.createContext({
     setTripList: () => {},
     deleteTrip: () => {},
     addTrip: () => {},
-    addFlight: () => {}
+    addFlight: () => {},
+    history: {
+        push: () => {},
+      },
 
 })
 

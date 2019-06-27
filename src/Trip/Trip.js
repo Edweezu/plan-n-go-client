@@ -11,6 +11,9 @@ import DestinationForm from '../DestinationForm/DestinationForm'
 import UpdateDestinationForm from '../UpdateDestinationForm/UpdateDestinationForm';
 import PackingListForm from '../PackingListForm/PackingListForm'
 import UpdatePackingListForm from '../UpdatePackingListForm/UpdatePackingListForm'
+import UpdateTripForm from '../UpdateTripForm/UpdateTripForm'
+
+
 
 export default class Trip extends React.Component 
 {
@@ -85,6 +88,12 @@ export default class Trip extends React.Component
       })
    }
 
+    redirectDashboard = () => {
+        console.log('hi')
+        this.props.history.push('/dashboard')
+    }
+
+
     render () {
         
         const { id } = this.props.match.params
@@ -97,6 +106,13 @@ export default class Trip extends React.Component
             <main className='trip-main'>
                 <header>
                     <h1>{trip.length === 0 ? trip.trip_name : trip[0].trip_name}</h1>
+                    <h3>
+                        {trip.length === 0 ? trip.start_date : format(trip[0].start_date, 'MM-DD-YYYY') + ' to ' + format(trip[0].end_date, 'MM-DD-YYYY')}
+                    </h3>
+                    <UpdateTripForm
+                        tripid={id}
+                        redirectDashboard={this.redirectDashboard}
+                    />
                 </header>
                 <FlightForm 
                     tripid={id}
@@ -110,8 +126,11 @@ export default class Trip extends React.Component
                                     <strong>Flight : {flight.airline}</strong> 
                                 </li>
                                 <span>
-                                    Departure Date : {format(flight.depart_date, 'YYYY-MM-DD')}
+                                    Departure Date : {format(flight.depart_date, 'MM-DD-YYYY')}
                                 </span>
+                                <div>
+                                    Notes : {flight.flight_notes}
+                                </div>
                                 <UpdateFlightForm 
                                     tripid={id}
                                     flightid={flight.id}
@@ -132,10 +151,13 @@ export default class Trip extends React.Component
                                     <strong>Destination : {destination.destination_name}</strong> 
                                 </li>
                                 <span>
-                                     Activity Date : {format(destination.destination_date, 'YYYY-MM-DD')}
+                                     Activity Date : {format(destination.destination_date, 'MM-DD-YYYY')}
                                 </span>
                                 <div>
                                     Address : {destination.address}
+                                </div>
+                                <div>
+                                    Notes : {destination.destination_notes}
                                 </div>
                                 <UpdateDestinationForm 
                                     tripid={id}
@@ -164,8 +186,11 @@ export default class Trip extends React.Component
                                         textDecoration : item.checked === true ? 'line-through' : 'none' 
                                     }}
                                 >
-                                    {item.item_name}
+                                    {item.item_name}  
                                 </li>
+                                <div>
+                                    Notes: {item.list_notes}
+                                </div>
                                 <button onClick={() => this.context.handleCheckItem(item.id)}>
                                     Check / Uncheck
                                 </button>
@@ -176,6 +201,11 @@ export default class Trip extends React.Component
                             </div>
                         ))}                            
                     </ol>       
+                </section>
+                <section>
+                    <button onClick={this.redirectDashboard}>
+                        Back to Dashboard
+                    </button>
                 </section>
             </main>
         )

@@ -5,7 +5,7 @@ import UsersApiService from '../services/users-api-service'
 import TokenService from '../services/token-service'
 // import config from '../config'
 
-export default class Login extends React.Component {
+export default class LoginForm extends React.Component {
 
     static contextType = TripsContext
 
