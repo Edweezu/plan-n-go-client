@@ -89,7 +89,6 @@ export default class Trip extends React.Component
    }
 
     redirectDashboard = () => {
-        console.log('hi')
         this.props.history.push('/dashboard')
     }
 

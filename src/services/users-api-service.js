@@ -1,4 +1,6 @@
 import config from '../config'
+import TokenService from './token-service'
+import IdleService from './idle-service'
 
 const UsersApiService = {
   postLogin(user) {
@@ -14,6 +16,15 @@ const UsersApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        IdleService.registerIdleTimerResets()
+        TokenService.queueCallbackBeforeExpiry(() => {
+          UsersApiService.postRefreshToken()
+        })
+        return res
+      })
+
   },
 
   postUser(user) {
@@ -32,7 +43,33 @@ const UsersApiService = {
       return res.json()
       }
     )
-  }
+  },
+
+  postRefreshToken() {
+    console.log('refresh triggered')
+    return fetch(`${config.API_ENDPOINT}/users/refresh`, {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        TokenService.queueCallbackBeforeExpiry(() => {
+          UsersApiService.postRefreshToken()
+        })
+        return res
+      })
+      .catch(err => {
+        console.log('refresh token request error')
+        console.error(err)
+      })
+  },
 }
 
 export default UsersApiService

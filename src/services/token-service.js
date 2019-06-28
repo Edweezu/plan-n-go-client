@@ -2,7 +2,7 @@ import config from '../config'
 import jwtDecode from 'jwt-decode'
 
 let _timeoutId
-const _TEN_SECONDS_IN_MS = 15000
+const _TEN_SECONDS_IN_MS = 10000
 
 
 const TokenService = {

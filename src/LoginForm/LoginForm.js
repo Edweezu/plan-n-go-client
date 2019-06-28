@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom' 
 import TripsContext from '../TripsContext'
 import UsersApiService from '../services/users-api-service'
-import TokenService from '../services/token-service'
+// import TokenService from '../services/token-service'
 // import config from '../config'
 
 export default class LoginForm extends React.Component {
@@ -33,9 +33,9 @@ export default class LoginForm extends React.Component {
             .then(responseJson => {
                username.value = ''
                password.value = ''
-               TokenService.saveAuthToken(responseJson.authToken)
+            //    TokenService.saveAuthToken(responseJson.authToken)
                this.context.loggedIn()
-               console.log('authtokennnn', responseJson.authToken)
+            //    console.log('authtokennnn', responseJson.authToken)
                this.props.onLoginSuccess()
             })
             .catch(responseJson => {

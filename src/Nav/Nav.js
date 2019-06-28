@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../services/token-service'
 import TripsContext from '../TripsContext';
-
+import IdleService from '../services/idle-service'
 
 class Nav extends React.Component {
     
@@ -12,6 +12,7 @@ class Nav extends React.Component {
             this.context.loggedOut()
             TokenService.clearAuthToken()
             TokenService.clearCallbackBeforeExpiry()
+            IdleService.unRegisterIdleResets()
         }
 
         renderLogoutLink() {

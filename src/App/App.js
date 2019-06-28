@@ -10,6 +10,9 @@ import Dashboard from '../Dashboard/Dashboard'
 import Trip from '../Trip/Trip'
 import AddTrip from '../AddTrip/AddTrip'
 import Footer from '../Footer/Footer'
+import TokenService from '../services/token-service'
+import UsersService from '../services/users-api-service'
+import IdleService from '../services/idle-service'
 
 class App extends React.Component {
 
@@ -27,10 +30,30 @@ class App extends React.Component {
     }
   }
 
-
   componentDidMount() {
-    
+    IdleService.setIdleCallback(this.logoutFromIdle)
+    if (TokenService.hasAuthToken()) {
+      IdleService.registerIdleTimerResets()
+      TokenService.queueCallbackBeforeExpiry(() => {
+        UsersService.postRefreshToken()
+      })
+    }
   }
+
+  componentWillUnmount() {
+    console.log('component will unmount')
+    IdleService.unRegisterIdleResets()
+    TokenService.clearCallbackBeforeExpiry()
+  }
+
+  logoutFromIdle = () => {
+    console.log('logging out')
+    TokenService.clearAuthToken()
+    TokenService.clearCallbackBeforeExpiry()
+    IdleService.unRegisterIdleResets()
+    this.forceUpdate()
+  }
+
 
   isLoggedIn = () => {
     this.setState({
