@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   logoutFromIdle = () => {
-    console.log('logging out')
+    // console.log('logging out')
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
@@ -98,7 +98,7 @@ class App extends React.Component {
 
 
   deleteTrip = (tripid) => {
-    console.log('inside of deletetrip')
+    // console.log('inside of deletetrip')
     const { tripList } = this.state
     const trips = tripList.filter(trip => trip.id !== tripid)
 
@@ -110,7 +110,7 @@ class App extends React.Component {
   
 
   addTrip = (trip) => {
-    console.log('inside of addtrip')
+    // console.log('inside of addtrip')
     this.setState({
       tripList: [
         ...this.state.tripList,
@@ -120,7 +120,7 @@ class App extends React.Component {
   }
 
   addFlight = (flight) => {
-    console.log('inside of addFlight')
+    // console.log('inside of addFlight')
     this.setState({
       flights: [
         ...this.state.flights,
@@ -149,28 +149,28 @@ class App extends React.Component {
   }
   
   updateFlight = (updatedFlight) => {
-    console.log('inside of update flight')
+    // console.log('inside of update flight')
     this.setState({
       flights: this.state.flights.map((flight) => (flight.id !== updatedFlight.id) ? flight : updatedFlight)
     })
   }
 
   updateTrip = (updatedTrip) => {
-    console.log('inside of update trip')
+    // console.log('inside of update trip')
     this.setState({
       tripList: this.state.tripList.map((trip) => (trip.id !== updatedTrip.id) ? trip : updatedTrip)
     })
   }
 
   updateDestination = (updatedDestination) => {
-    console.log('inside of update flight')
+    // console.log('inside of update flight')
     this.setState({
       destinations: this.state.destinations.map((destination) => (destination.id !== updatedDestination.id) ? destination : updatedDestination)
     })
   }
 
   deleteFlight = (flightid) => {
-    console.log('inside of delete flight')
+    // console.log('inside of delete flight')
     this.setState({
       flights: this.state.flights.filter(flight => {
         return flight.id !== flightid
@@ -179,7 +179,7 @@ class App extends React.Component {
   }
 
   deleteDestination = (destinationid) => {
-    console.log('inside of delete destination')
+    // console.log('inside of delete destination')
     this.setState({
       destinations: this.state.destinations.filter(destination => {
         return destination.id !== destinationid
@@ -188,7 +188,7 @@ class App extends React.Component {
   }
 
   deleteItem = (itemid) => {
-    console.log('inside of delete item')
+    // console.log('inside of delete item')
     this.setState({
       packing_list: this.state.packing_list.filter(item => {
         return item.id !== itemid
@@ -239,7 +239,7 @@ class App extends React.Component {
       // setError: this.setError
     }
 
-    console.log('real state', this.state)
+    // console.log('real state', this.state)
 
     return (
      <main className='app'>

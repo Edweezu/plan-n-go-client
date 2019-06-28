@@ -1,7 +1,7 @@
 {
     "version": 2,
-    "alias": "edweezu-plan-n-go-client",
-    "name": "plan-n-go-client",
+    "alias": "plan-n-go-app",
+    "name": "plan-n-go-app",
     "routes": [
         {
           "src": "^/static/(.*)",

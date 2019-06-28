@@ -24,7 +24,7 @@ export default class AddTrip extends React.Component {
             end_date: end_date.value,
           
         }
-        console.log('new trippp', newTrip)
+        // console.log('new trippp', newTrip)
         return fetch(`${config.API_ENDPOINT}/trips`, {
             method: 'POST',
             headers: {
@@ -34,7 +34,7 @@ export default class AddTrip extends React.Component {
             body: JSON.stringify(newTrip)
         })
         .then(res => {
-            console.log('server responseee', res)
+            // console.log('server responseee', res)
             if (!res.ok) {
                 return res.json().then(e => Promise.reject(e))
             }

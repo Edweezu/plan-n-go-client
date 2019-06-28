@@ -46,7 +46,7 @@ const UsersApiService = {
   },
 
   postRefreshToken() {
-    console.log('refresh triggered')
+    // console.log('refresh triggered')
     return fetch(`${config.API_ENDPOINT}/users/refresh`, {
       method: 'POST',
       headers: {
