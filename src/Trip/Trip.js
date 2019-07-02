@@ -1,7 +1,6 @@
 import React from 'react';
 import TripsContext from '../TripsContext'
 import { findTrip } from '../trips-helper'
-import './Trip.css'
 import TokenService from '../services/token-service'
 import config from '../config'
 import { format } from 'date-fns'

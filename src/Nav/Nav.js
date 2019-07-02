@@ -17,36 +17,43 @@ class Nav extends React.Component {
 
         renderLogoutLink() {
             return (
-              <div className='Header__logged-in'>
-                <Link to='/dashboard'>
-                    Plan-n-Go
-                </Link>
-                {' '}
-                <Link
-                  onClick={this.handleLogoutClick}
-                  to='/'>
-                  Logout
-                </Link>
+              <div className='Header-in'>
+                <h2>
+                  <Link to='/dashboard'><i className="fas fa-home"></i>
+                      Plan-n-Go
+                  </Link>
+                </h2>
+                <div className='Header-links'>
+                  <Link
+                    onClick={this.handleLogoutClick}
+                    to='/'>
+                    Logout
+                  </Link>
+                </div>          
               </div>
             )
           }
         
           renderLoginLink() {
             return (
-              <div className='Header__not-logged-in'>
-                <Link to ='/'>
-                    Plan-n-Go
-                </Link>
-                {' '}
-                <Link
-                  to='/register'>
-                  Create an Account
-                </Link>
-                {' '}
-                <Link
-                  to='/login'>
-                  Log in
-                </Link>
+              <div className='Header-not-in'>
+                <h2>
+                  <Link to ='/'><i className="fas fa-home"></i>
+                      Plan-n-Go
+                  </Link>
+                </h2>
+                <div className='Header-links'>
+                  <Link
+                    to='/register'>
+                    Create an Account
+                  </Link>
+                  <span className='Header-space'>  
+                  </span>
+                  <Link
+                    to='/login'>
+                    Log in
+                  </Link>
+                </div>   
               </div>
             )
           }

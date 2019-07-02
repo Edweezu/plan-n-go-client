@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 class LandingPage extends React.Component {
     render () {
         return (
-            <main className='landing-page'>
+            <main className='landing-page container'>
                 <header>
                     <h1>
                         Plan n Go
@@ -15,7 +15,7 @@ class LandingPage extends React.Component {
                     <p>
                     Many times, planning trips, especially long trips, is often times the most stressful and arduous part of the journey. Plan n Go helps simplify the experience by keeping all your trip details in one spot. You can also edit flight paths and add items onto your endless packing list all on the app. Get started now by simply creating an account! 
                     </p>
-                    <Link to='/register'>Create an Account</Link>
+                    <Link className="link btn" to='/register'>Create an Account</Link>
                 </section>
                 <section className='landing-descript-two'>
                     <h2>Create Lavish trip Plans</h2>
