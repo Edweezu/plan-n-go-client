@@ -1,36 +1,44 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import dataimage from '../website-images/secure-data.jpg'
+import itinerary from '../website-images/itinerary.jpg'
+import packinglist from '../website-images/packing-list.jpg'
 
 class LandingPage extends React.Component {
     render () {
         return (
             <main className='landing-page container'>
-                <header className='main-header'>
-                    <h1>
-                        Plan n Go
-                    </h1>
+                <header className='landing-page-header'>
+                    <h1>Trip Planning Simplified</h1>
+                    <Link className="link btn" to='/register'>Create an Account</Link>
                 </header>
-                <section className='landing-descript-main'>
-                    <h2>Trip Planning Simplified</h2>
-                    <p>
-                    Many times, planning trips, especially long trips, is often times the most stressful and arduous part of the journey. Plan n Go helps simplify the experience by keeping all your trip details in one spot. You can also edit flight paths and add items onto your endless packing list all on the app. Get started now by simply creating an account! 
-                    </p>
-                    <Link className="link btn" to='/register'>Create an Account</Link>
-                </section>
-                <section className='landing-descript-two'>
-                    <h2>Create Lavish trip Plans</h2>
-                    <p>
-                    Plan and go on that dream vacation you've always wanted. Set crucial flight times and create detailed daily itineraries for your vacation. 
-                    </p>
-                </section>
-                <section className='landing-descript-two'>
-                    <h2>Your Personal Packing List</h2>
-                    <p>
-                    Have you ever realized that you've forgotten something a couple hours after leaving the house for a trip? Never forget again with our very intuitive packing list.
-                    </p>
-                </section>
-                <section>
-                    <Link className="link btn" to='/register'>Create an Account</Link>
+                <section className='landing-descript-container'>
+                    <h2>
+                        Plan-n-Go Functionalities
+                    </h2>
+                    <section className='landing-descript-two'> 
+                        <div className='landing-descript-img-data'>
+                            <img className='descript-img'src={dataimage} alt="secure data"/>
+                        </div>
+                        <p>
+                            Manage Countless Amount of Trips in One Place while knowing that your Data will be Secure. 
+                        </p>
+                    </section>
+                    <section className='landing-descript-two'>
+                        <div className='landing-descript-img-data'>
+                            <img className='descript-img'src={itinerary} alt="secure data"/>
+                        </div>
+                        <p>Create Lavish Trip Excursions with our Detailed Travel Itinerary.</p>
+                    </section>
+                    <section className='landing-descript-two'>
+                        <div className='landing-descript-img-data'>
+                            <img className='descript-img'src={packinglist} alt="secure data"/>
+                        </div>
+                        <p>Check, Add, and Delete Items off our Intuitive Packing List.</p>
+                    </section>
+                </section>   
+                <section className='landing-page-reminder'>
+                    <Link className="link btn" to='/register'>Lets Get Started</Link>
                 </section>
             </main>
         )

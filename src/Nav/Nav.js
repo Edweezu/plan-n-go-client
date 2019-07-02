@@ -45,13 +45,13 @@ class Nav extends React.Component {
                 <div className='Header-links'>
                   <Link
                     to='/register'>
-                    Create Account
+                    Create an Account
                   </Link>
                   <span className='Header-space'>  
                   </span>
                   <Link
                     to='/login'>
-                    Log in
+                    Login
                   </Link>
                 </div>   
               </div>

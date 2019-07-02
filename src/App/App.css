@@ -82,11 +82,11 @@ h2{
     list-style-type: square
 }
 
-.container {
+/* .container {
     width: 90%;
     margin: 0 auto;
     max-width: 1000px
-}
+} */
 
 a,
 a:visited,
@@ -108,6 +108,7 @@ a:hover {
     width: auto;
     border-width: 2px;
     padding: 1rem;
+    font-size: 1.15rem;
 }
 
 .btn-sign-in {
@@ -132,8 +133,8 @@ h2
     font-weight: 900;
 }
 
-.main-header {
-    margin-top: 7rem;
+.landing-page {
+    margin-top: 5rem;
 }
 
 .LoginPage,
@@ -176,11 +177,46 @@ footer ul {
     padding: 0px;
 }
 
-.login-demo {
-    /* text-align: left; */
-}
+/* .login-demo {
+    text-align: left;
+} */
 
 .login-demo p  {
     margin: 0;
     font-size: 0.9rem;
 }
+
+.landing-page-header {
+    background: linear-gradient(rgba(0,0,0, 0.6), rgba(0, 0, 0, 0.6)), url('../website-images/background-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.landing-page-header h1 {
+    line-height: 2rem;
+}
+
+.landing-descript-container {
+    padding: 0 1rem;
+}
+
+.descript-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 450px;
+    width: 100%;
+}
+
+.landing-page-reminder {
+    margin-top: 2rem;
+}
+
