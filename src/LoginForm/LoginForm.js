@@ -55,25 +55,41 @@ export default class LoginForm extends React.Component {
                     {error && <p className='red'>{error}</p>}
                 </div>
                 <div className='signup-element'>
-                    <label htmlFor='username'>
-                        Username    
-                    </label>
-                    <input id='username' name='username' type='text' placeholder='demo' required/>
+                    <div className='signup-label'>
+                        <label htmlFor='username'>
+                            Username    
+                        </label>
+                        <span className='astrik'>
+                            *
+                        </span>
+                    </div>
+                    <div className='signup-input'>
+                        <input id='username' name='username' type='text' placeholder='demo' required/>
+                    </div>
+                    
                 </div>
                 <div className='signup-element'>
-                    <label htmlFor='password'>
-                        Password    
-                    </label>
-                    <input id='password' name='password' type='password' placeholder='Testing123!' required/>
+                    <div className='signup-label'>
+                        <label htmlFor='password'>
+                            Password    
+                        </label>
+                        <span className='astrik'>*</span>
+                    </div>
+                    <div className='signup-input'>
+                        <input id='password' name='password' type='password' placeholder='Testing123!' required/>
+                    </div> 
                 </div>
                 <div className='signin-button'>
-                    {/* <Link to={`/dashboard`}>Sign in</Link> */}
-                    <button type='submit'>
+                    <button className="btn btn-sign-in" type='submit'>
                         Sign In 
                     </button>
                 </div>
-                
-                <div>
+                <div className='login-demo'>
+                    <h4>Demo Account</h4>
+                    <p>Username: demo</p>
+                    <p>Password: Testing123!</p>
+                </div>
+                <div className='login-form-redirect'>
                     <Link to='/register'>Don't have an account? Create one.</Link>
                 </div>
             </form>

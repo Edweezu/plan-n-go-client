@@ -45,40 +45,62 @@ export default class CreateAccount extends React.Component {
         const { error } = this.state
 
         return (
-            <form className='signup-form' onSubmit={this.handleSubmit}>
-                 <div role='alert'>
-                    {error && <p className='red'>{error}</p>}
-                </div>
-                <div className='signup-element'>
-                    <label htmlFor='username'>
-                        Username    
-                    </label>
-                    <input id='username' name='username' type='text'
-                    required/>
-                </div>
-                <div className='signup-element'>
-                    <label htmlFor='password'>
-                        Password    
-                    </label>
-                    <input id='password' name='password' type='password'
-                    required/>
-                </div>
-                <div className='signup-element'>
-                    <label htmlFor='confirm-pw'>
-                        Confirm Password    
-                    </label>
-                    <input id='confirm-pw' name='confirm-pw' type='password' required/>
-                </div>
-                <div className='signup-button'>
-                    <button type='submit'>
-                        Create an Account
-                    </button>
-                    {/* <Link to='/dashboard'>Create an Account</Link> */}
-                </div>
-                <div>
-                    <Link to='/login'>Already have an Account?</Link>
-                </div>
-            </form>
+            <main className='RegisterPage'>
+                <h2>
+                    Create an Account
+                </h2>
+                <form className='login-form' onSubmit={this.handleSubmit}>
+                    <div role='alert'>
+                        {error && <p className='red'>{error}</p>}
+                    </div>
+                    <div className='signup-element'>
+                        <div className='signup-label'>
+                            <label htmlFor='username'>
+                                Username    
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                        </div>
+                        <div className='signup-input'>
+                            <input id='username' name='username' type='text'
+                            required/>
+                        </div>
+                    </div>
+                    <div className='signup-element'>
+                        <div className='signup-label'> 
+                            <label htmlFor='password'>
+                                Password    
+                            </label>
+                            <span className='astrik'>*</span>
+                        </div>
+                        <div className='signup-input'>
+                            <input id='password' name='password' type='password'
+                            required/>
+                        </div>
+                    </div>
+                    <div className='signup-element'>
+                        <div className='signup-label'>
+                            <label htmlFor='confirm-pw'>
+                                Confirm Password    
+                            </label>
+                            <span className='astrik'>*</span>
+                        </div>
+                        <div className='signup-input'>
+                            <input id='confirm-pw' name='confirm-pw' type='password' required/>
+                        </div>
+                    </div>
+                    <div className='signin-button'>
+                        <button className="btn btn-sign-in" type='submit'>
+                            Create an Account
+                        </button>
+                    </div>
+                    <div className='login-form-redirect'>
+                        <Link to='/login'>Already have an Account?</Link>
+                    </div>
+                </form>
+            </main>
+            
         )
     }  
 }

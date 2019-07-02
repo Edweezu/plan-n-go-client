@@ -18,11 +18,11 @@ class Nav extends React.Component {
         renderLogoutLink() {
             return (
               <div className='Header-in'>
-                <h2>
+                <h3>
                   <Link to='/dashboard'><i className="fas fa-home"></i>
                       Plan-n-Go
                   </Link>
-                </h2>
+                </h3>
                 <div className='Header-links'>
                   <Link
                     onClick={this.handleLogoutClick}
@@ -37,15 +37,15 @@ class Nav extends React.Component {
           renderLoginLink() {
             return (
               <div className='Header-not-in'>
-                <h2>
-                  <Link to ='/'><i className="fas fa-home"></i>
+                <h3>
+                  <Link to ='/'><i className="fas fa-plane"></i>
                       Plan-n-Go
                   </Link>
-                </h2>
+                </h3>
                 <div className='Header-links'>
                   <Link
                     to='/register'>
-                    Create an Account
+                    Create Account
                   </Link>
                   <span className='Header-space'>  
                   </span>

@@ -16,6 +16,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5rem;
+    text-align: center;
 }
 
 .nav a {
@@ -32,21 +33,44 @@ body {
 
 .Header-in,
 .Header-not-in {
-    align-items: baseline;
+    /* align-items: baseline;
     display: flex;
     justify-content: space-between;
     margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 5%; */
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.nav h3 {
+    font-family: "Shrikhand", "sans-serif";
+    font-weight: 200;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+h1,
+h2{
+    margin: 1rem;
 }
 
 .Header-links {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 0.5rem;
 }
 
 .Header-space {
-    margin-right: 6px;
-    margin-left: 6px;
+    margin-right: 8px;
+    margin-left: 8px;
 }
   
 
@@ -86,7 +110,20 @@ a:hover {
     padding: 1rem;
 }
 
+.btn-sign-in {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 40px;
+    padding: 8px;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+}
 
+.astrik{
+    color: #ed5868;
+    margin: 0 0 0 3px;
+}
 
 h1,
 h2
@@ -95,4 +132,55 @@ h2
     font-weight: 900;
 }
 
+.main-header {
+    margin-top: 7rem;
+}
 
+.LoginPage,
+.RegisterPage {
+    margin-top: 8rem;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 1.3rem;
+    margin: auto;
+}
+
+.signup-label {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 0.3rem;
+}
+
+.signup-input > input {
+    width: 100%;
+}
+
+.signup-element {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.login-form-redirect {
+    margin-top: 1rem;
+}
+
+.login-form-redirect a {
+    color: #107ac5;
+    font-weight: 500;
+}
+
+footer ul {
+    padding: 0px;
+}
+
+.login-demo {
+    /* text-align: left; */
+}
+
+.login-demo p  {
+    margin: 0;
+    font-size: 0.9rem;
+}
