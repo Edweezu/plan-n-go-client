@@ -50,14 +50,16 @@ export default class Dashboard extends React.Component {
         const { error } = this.state
         return (
             <main className='dashboard'>
-                <section className='upcoming-dashboard'>
-                    <h2>Upcoming Trips</h2>
+                <section className='trips-dashboard-container'>
+                    <h2 className='dashboard-header'>Upcoming Trips</h2>
                     <ul>
                        {error ? <p className='error'>There was an error, try again</p>
                        : this.renderTrips()}
                     </ul>
-                    <Link to='/add-trip'>Add a Trip</Link>
                 </section>
+                <div className='dash-add-div'>
+                    <Link className='btn dashboard-add' to='/add-trip'>Add a Trip</Link>
+                </div>
             </main>
         )
     }

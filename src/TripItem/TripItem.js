@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // import Trip from '../Trip/Trip';
 import config from '../config'
 import TokenService from '../services/token-service'
+import { format } from 'date-fns'
 
 class TripItem extends React.Component {
     static contextType = TripsContext
@@ -49,14 +50,17 @@ class TripItem extends React.Component {
     }
 
     render () {
-        const { id, name} = this.props
+        const { id, name, startDate, endDate} = this.props
         return (
             <section className='trip-item'>
-                <h2 className='Note__title'>
+                <h2 className='trip-item-title'>
                     <Link to={"/trip/" + id}>
                         {name}
                     </Link>
                 </h2>
+                <p>
+                    {format(startDate, 'MMM D') + ' - ' + format(endDate, 'D, YYYY')}
+                </p>
                 <button 
                     className='trip-item-delete'
                     type='button'
