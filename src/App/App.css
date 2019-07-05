@@ -169,6 +169,8 @@ h2
 
 .signup-input > input {
     width: 100%;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
 }
 
 .signup-element {
@@ -257,6 +259,7 @@ footer ul {
     /* margin-bottom: 1rem; */
     border: 1px solid #EEE;
     padding-left: 1rem;
+    padding-top: 0.8rem;
 }
 
 .trip-item-title {
@@ -304,7 +307,8 @@ footer ul {
 }
 
 .fa-plus-circle:hover,
-.fa-edit:hover {
+.fa-edit:hover,
+.fa-check:hover {
     color: #107ac5;
 }
 
@@ -323,3 +327,57 @@ footer ul {
 .trip-main ol {
     padding-inline-start : 0px;
 }
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.add-trip-element {
+    text-align: left;
+}
+
+.add-trip h2 {
+    margin: 0;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.main-form {
+    margin-top: 0.5rem;
+}
+
+.submit-button {
+    border-radius: 0.3rem;
+    margin-right: 0.4rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    background-color: #107ac5;
+    color: white;
+    padding: 0.2rem 0.4rem;
+}
+
+.submit-button:hover {
+    box-shadow: 0 2px 4px #CCC;
+}
+
+.cancel-button {
+    border-radius: 0.3rem;
+    margin-right: 0.4rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    background-color: lightgray;
+    color: rgb(51,51,51);
+    padding: 0.2rem 0.4rem;
+}
+
+.cancel-button:hover {
+    box-shadow: 0 0 10px #CCC;
+}
+

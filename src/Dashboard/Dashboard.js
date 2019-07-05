@@ -1,6 +1,6 @@
 import React from 'react'
 import TripsContext from '../TripsContext'
-import { Link } from 'react-router-dom'
+// import { Link, Redirect } from 'react-router-dom'
 // import Trip from '../Trip/Trip'
 import TripApiService from '../services/trip-api-service'
 import TripItem from '../TripItem/TripItem'
@@ -43,6 +43,9 @@ export default class Dashboard extends React.Component {
         )
     }
 
+    renderAddForm = () => {
+        this.props.history.push('/add-trip')
+    }
 
 
 
@@ -51,15 +54,15 @@ export default class Dashboard extends React.Component {
         return (
             <main className='dashboard'>
                 <section className='trips-dashboard-container'>
-                    <h2 className='dashboard-header'>Upcoming Trips</h2>
+                    <h2 className='dashboard-header'>Upcoming Trips<i onClick= {this.renderAddForm}className="fas fa-plus-circle"></i></h2>
                     <ul>
                        {error ? <p className='error'>There was an error, try again</p>
                        : this.renderTrips()}
                     </ul>
                 </section>
-                <div className='dash-add-div'>
+                {/* <div className='dash-add-div'>
                     <Link className='btn dashboard-add' to='/add-trip'>Add a Trip</Link>
-                </div>
+                </div> */}
             </main>
         )
     }

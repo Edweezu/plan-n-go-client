@@ -189,7 +189,7 @@ export default class Trip extends React.Component
                                 <div>
                                     Notes: {item.list_notes}
                                 </div>
-                                <i onClick={() => this.context.handleCheckItem(item.id)}class="fas fa-check"></i>
+                                <i onClick={() => this.context.handleCheckItem(item.id)}className="fas fa-check"></i>
                                 {/* <button onClick={() => this.context.handleCheckItem(item.id)}>
                                     Check / Uncheck
                                 </button> */}
