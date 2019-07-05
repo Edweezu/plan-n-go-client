@@ -144,37 +144,45 @@ class UpdateTripForm extends React.Component {
 
         let { trip_name, city, start_date, end_date, showForm } = this.state
 
+        let { trip } = this.props
+
         return (
             <main className='UpdateTripForm'>
+                <header className='trip-name-header'>
+                    <h1>{trip.length === 0 ? trip.trip_name : trip[0].trip_name} <i onClick={this.handleEditForm}className="far fa-edit"></i></h1>
+                    <h3>
+                        {trip.length === 0 ? trip.start_date : format(trip[0].start_date, 'MMM D') + ' - ' +  format(trip[0].end_date, 'D, YYYY')}
+                    </h3>  
+                </header>
                 <div>
-                    <button onClick={this.handleEditForm}>
+                    {/* <button onClick={this.handleEditForm}>
                         Edit Trip
-                    </button>
+                    </button> */}
                     <button onClick={this.props.redirectDashboard}>
                        Back to Dashboard
                     </button>
                 </div>
                 {showForm ? (
                     <form onSubmit={this.handleEditTrip}>
-                    <div className='signup-element'>
+                    <div className='edit-trip-element'>
                         <label htmlFor='city'>
                             Destination City*  
                         </label>
                         <input id='city' name='city' type='text'value={city} onChange={this.handleChangeCity} required/>
                     </div>
-                    <div className='signup-element'>
+                    <div className='edit-trip-element'>
                         <label htmlFor='trip-name'>
                             Trip Name*
                         </label>
                         <input id='trip_name' name='trip_name' type='text' value={trip_name} onChange={this.handleChangeName}required/>
                     </div>
-                    <div className='signup-element'>
+                    <div className='edit-trip-element'>
                         <label htmlFor='start-date'>
                             Start Date*   
                         </label>
                         <input id='start_date' name='start_date' type='date' value={start_date} onChange={this.handleChangeStart}required/>
                     </div>
-                    <div className='signup-element'>
+                    <div className='edit-trip-element'>
                         <label htmlFor='end-date'>
                             End Date* 
                         </label>

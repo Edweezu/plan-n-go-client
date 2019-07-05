@@ -57,27 +57,27 @@ export default class AddTrip extends React.Component {
         return (
             <main className='add-trip'>
                 <h2>Add a Trip</h2>
-                <p>Add a trip by simply entering in your destination city and your desired dates.</p>
+                {/* <p>Add a trip by simply entering in your destination city and your desired dates.</p> */}
                 <form onSubmit={this.handleAddTrip}>
-                    <div className='signup-element'>
+                    <div className='add-trip-element'>
                         <label htmlFor='city'>
                             Destination City*  
                         </label>
                         <input id='city' name='city' type='text' required/>
                     </div>
-                    <div className='signup-element'>
+                    <div className='add-trip-element'>
                         <label htmlFor='trip-name'>
                             Trip Name*
                         </label>
                         <input id='trip_name' name='trip_name' type='text' required/>
                     </div>
-                    <div className='signup-element'>
+                    <div className='add-trip-element'>
                         <label htmlFor='start-date'>
                             Start Date*   
                         </label>
                         <input id='start_date' name='start_date' type='date' required/>
                     </div>
-                    <div className='signup-element'>
+                    <div className='add-trip-element'>
                         <label htmlFor='end-date'>
                             End Date* 
                         </label>
@@ -85,7 +85,7 @@ export default class AddTrip extends React.Component {
                     </div>
                     <div className='add-trip-button'>
                         <button type='submit'>
-                            Add Trip
+                            Submit
                         </button>
                         {/* <Link to ='/dashboard'>Add Trip</Link> */}
                     </div>

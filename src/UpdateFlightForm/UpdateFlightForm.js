@@ -3,12 +3,14 @@ import TripsContext from '../TripsContext';
 import config from '../config'
 import TokenService from '../services/token-service'
 import { format } from 'date-fns'
+import { confirmAlert } from 'react-confirm-alert'
 
 class UpdateFlightForm extends React.Component {
 
     static contextType = TripsContext
 
     state = {
+        error: null,
         showForm: false,
         id: '',
         airline: '',
@@ -187,6 +189,29 @@ class UpdateFlightForm extends React.Component {
     }
 
 
+    handleDeleteForm = () => {
+        confirmAlert({
+            title: '',
+            message: 'Are you sure you want to delete this?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick : () => {
+                        this.handleDeleteFlight()
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick : () => {
+                        this.setState({
+                            error: null
+                        })
+                    }
+                }
+            ]
+        })
+    }
+
     render () {
 
         const { airline, flight_num, depart_date, depart_time, seats, flight_notes, showForm} = this.state
@@ -194,12 +219,11 @@ class UpdateFlightForm extends React.Component {
         return (
             <main className='UpdateFlightForm'>
                 <div>
-                    <button onClick={this.handleEditForm}>
-                        Edit
-                    </button>
-                    <button onClick={this.handleDeleteFlight}>
+                    <i onClick={this.handleEditForm}className="far fa-edit"></i>
+                    <i onClick={this.handleDeleteForm}className="far fa-trash-alt"></i>
+                    {/* <button onClick={this.handleDeleteFlight}>
                         Delete
-                    </button>
+                    </button> */}
                 </div>
                 {showForm ? (
                     <form onSubmit={this.handleEditFlight}>

@@ -102,16 +102,17 @@ export default class Trip extends React.Component
 
         return (
             <main className='trip-main'>
-                <header>
+                {/* <header>
                     <h1>{trip.length === 0 ? trip.trip_name : trip[0].trip_name}</h1>
                     <h3>
                         {trip.length === 0 ? trip.start_date : format(trip[0].start_date, 'MMM D') + ' - ' +  format(trip[0].end_date, 'D, YYYY')}
-                    </h3>
+                    </h3> */}
                     <UpdateTripForm
+                        trip={trip}
                         tripid={id}
                         redirectDashboard={this.redirectDashboard}
                     />
-                </header>
+                {/* </header> */}
                 <FlightForm 
                     tripid={id}
                 />
@@ -166,7 +167,6 @@ export default class Trip extends React.Component
                     </ol>       
                 </section>
                 <section className='trip-packing-list'>
-                    <h2>Packing List</h2>
                     {/* <h3>
                         <input type="text" name="list-search" />
                         <button type="submit">Search</button>
@@ -189,9 +189,10 @@ export default class Trip extends React.Component
                                 <div>
                                     Notes: {item.list_notes}
                                 </div>
-                                <button onClick={() => this.context.handleCheckItem(item.id)}>
+                                <i onClick={() => this.context.handleCheckItem(item.id)}class="fas fa-check"></i>
+                                {/* <button onClick={() => this.context.handleCheckItem(item.id)}>
                                     Check / Uncheck
-                                </button>
+                                </button> */}
                                 <UpdatePackingListForm
                                     tripid={id}
                                     itemid={item.id}

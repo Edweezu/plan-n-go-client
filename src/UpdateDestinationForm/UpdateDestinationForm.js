@@ -3,6 +3,7 @@ import TripsContext from '../TripsContext';
 import config from '../config'
 import TokenService from '../services/token-service'
 import { format } from 'date-fns'
+import { confirmAlert } from 'react-confirm-alert'
 
 class UpdateDestinationForm extends React.Component {
 
@@ -164,6 +165,29 @@ class UpdateDestinationForm extends React.Component {
         })
     }
 
+    handleDeleteForm = () => {
+        confirmAlert({
+            title: '',
+            message: 'Are you sure you want to delete this?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick : () => {
+                        this.handleDeleteDestination()
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick : () => {
+                        this.setState({
+                            error: null
+                        })
+                    }
+                }
+            ]
+        })
+    }
+
 
     render () {
 
@@ -172,12 +196,14 @@ class UpdateDestinationForm extends React.Component {
         return (
             <main className='UpdateFlightForm'>
                 <div>
-                    <button onClick={this.handleEditForm}>
+                    <i onClick={this.handleEditForm}className="far fa-edit"></i>
+                    {/* <button onClick={this.handleEditForm}>
                         Edit
-                    </button>
-                    <button onClick={this.handleDeleteDestination}>
+                    </button> */}
+                    <i onClick={this.handleDeleteForm}className="far fa-trash-alt"></i>
+                    {/* <button onClick={this.handleDeleteDestination}>
                         Delete
-                    </button>
+                    </button> */}
                 </div>
                 {showForm ? (
                     <form onSubmit={this.handleEditDestination}>

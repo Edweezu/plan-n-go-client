@@ -69,9 +69,10 @@ class PackingListForm extends React.Component {
     render () {
         return (
             <section className='add-form-fields'>
-                    <button type='button' onClick={this.handleEditForm}>
+                    <h2>Packing List<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
+                    {/* <button type='button' onClick={this.handleEditForm}>
                         Add an Item
-                    </button>
+                    </button> */}
                 {this.state.showForm ? (
                     <form onSubmit={this.handleAddItem}>
                         <div>

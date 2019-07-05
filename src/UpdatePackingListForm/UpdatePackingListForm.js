@@ -2,6 +2,7 @@ import React from 'react'
 import TripsContext from '../TripsContext';
 import config from '../config'
 import TokenService from '../services/token-service'
+import { confirmAlert } from 'react-confirm-alert'
 
 class UpdatePackingListForm extends React.Component {
 
@@ -33,7 +34,28 @@ class UpdatePackingListForm extends React.Component {
         })
     }
 
-
+    handleDeleteForm = () => {
+        confirmAlert({
+            title: '',
+            message: 'Are you sure you want to delete this?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick : () => {
+                        this.handleDeleteItem()
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick : () => {
+                        this.setState({
+                            error: null
+                        })
+                    }
+                }
+            ]
+        })
+    }
     
 
 
@@ -42,9 +64,10 @@ class UpdatePackingListForm extends React.Component {
 
         return (
             <span>
-                <button onClick={this.handleDeleteItem}>
+                <i onClick={this.handleDeleteForm}className="far fa-trash-alt"></i>
+                {/* <button onClick={this.handleDeleteItem}>
                     Delete
-                </button>
+                </button> */}
             </span>  
         )
     }

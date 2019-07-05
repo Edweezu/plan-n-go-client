@@ -76,10 +76,12 @@ class FlightForm extends React.Component {
     render () {
         return (
             <section className='trip-flight-form'>
-                <h2>Flights</h2>
-                    <button type='button' onClick={this.handleEditForm}>
+                <header className='flight-form-header'>
+                    <h2>Flights <i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2> 
+                </header>
+                    {/* <button type='button' onClick={this.handleEditForm}>
                         Add a Flight
-                    </button>
+                    </button> */}
                 {this.state.showForm ? (
                     <form onSubmit={this.handleAddFlight}>
                     <div className="form-section">

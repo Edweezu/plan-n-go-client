@@ -51,6 +51,7 @@ class App extends React.Component {
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
+    // <Redirect to='/login' />
     this.setState({
       expired: true
     })
@@ -211,6 +212,9 @@ class App extends React.Component {
     })
 }   
 
+
+
+
   render () {
 
     
@@ -238,19 +242,20 @@ class App extends React.Component {
       addPackingItem: this.addPackingItem,
       deleteItem: this.deleteItem,
       handleCheckItem: this.handleCheckItem,
-      updateTrip: this.updateTrip
+      updateTrip: this.updateTrip,
+      expired: this.state.expired
 
       // setError: this.setError
     }
 
     // console.log('real state', this.state)
-
+    // console.log('expireddd', this.state.expired)
 
     return (
      <main className='app'>
       <TripsContext.Provider value={contextValue}>
         <Nav /> 
-        {this.state.expired ? (<LoginPage />) : null }
+        {this.state.expired ? <LoginPage /> : null }
         <Switch>
           <Route exact path ={'/'} component ={LandingPage}/>
           <Route path ={'/register'} component ={CreateAccount}/>

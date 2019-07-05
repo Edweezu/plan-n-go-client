@@ -18,7 +18,6 @@ class TripItem extends React.Component {
 
 
     handleDeleteForm = () => {
-        console.log('hi')
         confirmAlert({
             title: '',
             message: 'Are you sure you want to delete this?',
@@ -32,7 +31,6 @@ class TripItem extends React.Component {
                 {
                     label: 'No',
                     onClick : () => {
-                        console.log('error')
                         this.setState({
                             error: null
                         })
@@ -85,19 +83,19 @@ class TripItem extends React.Component {
                     <Link to={"/trip/" + id}>
                         {name}
                     </Link>
-                    <i onClick={this.handleDeleteForm} className="fas fa-trash-alt"></i>
+                    <i onClick={this.handleDeleteForm} className="far fa-trash-alt"></i>
                 </h2>
                 
                 <p>
                     {format(startDate, 'MMM D') + ' - ' + format(endDate, 'D, YYYY')}
                 </p>
-                <button 
+                {/* <button 
                     className='trip-item-delete'
                     type='button'
                     onClick={this.handleDeleteForm}
                 >
                     Delete
-                </button>
+                </button> */}
             </section>
         )
     }

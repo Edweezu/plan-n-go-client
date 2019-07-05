@@ -18,8 +18,10 @@ export default class LoginPage extends Component {
   }
 
   render() {
+    console.log('hi')
     return (
       <main className='LoginPage'>
+        {/* {this.context.expired ? this.props.history.push('/login') : null} */}
         <h2>Login</h2>
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}

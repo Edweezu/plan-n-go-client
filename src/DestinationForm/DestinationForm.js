@@ -71,8 +71,10 @@ class DestinationForm extends React.Component {
     render () {
         return (
             <section className='trip-destination-form'>
-                    <h2>Activities / Destinations</h2>
-                    <button onClick={this.handleEditForm}>Add a Destination</button>
+                <header className='destination-form-header'>
+                    <h2>Activities / Destinations<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
+                </header>
+                    {/* <button onClick={this.handleEditForm}>Add a Destination</button> */}
                 {this.state.showForm ? (
                      <form onSubmit={this.handleAddDestination}>
                         <div className="form-section">

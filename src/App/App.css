@@ -281,13 +281,45 @@ footer ul {
     margin: 1rem;
 }
 
-.trip-main {
+.trip-main,
+.add-trip {
+    width: 90%;
+    margin: 0 auto;
     margin-top: 7rem;
 }
 
+.trip-main h2 {
+    font-size: 22px;
+    margin: 0px;
+}
+
+.fa-trash-alt,
+.fa-plus-circle {
+    margin-left: 0.5rem;
+}
 
 
 .fa-trash-alt:hover {
     color: red;
 }
 
+.fa-plus-circle:hover,
+.fa-edit:hover {
+    color: #107ac5;
+}
+
+
+.flight-form-header,
+.destination-form-header,
+.trip-packing-list h2,
+.trip-name-header {
+    background-color: #EEE
+}
+
+.trip-flight-form {
+    margin-top: 1rem;
+}
+
+.trip-main ol {
+    padding-inline-start : 0px;
+}
