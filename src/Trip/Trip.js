@@ -105,7 +105,7 @@ export default class Trip extends React.Component
                 <header>
                     <h1>{trip.length === 0 ? trip.trip_name : trip[0].trip_name}</h1>
                     <h3>
-                        {trip.length === 0 ? trip.start_date : format(trip[0].start_date, 'MM-DD-YYYY') + ' to ' + format(trip[0].end_date, 'MM-DD-YYYY')}
+                        {trip.length === 0 ? trip.start_date : format(trip[0].start_date, 'MMM D') + ' - ' +  format(trip[0].end_date, 'D, YYYY')}
                     </h3>
                     <UpdateTripForm
                         tripid={id}
@@ -116,7 +116,7 @@ export default class Trip extends React.Component
                     tripid={id}
                 />
                 <section className='trip-flight-list'>
-                    <h3>Current Flights</h3>
+                    {/* <h3>Current Flights</h3> */}
                     <ol>
                         {flights.map(flight => (
                             <div key={flight.id}>
@@ -141,7 +141,7 @@ export default class Trip extends React.Component
                     tripid={id}
                 />
                 <section className='trip-destination-list'>
-                    <h3>Current Destinations</h3>
+                    {/* <h3>Current Destinations</h3> */}
                     <ol>
                         {destinations.map(destination => (
                             <div key={destination.id}>

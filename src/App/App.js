@@ -26,7 +26,8 @@ class App extends React.Component {
       flights: [],
       destinations: [],
       packing_list: [],
-      done: true
+      done: true,
+      expired: null
     }
   }
 
@@ -47,17 +48,20 @@ class App extends React.Component {
   }
 
   logoutFromIdle = () => {
-    // console.log('logging out')
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
-    this.forceUpdate()
+    this.setState({
+      expired: true
+    })
+    // this.forceUpdate()
   }
 
 
   isLoggedIn = () => {
     this.setState({
-      login: true
+      login: true,
+      expired: null
     })
   }
   isLoggedOut = () => {
@@ -241,10 +245,12 @@ class App extends React.Component {
 
     // console.log('real state', this.state)
 
+
     return (
      <main className='app'>
       <TripsContext.Provider value={contextValue}>
         <Nav /> 
+        {this.state.expired ? (<LoginPage />) : null }
         <Switch>
           <Route exact path ={'/'} component ={LandingPage}/>
           <Route path ={'/register'} component ={CreateAccount}/>

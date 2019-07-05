@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    background-color: #fafafa;
 }
   
 *,
@@ -17,6 +18,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5rem;
     text-align: center;
+    color: #373a36;
 }
 
 .nav a {
@@ -79,7 +81,7 @@ h2{
 }
 
 .flight-results-list {
-    list-style-type: square
+    list-style-type: none
 }
 
 /* .container {
@@ -104,14 +106,14 @@ a:hover {
 
 
 .btn:hover {
-    background-color: #2c95ce;
+    background-color: #107ac5;
     cursor: pointer;
     text-decoration: none;
 }
 
 
 .btn {
-    background-color: #107ac5;
+    background-color: #2c95ce;
     color: white;
     font-weight: 500;
     border-radius: 3px;
@@ -254,7 +256,7 @@ footer ul {
 .trip-item {
     /* margin-bottom: 1rem; */
     border: 1px solid #EEE;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 }
 
 .trip-item-title {
@@ -278,3 +280,14 @@ footer ul {
 .dash-add-div {
     margin: 1rem;
 }
+
+.trip-main {
+    margin-top: 7rem;
+}
+
+
+
+.fa-trash-alt:hover {
+    color: red;
+}
+

@@ -5,18 +5,46 @@ import { Link } from 'react-router-dom'
 import config from '../config'
 import TokenService from '../services/token-service'
 import { format } from 'date-fns'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 class TripItem extends React.Component {
     static contextType = TripsContext
 
     state = {
         error: null
+
     }
 
+
+    handleDeleteForm = () => {
+        console.log('hi')
+        confirmAlert({
+            title: '',
+            message: 'Are you sure you want to delete this?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick : () => {
+                        this.handleClickDelete()
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick : () => {
+                        console.log('error')
+                        this.setState({
+                            error: null
+                        })
+                    }
+                }
+            ]
+        })
+    }
     
 
     handleClickDelete = (e) => {
-        e.preventDefault()
+        console.log('deleted')
         const tripid = this.props.id
 
         console.log('propsss tripid', tripid)
@@ -57,14 +85,16 @@ class TripItem extends React.Component {
                     <Link to={"/trip/" + id}>
                         {name}
                     </Link>
+                    <i onClick={this.handleDeleteForm} className="fas fa-trash-alt"></i>
                 </h2>
+                
                 <p>
                     {format(startDate, 'MMM D') + ' - ' + format(endDate, 'D, YYYY')}
                 </p>
                 <button 
                     className='trip-item-delete'
                     type='button'
-                    onClick={this.handleClickDelete}
+                    onClick={this.handleDeleteForm}
                 >
                     Delete
                 </button>

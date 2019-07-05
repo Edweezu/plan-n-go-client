@@ -19,7 +19,7 @@ class Nav extends React.Component {
             return (
               <div className='Header-in'>
                 <h3>
-                  <Link to='/dashboard'><i className="fas fa-home"></i>
+                  <Link to='/dashboard'><i className="fas fa-plane"></i>
                       Plan-n-Go
                   </Link>
                 </h3>
