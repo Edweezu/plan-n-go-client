@@ -76,9 +76,9 @@ h2{
 }
   
 
-.trip-flight-list {
+/* .trip-flight-list {
     margin-top: 1rem;
-}
+} */
 
 .flight-results-list {
     list-style-type: none
@@ -291,25 +291,47 @@ footer ul {
     margin-top: 7rem;
 }
 
-.trip-main h2 {
-    font-size: 22px;
+.trip-main h1 {
+    font-size: 35px;
+    padding: 0.5rem;
+    margin: 0px;
+}
+
+.trip-main h2,
+.add-trip h2 {
+    font-size: 25px;
+    margin: 0px;
+    padding: 0.5rem;
+}
+
+.trip-name-header p {
+    color: #373a36;
+    padding: 0.5rem;
     margin: 0px;
 }
 
 .fa-trash-alt,
 .fa-plus-circle {
     margin-left: 0.5rem;
+    color: #373a36;
+}
+
+.fa-edit {
+    color: #373a36;
+    margin-left: 0.5rem;
 }
 
 
 .fa-trash-alt:hover {
     color: red;
+    cursor: pointer;
 }
 
 .fa-plus-circle:hover,
 .fa-edit:hover,
 .fa-check:hover {
     color: #107ac5;
+    cursor: pointer;
 }
 
 
@@ -317,7 +339,9 @@ footer ul {
 .destination-form-header,
 .trip-packing-list h2,
 .trip-name-header {
-    background-color: #EEE
+    background-color: #EEE;
+    color: #107ac5;
+    text-align: center;
 }
 
 .trip-flight-form {
@@ -328,9 +352,12 @@ footer ul {
     padding-inline-start : 0px;
 }
 
+/* forms */
+
 label {
     display: inline-block;
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 .add-trip-element {
@@ -347,10 +374,12 @@ label {
     padding: 0.2rem 0.4rem;
     border-radius: 0.2rem;
     margin-bottom: 0.4rem;
+    color: #373a36;
 }
 
 .main-form {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .submit-button {
@@ -379,5 +408,62 @@ label {
 
 .cancel-button:hover {
     box-shadow: 0 0 10px #CCC;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+ol {
+    margin: 0;
+}
+
+.trip-flight-list,
+.trip-destination-list,
+.trip-packing-results {
+    border: 1px solid #EEE;
+}
+
+.list-section {
+    padding: 0.5rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #EEE;
+    margin-bottom: 0.5rem;
+}
+
+.trip-flight-form,
+.trip-destination-form,
+.trip-packing-list {
+    margin-top: 2rem;
+}
+
+.back-dash-btn {
+    margin-top: 0.8rem;
+    text-align: center;
+}
+
+.back-dash-btn button {
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.2rem 0.4rem;
+}
+
+li {
+    font-size: 1.2rem;
+}
+
+.trip-main {
+    text-align: left;
+}
+
+.list-info-div {
+    padding-left: 0.6rem;
+}
+
+.btn-div {
+    padding-left: 0.8rem
 }
 

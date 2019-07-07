@@ -83,33 +83,41 @@ class FlightForm extends React.Component {
                         Add a Flight
                     </button> */}
                 {this.state.showForm ? (
-                    <form onSubmit={this.handleAddFlight}>
-                    <div className="form-section">
-                        <label htmlFor="airline">Airline *</label>
-                        <input type="text" name="airline" id="airline" required/>
+                    <form className='main-form' onSubmit={this.handleAddFlight}>
+                    <div className='add-trip-element'>
+                        <label htmlFor="airline">Airline </label>
+                        <span className='astrik'>
+                                *
+                        </span>
+                        <input className='form-input' type="text" name="airline" id="airline" required/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="flight_num">Flight #</label>
-                        <input type="number" name="flight_num" id="flight_num"/>
+                        <input className='form-input' type="number" name="flight_num" id="flight_num"/>
                     </div>
-                    <div className="form-section">
-                        <label htmlFor="depart_date">Departure Date *</label>
-                        <input type="date" name="depart_date" id="depart_date" required/>
+                    <div className='add-trip-element'>
+                        <label htmlFor="depart_date">Departure Date </label>
+                        <span className='astrik'>
+                                *
+                        </span>
+                        <input className='form-input' type="date" name="depart_date" id="depart_date" required/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="depart_time">Departure Time</label>
-                        <input type="time" name="depart_time" id="depart_time"/>
+                        <input className='form-input' type="time" name="depart_time" id="depart_time"/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="seats">Seats</label>
-                        <input type="text" name="seats" id="seats"/>
+                        <input className='form-input' type="text" name="seats" id="seats"/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="flight_notes">Notes</label>
-                        <input type='text' name="flight_notes" id="flight_notes"
+                        <input className='form-input' type='text' name="flight_notes" id="flight_notes"
                         />
                     </div>
-                    <button type="submit">Submit</button>
+                    <div className='button-container'>
+                        <button className='submit-button' type="submit">Submit</button>
+                    </div>  
                 </form>
                 ) : null}
                 

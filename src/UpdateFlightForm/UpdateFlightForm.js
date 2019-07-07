@@ -218,7 +218,7 @@ class UpdateFlightForm extends React.Component {
 
         return (
             <main className='UpdateFlightForm'>
-                <div>
+                <div className='btn-div'>
                     <i onClick={this.handleEditForm}className="far fa-edit"></i>
                     <i onClick={this.handleDeleteForm}className="far fa-trash-alt"></i>
                     {/* <button onClick={this.handleDeleteFlight}>
@@ -226,35 +226,43 @@ class UpdateFlightForm extends React.Component {
                     </button> */}
                 </div>
                 {showForm ? (
-                    <form onSubmit={this.handleEditFlight}>
-                    <div className="form-section">
-                        <label htmlFor="airline">Airline *</label>
-                        <input type="text" name="airline" id="airline"
+                    <form className='main-form' onSubmit={this.handleEditFlight}>
+                    <div className='add-trip-element'>
+                        <label htmlFor="airline">Airline </label>
+                        <span className='astrik'>
+                            *
+                        </span>
+                        <input className='form-input' type="text" name="airline" id="airline"
                         value={airline} onChange={this.handleChangeAirline}required/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="flight_num">Flight #</label>
-                        <input type="number" name="flight_num" id="flight_num" value={flight_num} onChange={this.handleChangeFlightNum}/>
+                        <input className='form-input' type="number" name="flight_num" id="flight_num" value={flight_num} onChange={this.handleChangeFlightNum}/>
                     </div>
-                    <div className="form-section">
-                        <label htmlFor="depart_date">Departure Date *</label>
-                        <input type="date" name="depart_date" id="depart_date" value={depart_date} onChange={this.handleChangeDepartDate}required/>
+                    <div className='add-trip-element'>
+                        <label htmlFor="depart_date">Departure Date </label>
+                        <span className='astrik'>
+                            *
+                        </span>
+                        <input className='form-input' type="date" name="depart_date" id="depart_date" value={depart_date} onChange={this.handleChangeDepartDate}required/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="depart_time">Departure Time</label>
-                        <input type="time" name="depart_time" id="depart_time" value={depart_time} onChange={this.handleChangeDepartTime}/>
+                        <input className='form-input' type="time" name="depart_time" id="depart_time" value={depart_time} onChange={this.handleChangeDepartTime}/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="seats">Seats</label>
-                        <input type="text" name="seats" id="seats" value={seats} onChange={this.handleChangeSeats}/>
+                        <input className='form-input' type="text" name="seats" id="seats" value={seats} onChange={this.handleChangeSeats}/>
                     </div>
-                    <div className="form-section">
+                    <div className='add-trip-element'>
                         <label htmlFor="flight_notes">Notes</label>
-                        <input type='text' name="flight_notes" id="flight_notes" value={flight_notes} onChange={this.handleChangeNotes}
+                        <input className='form-input' type='text' name="flight_notes" id="flight_notes" value={flight_notes} onChange={this.handleChangeNotes}
                         />
                     </div>
-                    <button type="submit">Submit</button>
-                    <button type="button" onClick={this.handleCancelForm}>Cancel</button>
+                    <div className='button-container'>
+                        <button className='submit-button' type="submit">Submit</button>
+                        <button className='cancel-button' type="button" onClick={this.handleCancelForm}>Cancel</button>
+                    </div>    
                 </form>
                 ) : null}
                 

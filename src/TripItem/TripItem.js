@@ -75,8 +75,19 @@ class TripItem extends React.Component {
         })
     }
 
+    formatDate = (startdate, enddate) => {
+        let startSplit = startdate.split('-')
+        let endSplit = enddate.split('-')
+        if (endSplit[1] !== startSplit[1]) {
+            return format(startdate, 'MMM D') + ' - ' + format(enddate, 'MMM D, YYYY')
+        } else {
+            return format(startdate, 'MMM D') + ' - ' + format(enddate, 'D, YYYY')
+        }
+    }
+
     render () {
         const { id, name, startDate, endDate} = this.props
+
         return (
             <section className='trip-item'>
                 <h2 className='trip-item-title'>
@@ -87,7 +98,8 @@ class TripItem extends React.Component {
                 </h2>
                 
                 <p>
-                    {format(startDate, 'MMM D') + ' - ' + format(endDate, 'D, YYYY')}
+                    {/* {format(startDate, 'MMM D') + ' - ' + format(endDate, 'D, YYYY')} */}
+                    {this.formatDate(startDate, endDate)}
                 </p>
                 {/* <button 
                     className='trip-item-delete'

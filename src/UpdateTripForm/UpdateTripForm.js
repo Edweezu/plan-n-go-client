@@ -137,7 +137,15 @@ class UpdateTripForm extends React.Component {
         })
     }
 
-   
+    formatDate = (startdate, enddate) => {
+        let startSplit = startdate.split('-')
+        let endSplit = enddate.split('-')
+        if (endSplit[1] !== startSplit[1]) {
+            return format(startdate, 'MMM D') + ' - ' + format(enddate, 'MMM D, YYYY')
+        } else {
+            return format(startdate, 'MMM D') + ' - ' + format(enddate, 'D, YYYY')
+        }
+    }
 
 
     render () {
@@ -150,11 +158,11 @@ class UpdateTripForm extends React.Component {
             <main className='UpdateTripForm'>
                 <header className='trip-name-header'>
                     <h1>{trip.length === 0 ? trip.trip_name : trip[0].trip_name} <i onClick={this.handleEditForm}className="far fa-edit"></i></h1>
-                    <h3>
-                        {trip.length === 0 ? trip.start_date : format(trip[0].start_date, 'MMM D') + ' - ' +  format(trip[0].end_date, 'D, YYYY')}
-                    </h3>  
+                    <p>
+                        {trip.length === 0 ? trip.start_date : this.formatDate(trip[0].start_date, trip[0].end_date)}
+                    </p>  
                 </header>
-                <div>
+                <div className='back-dash-btn'>
                     {/* <button onClick={this.handleEditForm}>
                         Edit Trip
                     </button> */}
@@ -163,33 +171,47 @@ class UpdateTripForm extends React.Component {
                     </button>
                 </div>
                 {showForm ? (
-                    <form onSubmit={this.handleEditTrip}>
-                    <div className='edit-trip-element'>
+                    <form className='main-form' onSubmit={this.handleEditTrip}>
+                    <div className='add-trip-element'>
                         <label htmlFor='city'>
-                            Destination City*  
+                            Destination City 
                         </label>
-                        <input id='city' name='city' type='text'value={city} onChange={this.handleChangeCity} required/>
+                        <span className='astrik'>
+                            *
+                        </span>
+                        <input className='form-input 'id='city' name='city' type='text'value={city} onChange={this.handleChangeCity} required/>
                     </div>
-                    <div className='edit-trip-element'>
+                    <div className='add-trip-element'>
                         <label htmlFor='trip-name'>
-                            Trip Name*
+                            Trip Name
                         </label>
-                        <input id='trip_name' name='trip_name' type='text' value={trip_name} onChange={this.handleChangeName}required/>
+                        <span className='astrik'>
+                            *
+                        </span>
+                        <input className='form-input' id='trip_name' name='trip_name' type='text' value={trip_name} onChange={this.handleChangeName}required/>
                     </div>
-                    <div className='edit-trip-element'>
+                    <div className='add-trip-element'>
                         <label htmlFor='start-date'>
-                            Start Date*   
+                            Start Date 
                         </label>
-                        <input id='start_date' name='start_date' type='date' value={start_date} onChange={this.handleChangeStart}required/>
+                        <span className='astrik'>
+                            *
+                        </span>
+                        <input className='form-input' id='start_date' name='start_date' type='date' value={start_date} onChange={this.handleChangeStart}required/>
                     </div>
-                    <div className='edit-trip-element'>
+                    <div className='add-trip-element'>
                         <label htmlFor='end-date'>
-                            End Date* 
+                            End Date 
                         </label>
-                        <input id='end_date' name='end_date' type='date' value={end_date} onChange={this.handleChangeEnd}required/>
+                        <span className='astrik'>
+                            *
+                        </span>
+                        <input className='form-input' id='end_date' name='end_date' type='date' value={end_date} onChange={this.handleChangeEnd}required/>
                     </div>
-                    <button type="submit">Submit</button>
-                    <button type="button" onClick={this.handleCancelForm}>Cancel</button>
+                    <div className='button-container'>
+                        <button className='submit-button 'type="submit">Submit</button>
+                        <button className='cancel-button' type="button" onClick={this.handleCancelForm}>Cancel</button>
+                    </div>
                 </form>
                 ) : null}
                 

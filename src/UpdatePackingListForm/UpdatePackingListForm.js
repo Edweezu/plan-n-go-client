@@ -63,12 +63,10 @@ class UpdatePackingListForm extends React.Component {
     render () {
 
         return (
-            <span>
+            <div className='btn-div'>
+                <i onClick={() => this.context.handleCheckItem(this.props.itemid)}className="fas fa-check"></i>
                 <i onClick={this.handleDeleteForm}className="far fa-trash-alt"></i>
-                {/* <button onClick={this.handleDeleteItem}>
-                    Delete
-                </button> */}
-            </span>  
+            </div>  
         )
     }
 }

@@ -195,7 +195,7 @@ class UpdateDestinationForm extends React.Component {
 
         return (
             <main className='UpdateFlightForm'>
-                <div>
+                <div className='btn-div'>
                     <i onClick={this.handleEditForm}className="far fa-edit"></i>
                     {/* <button onClick={this.handleEditForm}>
                         Edit
@@ -206,26 +206,34 @@ class UpdateDestinationForm extends React.Component {
                     </button> */}
                 </div>
                 {showForm ? (
-                    <form onSubmit={this.handleEditDestination}>
-                    <div className="form-section">
-                            <label htmlFor="destination_name">Destination Name *</label>
-                            <input type="text" name="destination_name" id="destination_name" required value={destination_name} onChange={this.handleChangeName}/>
+                    <form className='main-form' onSubmit={this.handleEditDestination}>
+                    <div className='add-trip-element'>
+                            <label htmlFor="destination_name">Destination Name </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' type="text" name="destination_name" id="destination_name" required value={destination_name} onChange={this.handleChangeName}/>
                         </div>
-                        <div className="form-section">
-                            <label htmlFor="destination_date">Date *</label>
-                            <input type="date" name="destination_date" id="destination_date" required value={destination_date} onChange={this.handleChangeDate}/>
+                        <div className='add-trip-element'>
+                            <label htmlFor="destination_date">Date </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' type="date" name="destination_date" id="destination_date" required value={destination_date} onChange={this.handleChangeDate}/>
                         </div>
-                        <div className="form-section">
+                        <div className='add-trip-element'>
                             <label htmlFor="address">Address</label>
-                            <input type="text" name="address" id="address" value={address} onChange={this.handleChangeAddress}/>
+                            <input className='form-input' type="text" name="address" id="address" value={address} onChange={this.handleChangeAddress}/>
                         </div>
-                        <div className="form-section">
+                        <div className='add-trip-element'>
                             <label htmlFor="destination_notes">Destination Notes</label>
-                            <input type='text' name="destination_notes" id="destination_notes" value={destination_notes} onChange={this.handleChangeNotes}
+                            <input className='form-input' type='text' name="destination_notes" id="destination_notes" value={destination_notes} onChange={this.handleChangeNotes}
                             />
                         </div>
-                        <button type="submit">Submit</button>
-                        <button type="button" onClick={this.handleCancelForm}>Cancel</button>
+                        <div className='button-container'>
+                            <button className='submit-button' type="submit">Submit</button>
+                            <button className='cancel-button' type="button" onClick={this.handleCancelForm}>Cancel</button>
+                        </div>    
                 </form>
                 ) : null}
                 

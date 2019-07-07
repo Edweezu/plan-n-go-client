@@ -120,14 +120,23 @@ export default class Trip extends React.Component
                     {/* <h3>Current Flights</h3> */}
                     <ol>
                         {flights.map(flight => (
-                            <div key={flight.id}>
+                            <div className='list-section 'key={flight.id}>
                                 <li className='flight-results-list'>
                                     <strong>Flight : {flight.airline}</strong> 
                                 </li>
-                                <span>
+                                <div className='list-info-div'>
+                                    Flight # : {flight.flight_num}
+                                </div>
+                                <div className='list-info-div'>
                                     Departure Date : {format(flight.depart_date, 'MM-DD-YYYY')}
-                                </span>
-                                <div>
+                                </div>
+                                <div className='list-info-div'>
+                                    Departure Time : {flight.depart_time}
+                                </div>
+                                <div className='list-info-div'>
+                                    Seats: {flight.seats}
+                                </div>
+                                <div className='list-info-div'>
                                     Notes : {flight.flight_notes}
                                 </div>
                                 <UpdateFlightForm 
@@ -145,17 +154,17 @@ export default class Trip extends React.Component
                     {/* <h3>Current Destinations</h3> */}
                     <ol>
                         {destinations.map(destination => (
-                            <div key={destination.id}>
+                            <div className='list-section'key={destination.id}>
                                 <li className='flight-results-list'>
-                                    <strong>Destination : {destination.destination_name}</strong> 
+                                    <strong>Activity Name : {destination.destination_name}</strong> 
                                 </li>
-                                <span>
-                                     Activity Date : {format(destination.destination_date, 'MM-DD-YYYY')}
-                                </span>
-                                <div>
+                                <div className='list-info-div'>
+                                     Date : {format(destination.destination_date, 'MM-DD-YYYY')}
+                                </div>
+                                <div className='list-info-div'>
                                     Address : {destination.address}
                                 </div>
-                                <div>
+                                <div className='list-info-div'>
                                     Notes : {destination.destination_notes}
                                 </div>
                                 <UpdateDestinationForm 
@@ -178,21 +187,18 @@ export default class Trip extends React.Component
                 <section className='trip-packing-results'>
                     <ol>
                         {packing_list.map(item => (
-                            <div key={item.id}>
+                            <div className='list-section'key={item.id}>
                                 <li className='flight-results-list' 
                                     style={{
                                         textDecoration : item.checked === true ? 'line-through' : 'none' 
                                     }}
                                 >
-                                    {item.item_name}  
+                                    <strong>{item.item_name}</strong>  
                                 </li>
-                                <div>
+                                <div className='list-info-div'>
                                     Notes: {item.list_notes}
                                 </div>
-                                <i onClick={() => this.context.handleCheckItem(item.id)}className="fas fa-check"></i>
-                                {/* <button onClick={() => this.context.handleCheckItem(item.id)}>
-                                    Check / Uncheck
-                                </button> */}
+                                
                                 <UpdatePackingListForm
                                     tripid={id}
                                     itemid={item.id}
@@ -201,7 +207,7 @@ export default class Trip extends React.Component
                         ))}                            
                     </ol>       
                 </section>
-                <section>
+                <section className='back-dash-btn'>
                     <button onClick={this.redirectDashboard}>
                         Back to Dashboard
                     </button>

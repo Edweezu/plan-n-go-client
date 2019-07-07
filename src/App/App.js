@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import TripsContext from '../TripsContext.js'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
@@ -27,7 +27,7 @@ class App extends React.Component {
       destinations: [],
       packing_list: [],
       done: true,
-      expired: null
+      expired: false
     }
   }
 
@@ -51,18 +51,18 @@ class App extends React.Component {
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
-    // <Redirect to='/login' />
-    this.setState({
-      expired: true
-    })
-    // this.forceUpdate()
+    if (!this.state.expired) {
+      this.setState({
+        expired: true
+      })
+    }
   }
 
 
   isLoggedIn = () => {
     this.setState({
       login: true,
-      expired: null
+      expired: false
     })
   }
   isLoggedOut = () => {
@@ -249,13 +249,20 @@ class App extends React.Component {
     }
 
     // console.log('real state', this.state)
-    // console.log('expireddd', this.state.expired)
+    console.log('expireddd', this.state.expired)
+    // if (this.state.expired) {
+    //   console.log('inside ifff')
+    //   return <Redirect to='/login'/>    
+    // } else {
+    //   console.log('inside elseee')
+    // }
+
 
     return (
      <main className='app'>
       <TripsContext.Provider value={contextValue}>
         <Nav /> 
-        {this.state.expired ? <LoginPage /> : null }
+        
         <Switch>
           <Route exact path ={'/'} component ={LandingPage}/>
           <Route path ={'/register'} component ={CreateAccount}/>

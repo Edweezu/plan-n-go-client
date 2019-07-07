@@ -69,22 +69,28 @@ class PackingListForm extends React.Component {
     render () {
         return (
             <section className='add-form-fields'>
-                    <h2>Packing List<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
+                    <h2 className='packing-list-header'>Packing List<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
                     {/* <button type='button' onClick={this.handleEditForm}>
                         Add an Item
                     </button> */}
                 {this.state.showForm ? (
-                    <form onSubmit={this.handleAddItem}>
-                        <div>
-                            <label htmlFor="item_name">Item Name *</label>
-                            <input type="text" name="item_name" id="item_name" required/>
+                    <form className='main-form' onSubmit={this.handleAddItem}>
+                        <div className='add-trip-element'>
+                            <label htmlFor="item_name">Item Name </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' type="text" name="item_name" id="item_name" required/>
                         </div>
-                        <div className="form-section">
+                        <div className="add-trip-element">
                             <label htmlFor="list_notes">Item Notes</label>
-                            <input type='text' name="list_notes" id="list_notes"
+                            <input className='form-input' type='text' name="list_notes" id="list_notes"
                             />
                         </div>
-                        <button type="submit">Submit</button> 
+                        <div className='button-container'>
+                            <button className='submit-button' type="submit">Submit</button> 
+                        </div>
+                       
                     </form>
                 ) : null}
                 

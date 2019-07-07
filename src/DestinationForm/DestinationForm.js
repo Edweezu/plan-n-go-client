@@ -72,29 +72,37 @@ class DestinationForm extends React.Component {
         return (
             <section className='trip-destination-form'>
                 <header className='destination-form-header'>
-                    <h2>Activities / Destinations<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
+                    <h2>Activities<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
                 </header>
                     {/* <button onClick={this.handleEditForm}>Add a Destination</button> */}
                 {this.state.showForm ? (
-                     <form onSubmit={this.handleAddDestination}>
-                        <div className="form-section">
-                            <label htmlFor="destination_name">Destination Name *</label>
-                            <input type="text" name="destination_name" id="destination_name" required/>
+                     <form className='main-form' onSubmit={this.handleAddDestination}>
+                        <div className='add-trip-element'>
+                            <label htmlFor="destination_name">Activity Name </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' type="text" name="destination_name" id="destination_name" required/>
                         </div>
-                        <div className="form-section">
-                            <label htmlFor="destination_date">Date *</label>
-                            <input type="date" name="destination_date" id="destination_date" required/>
+                        <div className='add-trip-element'>
+                            <label htmlFor="destination_date">Date </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' type="date" name="destination_date" id="destination_date" required/>
                         </div>
-                        <div className="form-section">
+                        <div className='add-trip-element'>
                             <label htmlFor="address">Address</label>
-                            <input type="text" name="address" id="address"/>
+                            <input className='form-input' type="text" name="address" id="address"/>
                         </div>
-                        <div className="form-section">
-                            <label htmlFor="destination_notes">Destination Notes</label>
-                            <input type='text' name="destination_notes" id="destination_notes"
+                        <div className='add-trip-element'>
+                            <label htmlFor="destination_notes">Notes</label>
+                            <input className='form-input' type='text' name="destination_notes" id="destination_notes"
                             />
                         </div>
-                        <button type="submit">Submit</button>
+                        <div className='button-container'>
+                            <button className='submit-button' type="submit">Submit</button>
+                        </div>
                     </form>
                 ) : null}
                 
