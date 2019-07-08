@@ -18,7 +18,6 @@ export default class LoginPage extends Component {
   }
 
   render() {
-    console.log('hi')
     return (
       <main className='LoginPage'>
         {/* {this.context.expired ? this.props.history.push('/login') : null} */}

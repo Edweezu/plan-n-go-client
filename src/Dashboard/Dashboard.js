@@ -54,10 +54,12 @@ export default class Dashboard extends React.Component {
         return (
             <main className='dashboard'>
                 <section className='trips-dashboard-container'>
-                    <h2 className='dashboard-header'>Upcoming Trips<i onClick= {this.renderAddForm}className="fas fa-plus-circle"></i></h2>
+                    <h1 className='dashboard-header'>Dashboard<i onClick= {this.renderAddForm}className="fas fa-plus-circle"></i></h1>
                     <ul>
-                       {error ? <p className='error'>There was an error, try again</p>
+                       {error ? <p className='error'><strong>Error! You have been logged out. Please log back in to continue.</strong></p>
                        : this.renderTrips()}
+                       {error ? alert('Error! You have been logged out. Please log back in to continue.')
+                       : ''}
                     </ul>
                 </section>
                 {/* <div className='dash-add-div'>

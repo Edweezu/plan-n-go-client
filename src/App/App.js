@@ -51,11 +51,12 @@ class App extends React.Component {
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
-    if (!this.state.expired) {
-      this.setState({
-        expired: true
-      })
-    }
+    // if (!this.state.expired) {
+    //   this.setState({
+    //     expired: true
+    //   })
+    // }
+    this.forceUpdate()
   }
 
 
@@ -249,7 +250,7 @@ class App extends React.Component {
     }
 
     // console.log('real state', this.state)
-    console.log('expireddd', this.state.expired)
+    // console.log('expireddd', this.state.expired)
     // if (this.state.expired) {
     //   console.log('inside ifff')
     //   return <Redirect to='/login'/>    
@@ -262,7 +263,6 @@ class App extends React.Component {
      <main className='app'>
       <TripsContext.Provider value={contextValue}>
         <Nav /> 
-        
         <Switch>
           <Route exact path ={'/'} component ={LandingPage}/>
           <Route path ={'/register'} component ={CreateAccount}/>
