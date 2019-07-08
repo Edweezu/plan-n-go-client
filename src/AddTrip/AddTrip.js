@@ -70,7 +70,7 @@ export default class AddTrip extends React.Component {
                             <span className='astrik'>
                                 *
                             </span>
-                            <input className='form-input' id='city' name='city' type='text' required/>
+                            <input className='form-input add-trip-input' id='city' name='city' type='text' required/>
                         </div>
                         <div className='add-trip-element'>
                             <label htmlFor='trip-name'>
@@ -79,7 +79,7 @@ export default class AddTrip extends React.Component {
                             <span className='astrik'>
                                 *
                             </span>
-                            <input className='form-input' id='trip_name' name='trip_name' type='text' required/>
+                            <input className='form-input add-trip-input' id='trip_name' name='trip_name' type='text' required/>
                         </div>
                     </div>
                     <div className='form-flex-container'>
@@ -90,7 +90,7 @@ export default class AddTrip extends React.Component {
                             <span className='astrik'>
                                 *
                             </span>
-                            <input className='form-input' id='start_date' name='start_date' type='date' required/>
+                            <input className='form-input add-trip-input' id='start_date' name='start_date' type='date' required/>
                         </div>
                         <div className='add-trip-element'>
                             <label htmlFor='end-date'>
@@ -99,7 +99,7 @@ export default class AddTrip extends React.Component {
                             <span className='astrik'>
                                 *
                             </span>
-                            <input className='form-input' id='end_date' name='end_date' type='date' required/>
+                            <input className='form-input add-trip-input' id='end_date' name='end_date' type='date' required/>
                         </div>
                     </div>
                     <div className='button-container'>

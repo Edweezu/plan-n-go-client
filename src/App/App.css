@@ -81,7 +81,10 @@ h2{
 } */
 
 .flight-results-list {
-    list-style-type: none
+    list-style-type: none;
+    margin-bottom: 0.2rem;
+    color: #107ac5;
+    font-size: 21px;
 }
 
 /* .container {
@@ -240,11 +243,14 @@ h2
 }
 
 .trips-dashboard-container {
+    max-width: 600px;
+    margin: auto;
     margin-top: 7.5rem;
     text-align: left;
+    width: 90%;
     border: 1px solid #EEE;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
     padding: 0;
 }
 
@@ -485,6 +491,24 @@ li {
 }
 
 
+.trip-details {
+    color: rgb(72, 72, 72);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.trip-details-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.fa-caret-right {
+    color: #107ac5;
+    display: inline-block;
+    margin: 0.4rem;
+}
+
+
 
 /* Responsive Design */
 
@@ -519,7 +543,7 @@ li {
 
     .main-form {
         margin-top: 1.5rem;
-        margin-bottom: 5.5rem;
+        margin-bottom: 4.5rem;
     }
 
     .add-trip-element {
@@ -535,6 +559,7 @@ li {
     .landing-descript-container {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 3.5rem;
     }
 
     .landing-descript-two {
@@ -552,5 +577,31 @@ li {
 
     .landing-page-reminder {
         margin-top: 2rem;
+    }
+
+    .trip-destination-form,
+    .trip-packing-list,
+    .trip-flight-form {
+        margin-top: 0;
+    }
+
+    .add-trip-element {
+        width: 45%;
+    }
+
+    .trip-main {
+        width: 100%;
+    }
+
+    .UpdateTripForm {
+        padding: 0px 1rem;
+    }
+
+    .form-input {
+        font-size: 0.78rem;
+    }
+
+    .add-trip-input {
+        font-size: 1rem;
     }
 }

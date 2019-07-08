@@ -84,7 +84,7 @@ class PackingListForm extends React.Component {
                                 <input className='form-input' type="text" name="item_name" id="item_name" required/>
                             </div>
                             <div className="add-trip-element">
-                                <label htmlFor="list_notes">Item Notes</label>
+                                <label htmlFor="list_notes">Notes</label>
                                 <input className='form-input' type='text' name="list_notes" id="list_notes"
                                 />
                             </div>

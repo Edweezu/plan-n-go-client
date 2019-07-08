@@ -116,101 +116,111 @@ export default class Trip extends React.Component
                         tripid={id}
                         redirectDashboard={this.redirectDashboard}
                     />
-                {/* </header> */}
-                <FlightForm 
-                    tripid={id}
-                />
-                <section className='trip-flight-list'>
-                    {/* <h3>Current Flights</h3> */}
-                    <ol>
-                        {flights.map(flight => (
-                            <div className='list-section 'key={flight.id}>
-                                <li className='flight-results-list'>
-                                    <strong>Flight : {flight.airline}</strong> 
-                                </li>
-                                <div className={'list-info-div ' +  (!flight.flight_num ? 'hidden' : '') }>
-                                    Flight # : {flight.flight_num}
-                                </div>
-                               <div className={'list-info-div ' +  (!flight.depart_date ? 'hidden' : '') }>
-                                    Departure Date : {format(flight.depart_date, 'MM-DD-YYYY')}
-                                </div>
-                               <div className={'list-info-div ' +  (!flight.depart_time ? 'hidden' : '') }>
-                                    Departure Time : {flight.depart_time}
-                                </div>
-                               <div className={'list-info-div ' +  (!flight.seats ? 'hidden' : '') }>
-                                    Seats: {flight.seats}
-                                </div>
-                               <div className={'list-info-div ' +  (!flight.flight_notes ? 'hidden' : '') }>
-                                    Notes : {flight.flight_notes}
-                                </div>
-                                <UpdateFlightForm 
-                                    tripid={id}
-                                    flightid={flight.id}
-                                />
-                            </div>
-                        ))}                         
-                    </ol>       
-                </section>
-                <DestinationForm 
-                    tripid={id}
-                />
-                <section className='trip-destination-list'>
-                    {/* <h3>Current Destinations</h3> */}
-                    <ol>
-                        {destinations.map(destination => (
-                            <div className='list-section'key={destination.id}>
-                                <li className='flight-results-list'>
-                                    <strong>Activity : {destination.destination_name}</strong> 
-                                </li>
-                                <div className={'list-info-div ' +  (!destination.destination_date ? 'hidden' : '') }>
-                                     Date : {format(destination.destination_date, 'MM-DD-YYYY')}
-                                </div>
-                                <div className={'list-info-div ' +  (!destination.address ? 'hidden' : '') }>
-                                    Address : {destination.address}
-                                </div>
-                                <div className={'list-info-div ' +  (!destination.destination_notes ? 'hidden' : '') }>
-                                    Notes : {destination.destination_notes}
-                                </div>
-                                <UpdateDestinationForm 
-                                    tripid={id}
-                                    destinationid={destination.id}
-                                />  
-                            </div>
-                        ))}                         
-                    </ol>       
-                </section>
-                <section className='trip-packing-list'>
-                    {/* <h3>
-                        <input type="text" name="list-search" />
-                        <button type="submit">Search</button>
-                    </h3> */}
-                    <PackingListForm
-                        tripid={id}
-                    />   
-                </section>
-                <section className='trip-packing-results'>
-                    <ol>
-                        {packing_list.map(item => (
-                            <div className='list-section'key={item.id}>
-                                <li className='flight-results-list' 
-                                    style={{
-                                        textDecoration : item.checked === true ? 'line-through' : 'none' 
-                                    }}
-                                >
-                                    <strong>{item.item_name}</strong>  
-                                </li>
-                                <div className={'list-info-div ' +  (!item.list_notes ? 'hidden' : '') }>
-                                    Notes: {item.list_notes}
-                                </div>
-                                
-                                <UpdatePackingListForm
-                                    tripid={id}
-                                    itemid={item.id}
-                                />
-                            </div>
-                        ))}                            
-                    </ol>       
-                </section>
+                <section className='landing-descript-container'>
+                    <section className='flights landing-descript-one'>
+                        <FlightForm 
+                            tripid={id}
+                        />
+                        <section className='trip-flight-list '>
+                            <ol>
+                                {flights.map(flight => (
+                                    <div className='list-section 'key={flight.id}>
+                                        <li className='flight-results-list'>
+                                            <strong> {flight.airline}</strong> 
+                                        </li>
+                                        <div className={'list-info-div ' +  (!flight.flight_num ? 'hidden' : '') }>
+                                            <span className='trip-details-title'>Flight #</span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.flight_num}</span> 
+                                        </div>
+                                    <div className={'list-info-div ' +  (!flight.depart_date ? 'hidden' : '') }>
+                                            {/* Departure Date : {format(flight.depart_date, 'MM-DD-YYYY')} */}
+                                            <span className='trip-details-title'>Departure Date</span><i class="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                            {format(flight.depart_date, 'MM-DD-YYYY')}
+                                            </span>
+                                        </div>
+                                        <div className={'list-info-div ' +  (!flight.depart_time ? 'hidden' : '') }>
+                                            <span className='trip-details-title'> Departure Time</span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.depart_time}</span>  
+                                        </div>
+                                        <div className={'list-info-div ' +  (!flight.seats ? 'hidden' : '') }>
+                                            <span className='trip-details-title'> Seats</span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.seats}</span>  
+                                        </div>
+                                        <div className={'list-info-div ' +  (!flight.flight_notes ? 'hidden' : '') }>
+                                            <span className='trip-details-title'> Notes </span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.flight_notes}</span> 
+                                        </div>
+                                        <UpdateFlightForm 
+                                            tripid={id}
+                                            flightid={flight.id}
+                                        />
+                                    </div>
+                                ))}                         
+                            </ol>       
+                        </section>
+                    </section>
+                    <section className='destinations landing-descript-two'>
+                        <DestinationForm 
+                            tripid={id}
+                        />
+                        <section className='trip-destination-list'>
+                            {/* <h3>Current Destinations</h3> */}
+                            <ol>
+                                {destinations.map(destination => (
+                                    <div className='list-section'key={destination.id}>
+                                        <li className='flight-results-list'>
+                                            <strong> {destination.destination_name}</strong> 
+                                        </li>
+                                        <div className={'list-info-div ' +  (!destination.destination_date ? 'hidden' : '') }>
+                                            <span className='trip-details-title'>Date</span><i class="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                            {format(destination.destination_date, 'MM-DD-YYYY')}
+                                            </span>
+                                        </div>
+                                        <div className={'list-info-div ' +  (!destination.address ? 'hidden' : '') }>
+                                            <span className='trip-details-title'>Address</span><i class="fas fa-caret-right"></i><span className='trip-details'>{destination.address}</span>
+                                        </div>
+                                        <div className={'list-info-div ' +  (!destination.destination_notes ? 'hidden' : '') }>
+                                            <span className='trip-details-title'>Notes</span><i class="fas fa-caret-right"></i><span className='trip-details'>{destination.destination_notes}</span>
+                                        </div>
+                                        <UpdateDestinationForm 
+                                            tripid={id}
+                                            destinationid={destination.id}
+                                        />  
+                                    </div>
+                                ))}                         
+                            </ol>       
+                        </section>                
+                    </section>
+                    <section className='packing-lists landing-descript-two'>
+                        <section className='trip-packing-list'>
+                            <PackingListForm
+                                tripid={id}
+                            />   
+                        </section>
+                        <section className='trip-packing-results'>
+                            <ol>
+                                {packing_list.map(item => (
+                                    <div className='list-section'key={item.id}>
+                                        <li className='flight-results-list' 
+                                            style={{
+                                                textDecoration : item.checked === true ? 'line-through' : 'none',
+                                                textDecorationColor: item.checked === true ? 'black' : 'none'
+                                            }}
+                                        >
+                                            <strong>{item.item_name}</strong>  
+                                        </li>
+                                        <div className={'list-info-div ' +  (!item.list_notes ? 'hidden' : '') }>
+                                            <span className='trip-details-title'>Notes</span><i class="fas fa-caret-right"></i><span className='trip-details'>{item.list_notes}</span> 
+                                        </div>
+                                        
+                                        <UpdatePackingListForm
+                                            tripid={id}
+                                            itemid={item.id}
+                                        />
+                                    </div>
+                                ))}                            
+                            </ol>       
+                        </section>                  
+                    </section>
+                </section>   
                 <section className='back-dash-btn'>
                     <button onClick={this.redirectDashboard}>
                         Back to Dashboard

@@ -209,7 +209,7 @@ class UpdateDestinationForm extends React.Component {
                     <form className='main-form' onSubmit={this.handleEditDestination}>
                         <div className='form-flex-container'>
                             <div className='add-trip-element'>
-                                <label htmlFor="destination_name">Destination Name </label>
+                                <label htmlFor="destination_name">Activity Name </label>
                                 <span className='astrik'>
                                     *
                                 </span>
@@ -229,7 +229,7 @@ class UpdateDestinationForm extends React.Component {
                                 <input className='form-input' type="text" name="address" id="address" value={address} onChange={this.handleChangeAddress}/>
                             </div>
                             <div className='add-trip-element'>
-                                <label htmlFor="destination_notes">Destination Notes</label>
+                                <label htmlFor="destination_notes">Notes</label>
                                 <input className='form-input' type='text' name="destination_notes" id="destination_notes" value={destination_notes} onChange={this.handleChangeNotes}
                                 />
                             </div>
