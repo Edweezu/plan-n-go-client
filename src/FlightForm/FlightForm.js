@@ -84,36 +84,42 @@ class FlightForm extends React.Component {
                     </button> */}
                 {this.state.showForm ? (
                     <form className='main-form' onSubmit={this.handleAddFlight}>
-                    <div className='add-trip-element'>
-                        <label htmlFor="airline">Airline </label>
-                        <span className='astrik'>
-                                *
-                        </span>
-                        <input className='form-input' type="text" name="airline" id="airline" required/>
+                    <div className='form-flex-container'>
+                        <div className='add-trip-element'>
+                            <label htmlFor="airline">Airline </label>
+                            <span className='astrik'>
+                                    *
+                            </span>
+                            <input className='form-input' type="text" name="airline" id="airline" required/>
+                        </div>
+                        <div className='add-trip-element'>
+                            <label htmlFor="flight_num">Flight #</label>
+                            <input className='form-input' type="number" name="flight_num" id="flight_num"/>
+                        </div>
                     </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor="flight_num">Flight #</label>
-                        <input className='form-input' type="number" name="flight_num" id="flight_num"/>
+                    <div className='form-flex-container'>
+                        <div className='add-trip-element'>
+                            <label htmlFor="depart_date">Departure Date </label>
+                            <span className='astrik'>
+                                    *
+                            </span>
+                            <input className='form-input' type="date" name="depart_date" id="depart_date" required/>
+                        </div>
+                        <div className='add-trip-element'>
+                            <label htmlFor="depart_time">Departure Time</label>
+                            <input className='form-input' type="time" name="depart_time" id="depart_time"/>
+                        </div>
                     </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor="depart_date">Departure Date </label>
-                        <span className='astrik'>
-                                *
-                        </span>
-                        <input className='form-input' type="date" name="depart_date" id="depart_date" required/>
-                    </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor="depart_time">Departure Time</label>
-                        <input className='form-input' type="time" name="depart_time" id="depart_time"/>
-                    </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor="seats">Seats</label>
-                        <input className='form-input' type="text" name="seats" id="seats"/>
-                    </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor="flight_notes">Notes</label>
-                        <input className='form-input' type='text' name="flight_notes" id="flight_notes"
-                        />
+                    <div className='form-flex-container'>
+                        <div className='add-trip-element'>
+                            <label htmlFor="seats">Seats</label>
+                            <input className='form-input' type="text" name="seats" id="seats"/>
+                        </div>
+                        <div className='add-trip-element'>
+                            <label htmlFor="flight_notes">Notes</label>
+                            <input className='form-input' type='text' name="flight_notes" id="flight_notes"
+                            />
+                        </div>
                     </div>
                     <div className='button-container'>
                         <button className='submit-button' type="submit">Submit</button>

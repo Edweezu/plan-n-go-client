@@ -207,34 +207,38 @@ class UpdateDestinationForm extends React.Component {
                 </div>
                 {showForm ? (
                     <form className='main-form' onSubmit={this.handleEditDestination}>
-                    <div className='add-trip-element'>
-                            <label htmlFor="destination_name">Destination Name </label>
-                            <span className='astrik'>
-                                *
-                            </span>
-                            <input className='form-input' type="text" name="destination_name" id="destination_name" required value={destination_name} onChange={this.handleChangeName}/>
-                        </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="destination_date">Date </label>
-                            <span className='astrik'>
-                                *
-                            </span>
-                            <input className='form-input' type="date" name="destination_date" id="destination_date" required value={destination_date} onChange={this.handleChangeDate}/>
-                        </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="address">Address</label>
-                            <input className='form-input' type="text" name="address" id="address" value={address} onChange={this.handleChangeAddress}/>
-                        </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="destination_notes">Destination Notes</label>
-                            <input className='form-input' type='text' name="destination_notes" id="destination_notes" value={destination_notes} onChange={this.handleChangeNotes}
-                            />
+                        <div className='form-flex-container'>
+                            <div className='add-trip-element'>
+                                <label htmlFor="destination_name">Destination Name </label>
+                                <span className='astrik'>
+                                    *
+                                </span>
+                                <input className='form-input' type="text" name="destination_name" id="destination_name" required value={destination_name} onChange={this.handleChangeName}/>
+                            </div>
+                            <div className='add-trip-element'>
+                                <label htmlFor="destination_date">Date </label>
+                                <span className='astrik'>
+                                    *
+                                </span>
+                                <input className='form-input' type="date" name="destination_date" id="destination_date" required value={destination_date} onChange={this.handleChangeDate}/>
+                            </div>
+                        </div>  
+                        <div className='form-flex-container'>
+                            <div className='add-trip-element'>
+                                <label htmlFor="address">Address</label>
+                                <input className='form-input' type="text" name="address" id="address" value={address} onChange={this.handleChangeAddress}/>
+                            </div>
+                            <div className='add-trip-element'>
+                                <label htmlFor="destination_notes">Destination Notes</label>
+                                <input className='form-input' type='text' name="destination_notes" id="destination_notes" value={destination_notes} onChange={this.handleChangeNotes}
+                                />
+                            </div>
                         </div>
                         <div className='button-container'>
                             <button className='submit-button' type="submit">Submit</button>
                             <button className='cancel-button' type="button" onClick={this.handleCancelForm}>Cancel</button>
                         </div>    
-                </form>
+                    </form>
                 ) : null}
                 
             </main>

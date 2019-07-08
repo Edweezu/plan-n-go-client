@@ -62,41 +62,45 @@ export default class AddTrip extends React.Component {
                 <h2 className='trip-name-header'>Add a Trip</h2>
                 {/* <p>Add a trip by simply entering in your destination city and your desired dates.</p> */}
                 <form className='main-form' onSubmit={this.handleAddTrip}>
-                    <div className='add-trip-element'>
-                        <label htmlFor='city'>
-                           City
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input' id='city' name='city' type='text' required/>
+                    <div className='form-flex-container'>   
+                        <div className='add-trip-element'>
+                            <label htmlFor='city'>
+                            City
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' id='city' name='city' type='text' required/>
+                        </div>
+                        <div className='add-trip-element'>
+                            <label htmlFor='trip-name'>
+                                Trip Name
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' id='trip_name' name='trip_name' type='text' required/>
+                        </div>
                     </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor='trip-name'>
-                            Trip Name
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input' id='trip_name' name='trip_name' type='text' required/>
-                    </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor='start-date'>
-                            Start Date  
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input' id='start_date' name='start_date' type='date' required/>
-                    </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor='end-date'>
-                            End Date 
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input' id='end_date' name='end_date' type='date' required/>
+                    <div className='form-flex-container'>
+                        <div className='add-trip-element'>
+                            <label htmlFor='start-date'>
+                                Start Date  
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' id='start_date' name='start_date' type='date' required/>
+                        </div>
+                        <div className='add-trip-element'>
+                            <label htmlFor='end-date'>
+                                End Date 
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' id='end_date' name='end_date' type='date' required/>
+                        </div>
                     </div>
                     <div className='button-container'>
                         <button className='submit-button' type='submit'>
@@ -107,8 +111,6 @@ export default class AddTrip extends React.Component {
                             Cancel
                         </button>
                     </div>
-                       
-                        {/* <Link to ='/dashboard'>Cancel</Link> */}
                 </form>
             </main>
         )

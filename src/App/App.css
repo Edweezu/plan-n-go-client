@@ -219,12 +219,19 @@ h2
 
 .landing-descript-container {
     padding: 0 1rem;
+    margin-top: 2rem;
+}
+
+.landing-descript-header {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
 }
 
 .descript-img {
     display: block;
     margin: 0 auto;
-    max-width: 450px;
+    max-width: 800px;
     width: 100%;
 }
 
@@ -378,8 +385,9 @@ label {
 }
 
 .main-form {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    /* max-width: 500px; */
 }
 
 .submit-button {
@@ -477,6 +485,7 @@ li {
 }
 
 
+
 /* Responsive Design */
 
 /* @media only screen and (min-width: 480px) {
@@ -485,8 +494,63 @@ li {
 
 @media only screen and (min-width: 768px) {
 
+    .landing-descript-container {
+        margin-top: 3.5rem;
+    }
+
+    .landing-descript-header {
+        margin-bottom: 3.5rem;
+        margin-top: 3.5rem;
+    }
+
+    .landing-description {
+        margin: 2.5rem;
+        font-weight: bold;
+    }
+
+    .landing-page-reminder {
+        margin-top: 4rem;
+    }
+
+    .form-flex-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .main-form {
+        margin-top: 1.5rem;
+        margin-bottom: 5.5rem;
+    }
+
+    .add-trip-element {
+        width: 40%;
+    }
+
+    .button-container {
+        margin-top: 2rem;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
+    .landing-descript-container {
+        display: flex;
+        justify-content: space-between;
+    }
 
+    .landing-descript-two {
+        width: 33.33%;
+        margin-left: 2rem;
+    }
+
+    .landing-descript-one {
+        width: 33%;
+    }
+
+    .landing-description {
+        font-weight: 400;
+    }
+
+    .landing-page-reminder {
+        margin-top: 2rem;
+    }
 }

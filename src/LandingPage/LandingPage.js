@@ -12,29 +12,29 @@ class LandingPage extends React.Component {
                     <h1>Trip Planning Simplified</h1>
                     <Link className="link btn" to='/register'>Create an Account</Link>
                 </header>
+                <h2 className='landing-descript-header'>
+                    Plan-n-Go Functionalities
+                </h2>
                 <section className='landing-descript-container'>
-                    <h2>
-                        Plan-n-Go Functionalities
-                    </h2>
-                    <section className='landing-descript-two'> 
+                    <section className='landing-descript-one'> 
                         <div className='landing-descript-img-data'>
                             <img className='descript-img'src={dataimage} alt="secure data"/>
                         </div>
-                        <p>
-                            Manage Countless Amount of Trips in One Place while knowing that your Data will be Secure. 
+                        <p className='landing-description'>
+                            Manage Countless Amount of Trips in One Place while knowing that your Data is Secure. 
                         </p>
                     </section>
                     <section className='landing-descript-two'>
                         <div className='landing-descript-img-data'>
                             <img className='descript-img'src={itinerary} alt="secure data"/>
                         </div>
-                        <p>Create Lavish Trip Excursions with our Detailed Travel Itinerary.</p>
+                        <p className='landing-description'>Create Lavish Trip Excursions with our Detailed Travel Itinerary.</p>
                     </section>
                     <section className='landing-descript-two'>
                         <div className='landing-descript-img-data'>
                             <img className='descript-img'src={packinglist} alt="secure data"/>
                         </div>
-                        <p>Check, Add, and Delete Items off our Intuitive Packing List.</p>
+                        <p className='landing-description'>Check, Add, and Delete Items off our Intuitive Packing List.</p>
                     </section>
                 </section>   
                 <section className='landing-page-reminder'>

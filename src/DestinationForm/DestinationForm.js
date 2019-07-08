@@ -77,32 +77,36 @@ class DestinationForm extends React.Component {
                     {/* <button onClick={this.handleEditForm}>Add a Destination</button> */}
                 {this.state.showForm ? (
                      <form className='main-form' onSubmit={this.handleAddDestination}>
-                        <div className='add-trip-element'>
-                            <label htmlFor="destination_name">Activity Name </label>
-                            <span className='astrik'>
-                                *
-                            </span>
-                            <input className='form-input' type="text" name="destination_name" id="destination_name" required/>
+                        <div className='form-flex-container'>
+                            <div className='add-trip-element'>
+                                <label htmlFor="destination_name">Activity Name </label>
+                                <span className='astrik'>
+                                    *
+                                </span>
+                                <input className='form-input' type="text" name="destination_name" id="destination_name" required/>
+                            </div>
+                            <div className='add-trip-element'>
+                                <label htmlFor="destination_date">Date </label>
+                                <span className='astrik'>
+                                    *
+                                </span>
+                                <input className='form-input' type="date" name="destination_date" id="destination_date" required/>
+                            </div>
                         </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="destination_date">Date </label>
-                            <span className='astrik'>
-                                *
-                            </span>
-                            <input className='form-input' type="date" name="destination_date" id="destination_date" required/>
-                        </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="address">Address</label>
-                            <input className='form-input' type="text" name="address" id="address"/>
-                        </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="destination_notes">Notes</label>
-                            <input className='form-input' type='text' name="destination_notes" id="destination_notes"
-                            />
+                        <div className='form-flex-container'>
+                            <div className='add-trip-element'>
+                                <label htmlFor="address">Address</label>
+                                <input className='form-input' type="text" name="address" id="address"/>
+                            </div>
+                            <div className='add-trip-element'>
+                                <label htmlFor="destination_notes">Notes</label>
+                                <input className='form-input' type='text' name="destination_notes" id="destination_notes"
+                                />
+                            </div>
                         </div>
                         <div className='button-container'>
-                            <button className='submit-button' type="submit">Submit</button>
-                        </div>
+                                <button className='submit-button' type="submit">Submit</button>
+                        </div>     
                     </form>
                 ) : null}
                 

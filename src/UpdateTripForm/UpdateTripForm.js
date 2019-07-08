@@ -172,41 +172,45 @@ class UpdateTripForm extends React.Component {
                 </div>
                 {showForm ? (
                     <form className='main-form' onSubmit={this.handleEditTrip}>
-                    <div className='add-trip-element'>
-                        <label htmlFor='city'>
-                            Destination City 
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input 'id='city' name='city' type='text'value={city} onChange={this.handleChangeCity} required/>
+                    <div className='form-flex-container'>
+                        <div className='add-trip-element'>
+                            <label htmlFor='city'>
+                                Destination City 
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input 'id='city' name='city' type='text'value={city} onChange={this.handleChangeCity} required/>
+                        </div>
+                        <div className='add-trip-element'>
+                            <label htmlFor='trip-name'>
+                                Trip Name
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' id='trip_name' name='trip_name' type='text' value={trip_name} onChange={this.handleChangeName}required/>
+                        </div>
                     </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor='trip-name'>
-                            Trip Name
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input' id='trip_name' name='trip_name' type='text' value={trip_name} onChange={this.handleChangeName}required/>
-                    </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor='start-date'>
-                            Start Date 
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input' id='start_date' name='start_date' type='date' value={start_date} onChange={this.handleChangeStart}required/>
-                    </div>
-                    <div className='add-trip-element'>
-                        <label htmlFor='end-date'>
-                            End Date 
-                        </label>
-                        <span className='astrik'>
-                            *
-                        </span>
-                        <input className='form-input' id='end_date' name='end_date' type='date' value={end_date} onChange={this.handleChangeEnd}required/>
+                    <div className='form-flex-container'>
+                        <div className='add-trip-element'>
+                            <label htmlFor='start-date'>
+                                Start Date 
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' id='start_date' name='start_date' type='date' value={start_date} onChange={this.handleChangeStart}required/>
+                        </div>
+                        <div className='add-trip-element'>
+                            <label htmlFor='end-date'>
+                                End Date 
+                            </label>
+                            <span className='astrik'>
+                                *
+                            </span>
+                            <input className='form-input' id='end_date' name='end_date' type='date' value={end_date} onChange={this.handleChangeEnd}required/>
+                        </div>
                     </div>
                     <div className='button-container'>
                         <button className='submit-button 'type="submit">Submit</button>
