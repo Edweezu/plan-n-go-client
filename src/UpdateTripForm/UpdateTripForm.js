@@ -33,9 +33,6 @@ class UpdateTripForm extends React.Component {
             return res.json()
         })
         .then(responseJson => {
-
-            // responseJson.end_date = format(responseJson.end_date, 'YYYY-MM-DD')
-            // responseJson.start_date = format(responseJson.start_date, 'YYYY-MM-DD')
             responseJson.end_date = this.formatSpecificDate(responseJson.end_date)
             responseJson.start_date = this.formatSpecificDate(responseJson.start_date)
 
@@ -136,20 +133,9 @@ class UpdateTripForm extends React.Component {
         })
     }
 
-    // formatDate = (startdate, enddate) => {
-    //     let startSplit = startdate.split('-')
-    //     let endSplit = enddate.split('-')
-    //     if (endSplit[1] !== startSplit[1]) {
-    //         return format(startdate, 'MMM D') + ' - ' + format(enddate, 'MMM D, YYYY')
-    //     } else {
-    //         return format(startdate, 'MMM D') + ' - ' + format(enddate, 'D, YYYY')
-    //     }
-    // }
 
     formatDate = (startdate, enddate) => {
-        // let startSplit = startdate.split('-')
         let [startYear, startMonth, startDay ] = startdate.substr(0, 10).split('-')
-        // let endSplit = enddate.split('-')
         let [endYear, endMonth, endDay ] = enddate.substr(0, 10).split('-')
         if (startMonth !== endMonth) {
             return format(new Date(startYear, (startMonth - 1), startDay), 'MMM D') + ' - ' + format(new Date(endYear, (endMonth - 1), endDay), 'MMM D, YYYY')
@@ -159,7 +145,6 @@ class UpdateTripForm extends React.Component {
     }
 
     formatSpecificDate = (date) => {
-        // console.log('dateee', date)
         let [ year, month, day ] = date.substr(0, 10).split('-')
         return format(new Date(
                 year,
@@ -171,9 +156,6 @@ class UpdateTripForm extends React.Component {
     render () {
         let { trip_name, city, start_date, end_date, showForm } = this.state
         let { trip } = this.props
-
-        // console.log("startt", start_date)
-        // console.log("startt", end_date)
 
         return (
             <main className='UpdateTripForm'>

@@ -92,7 +92,6 @@ export default class Trip extends React.Component {
     }
 
     formatSpecificDate = (date) => {
-        // console.log('dateee', date)
         let [ year, month, day ] = date.substr(0, 10).split('-')
         return format(new Date(
                 year,
@@ -106,8 +105,6 @@ export default class Trip extends React.Component {
         const { flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
         const { error } = this.state
         const trip = findTrip(tripList, id)
-
-        console.log('flightsss', flights)
 
         return (
             <main className='trip-main'>

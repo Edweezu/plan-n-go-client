@@ -188,7 +188,6 @@ class UpdateDestinationForm extends React.Component {
     }
 
     formatSpecificDate = (date) => {
-        // console.log('dateee', date)
         let [ year, month, day ] = date.substr(0, 10).split('-')
         return format(new Date(
                 year,
