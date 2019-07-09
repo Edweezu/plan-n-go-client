@@ -261,19 +261,20 @@ class App extends React.Component {
 
     return (
      <main className='app'>
-      <TripsContext.Provider value={contextValue}>
-        <Nav /> 
-        <Switch>
-          <Route exact path ={'/'} component ={LandingPage}/>
-          <Route path ={'/register'} component ={CreateAccount}/>
-          <Route path ={'/login'} component ={LoginPage}/>
-          <Route path ={'/dashboard'} component ={Dashboard}/>
-          <Route path ={'/trip/:id'} component ={Trip}/>
-          <Route path ={'/add-trip'} component ={AddTrip}/>
-
-        </Switch>
-      </TripsContext.Provider>
-      <Footer />
+        <section className='main-content'>
+          <TripsContext.Provider value={contextValue}>
+            <Nav /> 
+            <Switch>
+              <Route exact path ={'/'} component ={LandingPage}/>
+              <Route path ={'/register'} component ={CreateAccount}/>
+              <Route path ={'/login'} component ={LoginPage}/>
+              <Route path ={'/dashboard'} component ={Dashboard}/>
+              <Route path ={'/trip/:id'} component ={Trip}/>
+              <Route path ={'/add-trip'} component ={AddTrip}/>
+            </Switch>
+          </TripsContext.Provider>
+        </section>
+        <Footer />
      </main>
      
     )

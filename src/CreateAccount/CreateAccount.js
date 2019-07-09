@@ -95,6 +95,9 @@ export default class CreateAccount extends React.Component {
                             Create an Account
                         </button>
                     </div>
+                    <div className='signup-demo'>
+                        <p>Password must be longer than 8 characters and contain one upper case, lower case, number and special character.</p>
+                    </div>
                     <div className='login-form-redirect'>
                         <Link to='/login'>Already have an Account?</Link>
                     </div>

@@ -9,8 +9,6 @@ html {
     box-sizing: inherit;
 }
 
-
-
 body {
     margin: 0;
     font-family: 'Lato', 'Roboto', 'sans-serif';
@@ -19,6 +17,10 @@ body {
     line-height: 1.5rem;
     text-align: center;
     color: #373a36;
+}
+
+.main-content {
+    min-height: calc(100vh - 260px);
 }
 
 .nav a {
@@ -201,6 +203,12 @@ h2
     font-size: 0.9rem;
 }
 
+.signup-demo p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: red;
+}
+
 .landing-page-header {
     background: linear-gradient(rgba(0,0,0, 0.6), rgba(0, 0, 0, 0.6)), url('../website-images/background-image.jpg');
     background-size: cover;
@@ -245,7 +253,7 @@ h2
 .trips-dashboard-container {
     max-width: 600px;
     margin: auto;
-    margin-top: 7.5rem;
+    margin-top: 8rem;
     text-align: left;
     width: 90%;
     border: 1px solid #EEE;
@@ -301,7 +309,7 @@ h2
 .add-trip {
     width: 90%;
     margin: 0 auto;
-    margin-top: 7rem;
+    margin-top: 8rem;
 }
 
 .trip-main h1 {
@@ -559,7 +567,12 @@ li {
     .landing-descript-container {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 3.5rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+
+    .back-dash-btn {
+        margin-top: 2rem;
     }
 
     .landing-descript-two {
