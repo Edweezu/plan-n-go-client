@@ -68,13 +68,25 @@ class TripItem extends React.Component {
     }
 
     formatDate = (startdate, enddate) => {
-        let startSplit = startdate.split('-')
-        let endSplit = enddate.split('-')
-        if (endSplit[1] !== startSplit[1]) {
-            return format(startdate, 'MMM D') + ' - ' + format(enddate, 'MMM D, YYYY')
+        // let startSplit = startdate.split('-')
+        let [startYear, startMonth, startDay ] = startdate.substr(0, 10).split('-')
+        // let endSplit = enddate.split('-')
+        let [endYear, endMonth, endDay ] = enddate.substr(0, 10).split('-')
+        if (startMonth !== endMonth) {
+            return format(new Date(startYear, (startMonth - 1), startDay), 'MMM D') + ' - ' + format(new Date(endYear, (endMonth - 1), endDay), 'MMM D, YYYY')
         } else {
-            return format(startdate, 'MMM D') + ' - ' + format(enddate, 'D, YYYY')
+            return format(new Date(startYear, (startMonth - 1), startDay), 'MMM D') + ' - ' + format(new Date(endYear, (endMonth - 1), endDay), 'D, YYYY')
         }
+
+        // console.log('startdate', startdate)
+        // console.log('enddate', enddate)
+        // console.log('starttSplit', startSplit)
+        // console.log('endSplit', endSplit)
+        // if (endSplit[1] !== startSplit[1]) {
+        //     return format(startdate, 'MMM D') + ' - ' + format(enddate, 'MMM D, YYYY')
+        // } else {
+        //     return format(startdate, 'MMM D') + ' - ' + format(enddate, 'D, YYYY')
+        // }
     }
 
     render () {
@@ -89,6 +101,7 @@ class TripItem extends React.Component {
                     <i onClick={this.handleDeleteForm} className="far fa-trash-alt"></i>
                 </h2>
                 <p>
+                    {/* {this.formatDate('2019-07-01T00:00:00.000Z', '2019-07-03T00:00:00.000Z')} */}
                     {this.formatDate(startDate, endDate)}
                 </p>
             </section>

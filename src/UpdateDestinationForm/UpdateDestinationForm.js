@@ -36,7 +36,7 @@ class UpdateDestinationForm extends React.Component {
         })
         .then(responseJson => {
 
-            responseJson.destination_date = format(responseJson.destination_date, 'YYYY-MM-DD')
+            responseJson.destination_date = this.formatSpecificDate(responseJson.destination_date)
 
             for (let key in responseJson) {
                 if (responseJson[key] === null) {
@@ -185,6 +185,16 @@ class UpdateDestinationForm extends React.Component {
                 }
             ]
         })
+    }
+
+    formatSpecificDate = (date) => {
+        // console.log('dateee', date)
+        let [ year, month, day ] = date.substr(0, 10).split('-')
+        return format(new Date(
+                year,
+                (month - 1),
+                day,
+        ), 'YYYY-MM-DD')
     }
 
     render () {

@@ -39,7 +39,7 @@ class UpdateFlightForm extends React.Component {
         })
         .then(responseJson => {
 
-            responseJson.depart_date = format(responseJson.depart_date, 'YYYY-MM-DD')
+            responseJson.depart_date = this.formatSpecificDate(responseJson.depart_date)
 
             for (let key in responseJson) {
                 if (responseJson[key] === null) {
@@ -207,6 +207,16 @@ class UpdateFlightForm extends React.Component {
                 }
             ]
         })
+    }
+
+    formatSpecificDate = (date) => {
+        // console.log('dateee', date)
+        let [ year, month, day ] = date.substr(0, 10).split('-')
+        return format(new Date(
+                year,
+                (month - 1),
+                day,
+        ), 'YYYY-MM-DD')
     }
 
     render () {

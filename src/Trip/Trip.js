@@ -91,12 +91,23 @@ export default class Trip extends React.Component {
         this.props.history.push('/dashboard')
     }
 
+    formatSpecificDate = (date) => {
+        // console.log('dateee', date)
+        let [ year, month, day ] = date.substr(0, 10).split('-')
+        return format(new Date(
+                year,
+                (month - 1),
+                day,
+        ), 'MM-DD-YYYY')
+    }
 
     render () {
         const { id } = this.props.match.params
         const { flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
         const { error } = this.state
         const trip = findTrip(tripList, id)
+
+        console.log('flightsss', flights)
 
         return (
             <main className='trip-main'>
@@ -132,7 +143,7 @@ export default class Trip extends React.Component {
                                             </span>
                                             <i className="fas fa-caret-right"></i>
                                             <span className='trip-details'>
-                                                {format(flight.depart_date, 'MM-DD-YYYY')}
+                                                {this.formatSpecificDate(flight.depart_date)}
                                             </span>
                                         </div>
                                         <div className={'list-info-div ' +  (!flight.depart_time ? 'hidden' : '') }>
@@ -188,7 +199,7 @@ export default class Trip extends React.Component {
                                             </span>
                                             <i className="fas fa-caret-right"></i>
                                             <span className='trip-details'>
-                                                {format(destination.destination_date, 'MM-DD-YYYY')}
+                                                {this.formatSpecificDate(destination.destination_date)}
                                             </span>
                                         </div>
                                         <div className={'list-info-div ' +  (!destination.address ? 'hidden' : '') }>

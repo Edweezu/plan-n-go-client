@@ -241,6 +241,8 @@ class App extends React.Component {
     //   console.log('inside elseee')
     // }
 
+    // console.log('triplist stateee', this.state.tripList)
+
     return (
      <main className='app'>
         <section className='main-content'>
