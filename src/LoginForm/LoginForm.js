@@ -9,13 +9,8 @@ export default class LoginForm extends React.Component {
 
     static contextType = TripsContext
 
-    
-
-    constructor (props) {
-        super (props)
-        this.state = {
-            error: null
-        }
+    state = {
+        error: null
     }
 
     handleSubmit = (e) => {
@@ -33,9 +28,7 @@ export default class LoginForm extends React.Component {
             .then(responseJson => {
                username.value = ''
                password.value = ''
-            //    TokenService.saveAuthToken(responseJson.authToken)
                this.context.loggedIn()
-            //    console.log('authtokennnn', responseJson.authToken)
                this.props.onLoginSuccess()
             })
             .catch(responseJson => {
@@ -43,7 +36,6 @@ export default class LoginForm extends React.Component {
                     error: responseJson.error
                 })
             })
-
     }
 
 

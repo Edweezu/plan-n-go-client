@@ -42,10 +42,8 @@ class TripItem extends React.Component {
     
 
     handleClickDelete = (e) => {
-        console.log('deleted')
-        const tripid = this.props.id
 
-        console.log('propsss tripid', tripid)
+        const tripid = this.props.id
 
         return fetch(`${config.API_ENDPOINT}/trips/${tripid}`, {
             method: 'DELETE',
@@ -55,18 +53,12 @@ class TripItem extends React.Component {
             },
         })
         .then(res => {
-            console.log(' delete resss', res)
             if (!res.ok) {
                 return res.json().then(e => Promise.reject(e))
             }
-            
-            // return res.json()
         })
         .then(() => {
             this.context.deleteTrip(tripid)
-            // allow parent to perform extra behaviour
-            // this.props.onDeleteNote(tripid)
-            // this.props.history.push('/dashboard')
         })
         .catch(error => {
             this.setState({
@@ -96,22 +88,12 @@ class TripItem extends React.Component {
                     </Link>
                     <i onClick={this.handleDeleteForm} className="far fa-trash-alt"></i>
                 </h2>
-                
                 <p>
-                    {/* {format(startDate, 'MMM D') + ' - ' + format(endDate, 'D, YYYY')} */}
                     {this.formatDate(startDate, endDate)}
                 </p>
-                {/* <button 
-                    className='trip-item-delete'
-                    type='button'
-                    onClick={this.handleDeleteForm}
-                >
-                    Delete
-                </button> */}
             </section>
         )
     }
-
 }
 
 export default TripItem

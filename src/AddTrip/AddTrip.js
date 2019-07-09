@@ -22,9 +22,8 @@ export default class AddTrip extends React.Component {
             trip_name: trip_name.value,
             start_date: start_date.value,
             end_date: end_date.value,
-          
         }
-        // console.log('new trippp', newTrip)
+        
         return fetch(`${config.API_ENDPOINT}/trips`, {
             method: 'POST',
             headers: {
@@ -34,7 +33,6 @@ export default class AddTrip extends React.Component {
             body: JSON.stringify(newTrip)
         })
         .then(res => {
-            // console.log('server responseee', res)
             if (!res.ok) {
                 return res.json().then(e => Promise.reject(e))
             }
@@ -55,12 +53,10 @@ export default class AddTrip extends React.Component {
         this.props.history.push('/dashboard')
     }
 
-
     render () {
         return (
             <main className='add-trip'>
                 <h2 className='trip-name-header'>Add a Trip</h2>
-                {/* <p>Add a trip by simply entering in your destination city and your desired dates.</p> */}
                 <form className='main-form' onSubmit={this.handleAddTrip}>
                     <div className='form-flex-container'>   
                         <div className='add-trip-element'>
@@ -106,7 +102,6 @@ export default class AddTrip extends React.Component {
                         <button className='submit-button' type='submit'>
                             Submit
                         </button>
-                        {/* <Link to ='/dashboard'>Add Trip</Link> */}
                         <button className='cancel-button' onClick={this.handleClickCancel}>
                             Cancel
                         </button>

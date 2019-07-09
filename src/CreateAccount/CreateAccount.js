@@ -4,18 +4,15 @@ import UsersApiService from '../services/users-api-service'
 
 export default class CreateAccount extends React.Component {
 
-    constructor (props) {
-        super (props)
-        this.state = {
-            error: null
-        }
-    }
+   state = {
+       error: null
+   }
 
     handleSubmit = (e) => {
         e.preventDefault()
         const { username, password } = e.target
         const newUser = {
-            username: username.value,
+            username: username.value.toLowerCase(),
             password: password.value
         }
 
@@ -24,14 +21,12 @@ export default class CreateAccount extends React.Component {
                 username.value = ''
                 password.value = ''
                 this.handleRegistration()
-                console.log('user created')
             })
             .catch(responseJson => {
                 this.setState({
                     error: responseJson.error
                 })
             })
-
     }
 
     handleRegistration = () => {
@@ -39,11 +34,8 @@ export default class CreateAccount extends React.Component {
         history.push('/login')
     }
 
-
-
     render () {
         const { error } = this.state
-
         return (
             <main className='RegisterPage'>
                 <h2>
@@ -102,8 +94,7 @@ export default class CreateAccount extends React.Component {
                         <Link to='/login'>Already have an Account?</Link>
                     </div>
                 </form>
-            </main>
-            
+            </main>   
         )
     }  
 }

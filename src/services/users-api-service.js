@@ -24,7 +24,6 @@ const UsersApiService = {
         })
         return res
       })
-
   },
 
   postUser(user) {
@@ -35,18 +34,17 @@ const UsersApiService = {
       },
       body: JSON.stringify(user)
     })
-    .then(res => {
-      if (!res.ok) {
+      .then(res => {
+        if (!res.ok) {
+          return res.json()
+            .then(e => Promise.reject(e))
+        }
         return res.json()
-          .then(e => Promise.reject(e))
-      }
-      return res.json()
-      }
-    )
+        }
+      )
   },
 
   postRefreshToken() {
-    // console.log('refresh triggered')
     return fetch(`${config.API_ENDPOINT}/users/refresh`, {
       method: 'POST',
       headers: {
@@ -66,7 +64,6 @@ const UsersApiService = {
         return res
       })
       .catch(err => {
-        console.log('refresh token request error')
         console.error(err)
       })
   },

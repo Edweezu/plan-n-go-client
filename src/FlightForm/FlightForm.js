@@ -29,7 +29,6 @@ class FlightForm extends React.Component {
         e.preventDefault()
 
         const tripid = this.props.tripid
-        console.log('tripiddd', tripid)
 
         const { airline, flight_num, depart_date, depart_time, seats, flight_notes } = e.target
 
@@ -42,7 +41,6 @@ class FlightForm extends React.Component {
             flight_notes: flight_notes.value,
         }
 
-        console.log('newwwflight', newFlight)
         fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights`, {
             method: 'POST',
             headers: {
@@ -57,7 +55,6 @@ class FlightForm extends React.Component {
             return res.json()
         })
         .then(flight => {
-            console.log('posted flight', flight)
             airline.value = ''
             flight_num.value = ''
             depart_date.value = ''
@@ -79,54 +76,50 @@ class FlightForm extends React.Component {
                 <header className='flight-form-header'>
                     <h2>Flights <i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2> 
                 </header>
-                    {/* <button type='button' onClick={this.handleEditForm}>
-                        Add a Flight
-                    </button> */}
                 {this.state.showForm ? (
                     <form className='main-form' onSubmit={this.handleAddFlight}>
-                    <div className='form-flex-container'>
-                        <div className='add-trip-element'>
-                            <label htmlFor="airline">Airline </label>
-                            <span className='astrik'>
-                                    *
-                            </span>
-                            <input className='form-input' type="text" name="airline" id="airline" required/>
+                        <div className='form-flex-container'>
+                            <div className='add-trip-element'>
+                                <label htmlFor="airline">Airline </label>
+                                <span className='astrik'>
+                                        *
+                                </span>
+                                <input className='form-input' type="text" name="airline" id="airline" required/>
+                            </div>
+                            <div className='add-trip-element'>
+                                <label htmlFor="flight_num">Flight #</label>
+                                <input className='form-input' type="number" name="flight_num" id="flight_num"/>
+                            </div>
                         </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="flight_num">Flight #</label>
-                            <input className='form-input' type="number" name="flight_num" id="flight_num"/>
+                        <div className='form-flex-container'>
+                            <div className='add-trip-element'>
+                                <label htmlFor="depart_date">Departure Date </label>
+                                <span className='astrik'>
+                                        *
+                                </span>
+                                <input className='form-input' type="date" name="depart_date" id="depart_date" required/>
+                            </div>
+                            <div className='add-trip-element'>
+                                <label htmlFor="depart_time">Departure Time</label>
+                                <input className='form-input' type="time" name="depart_time" id="depart_time"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className='form-flex-container'>
-                        <div className='add-trip-element'>
-                            <label htmlFor="depart_date">Departure Date </label>
-                            <span className='astrik'>
-                                    *
-                            </span>
-                            <input className='form-input' type="date" name="depart_date" id="depart_date" required/>
+                        <div className='form-flex-container'>
+                            <div className='add-trip-element'>
+                                <label htmlFor="seats">Seats</label>
+                                <input className='form-input' type="text" name="seats" id="seats"/>
+                            </div>
+                            <div className='add-trip-element'>
+                                <label htmlFor="flight_notes">Notes</label>
+                                <input className='form-input' type='text' name="flight_notes" id="flight_notes"
+                                />
+                            </div>
                         </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="depart_time">Departure Time</label>
-                            <input className='form-input' type="time" name="depart_time" id="depart_time"/>
-                        </div>
-                    </div>
-                    <div className='form-flex-container'>
-                        <div className='add-trip-element'>
-                            <label htmlFor="seats">Seats</label>
-                            <input className='form-input' type="text" name="seats" id="seats"/>
-                        </div>
-                        <div className='add-trip-element'>
-                            <label htmlFor="flight_notes">Notes</label>
-                            <input className='form-input' type='text' name="flight_notes" id="flight_notes"
-                            />
-                        </div>
-                    </div>
-                    <div className='button-container'>
-                        <button className='submit-button' type="submit">Submit</button>
-                    </div>  
-                </form>
+                        <div className='button-container'>
+                            <button className='submit-button' type="submit">Submit</button>
+                        </div>  
+                    </form>
                 ) : null}
-                
             </section>
         )
     }

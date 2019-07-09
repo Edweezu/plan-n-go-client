@@ -77,8 +77,6 @@ class UpdateFlightForm extends React.Component {
             trip_id
         }
 
-        console.log('newflighttt', newFlight)
-
         fetch(`${config.API_ENDPOINT}/trips/${tripid}/flights/${flightid}`, {
             method: 'PATCH',
             body: JSON.stringify(newFlight),
@@ -88,7 +86,6 @@ class UpdateFlightForm extends React.Component {
             }
         })
         .then(res => {
-            console.log('hi')
             if (!res.ok)
             return res.json().then(e => Promise.reject(e))
         })
@@ -221,9 +218,6 @@ class UpdateFlightForm extends React.Component {
                 <div className='btn-div'>
                     <i onClick={this.handleEditForm}className="far fa-edit"></i>
                     <i onClick={this.handleDeleteForm}className="far fa-trash-alt"></i>
-                    {/* <button onClick={this.handleDeleteFlight}>
-                        Delete
-                    </button> */}
                 </div>
                 {showForm ? (
                     <form className='main-form' onSubmit={this.handleEditFlight}>
@@ -270,10 +264,8 @@ class UpdateFlightForm extends React.Component {
                             <button className='cancel-button' type="button" onClick={this.handleCancelForm}>Cancel</button>
                         </div>    
                     </form>
-                ) : null}
-                
-            </main>
-            
+                ) : null}  
+            </main>     
         )
     }
 }

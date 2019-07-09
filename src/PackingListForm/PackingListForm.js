@@ -29,7 +29,6 @@ class PackingListForm extends React.Component {
         e.preventDefault()
 
         const tripid = this.props.tripid
-        console.log('tripiddd', tripid)
 
         const { item_name, list_notes } = e.target
 
@@ -54,7 +53,6 @@ class PackingListForm extends React.Component {
             return res.json()
         })
         .then(item => {
-            console.log('posted item', item)
             item_name.value = ''
             list_notes.value = ''
             this.handleSubmitForm()
@@ -70,9 +68,6 @@ class PackingListForm extends React.Component {
         return (
             <section className='add-form-fields'>
                     <h2 className='packing-list-header'>Packing List<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
-                    {/* <button type='button' onClick={this.handleEditForm}>
-                        Add an Item
-                    </button> */}
                 {this.state.showForm ? (
                     <form className='main-form' onSubmit={this.handleAddItem}>
                         <div className='form-flex-container'>

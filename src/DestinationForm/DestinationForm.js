@@ -24,7 +24,6 @@ class DestinationForm extends React.Component {
         })
     }
 
-
     handleAddDestination = (e) => {
         e.preventDefault()
 
@@ -39,7 +38,6 @@ class DestinationForm extends React.Component {
             destination_notes: destination_notes.value
         }
 
-        console.log('newwDestination', newDestination)
         fetch(`${config.API_ENDPOINT}/trips/${tripid}/destinations`, {
             method: 'POST',
             headers: {
@@ -54,7 +52,6 @@ class DestinationForm extends React.Component {
             return res.json()
         })
         .then(destination => {
-            console.log('posted destination', destination)
             destination_name.value = ''
             destination_date.value = ''
             address.value = ''
@@ -74,7 +71,6 @@ class DestinationForm extends React.Component {
                 <header className='destination-form-header'>
                     <h2>Activities<i onClick= {this.handleEditForm}className="fas fa-plus-circle"></i></h2>
                 </header>
-                    {/* <button onClick={this.handleEditForm}>Add a Destination</button> */}
                 {this.state.showForm ? (
                      <form className='main-form' onSubmit={this.handleAddDestination}>
                         <div className='form-flex-container'>
@@ -108,8 +104,7 @@ class DestinationForm extends React.Component {
                                 <button className='submit-button' type="submit">Submit</button>
                         </div>     
                     </form>
-                ) : null}
-                
+                ) : null}     
             </section>
         )
     }

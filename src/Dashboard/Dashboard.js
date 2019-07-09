@@ -19,8 +19,6 @@ export default class Dashboard extends React.Component {
             .catch(err => this.setError(err))
     }
 
-    
-
     setError = (error) => {
         this.setState({
           error
@@ -47,8 +45,6 @@ export default class Dashboard extends React.Component {
         this.props.history.push('/add-trip')
     }
 
-
-
     render () {
         const { error } = this.state
         return (
@@ -62,9 +58,6 @@ export default class Dashboard extends React.Component {
                        : ''}
                     </ul>
                 </section>
-                {/* <div className='dash-add-div'>
-                    <Link className='btn dashboard-add' to='/add-trip'>Add a Trip</Link>
-                </div> */}
             </main>
         )
     }

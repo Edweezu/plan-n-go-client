@@ -13,9 +13,7 @@ import UpdatePackingListForm from '../UpdatePackingListForm/UpdatePackingListFor
 import UpdateTripForm from '../UpdateTripForm/UpdateTripForm'
 
 
-
-export default class Trip extends React.Component 
-{
+export default class Trip extends React.Component {
 
    static contextType = TripsContext
 
@@ -87,7 +85,7 @@ export default class Trip extends React.Component
              error
          })
       })
-   }
+    }
 
     redirectDashboard = () => {
         this.props.history.push('/dashboard')
@@ -95,27 +93,24 @@ export default class Trip extends React.Component
 
 
     render () {
-        
         const { id } = this.props.match.params
         const { flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
-
         const { error } = this.state
         const trip = findTrip(tripList, id)
-        // console.log('trippp', trip)
 
         return (
             <main className='trip-main'>
-                    <ul>
-                       {error ? <p className='error'><strong>Error! You have been logged out. Please log back in to continue.</strong></p>
-                       : ''}
-                       {error ? alert('Error! You have been logged out. Please log back in to continue.')
-                       : ''}
-                    </ul>
-                    <UpdateTripForm
-                        trip={trip}
-                        tripid={id}
-                        redirectDashboard={this.redirectDashboard}
-                    />
+                <ul>
+                    {error ? <p className='error'><strong>Error! You have been logged out. Please log back in to continue.</strong></p>
+                    : ''}
+                    {error ? alert('Error! You have been logged out. Please log back in to continue.')
+                    : ''}
+                </ul>
+                <UpdateTripForm
+                    trip={trip}
+                    tripid={id}
+                    redirectDashboard={this.redirectDashboard}
+                />
                 <section className='landing-descript-container'>
                     <section className='flights landing-descript-one'>
                         <FlightForm 
@@ -129,23 +124,43 @@ export default class Trip extends React.Component
                                             <strong> {flight.airline}</strong> 
                                         </li>
                                         <div className={'list-info-div ' +  (!flight.flight_num ? 'hidden' : '') }>
-                                            <span className='trip-details-title'>Flight #</span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.flight_num}</span> 
+                                            <span className='trip-details-title'>Flight #</span><i className="fas fa-caret-right"></i><span className='trip-details'>{flight.flight_num}</span> 
                                         </div>
                                     <div className={'list-info-div ' +  (!flight.depart_date ? 'hidden' : '') }>
-                                            {/* Departure Date : {format(flight.depart_date, 'MM-DD-YYYY')} */}
-                                            <span className='trip-details-title'>Departure Date</span><i class="fas fa-caret-right"></i>
+                                            <span className='trip-details-title'>
+                                                Departure Date
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
                                             <span className='trip-details'>
-                                            {format(flight.depart_date, 'MM-DD-YYYY')}
+                                                {format(flight.depart_date, 'MM-DD-YYYY')}
                                             </span>
                                         </div>
                                         <div className={'list-info-div ' +  (!flight.depart_time ? 'hidden' : '') }>
-                                            <span className='trip-details-title'> Departure Time</span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.depart_time}</span>  
+                                            <span className='trip-details-title'>
+                                                Departure Time
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                                {flight.depart_time}
+                                            </span>  
                                         </div>
                                         <div className={'list-info-div ' +  (!flight.seats ? 'hidden' : '') }>
-                                            <span className='trip-details-title'> Seats</span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.seats}</span>  
+                                            <span className='trip-details-title'>
+                                                Seats
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                                {flight.seats}
+                                            </span>  
                                         </div>
                                         <div className={'list-info-div ' +  (!flight.flight_notes ? 'hidden' : '') }>
-                                            <span className='trip-details-title'> Notes </span><i class="fas fa-caret-right"></i><span className='trip-details'>{flight.flight_notes}</span> 
+                                            <span className='trip-details-title'>
+                                                Notes
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                                {flight.flight_notes}
+                                            </span> 
                                         </div>
                                         <UpdateFlightForm 
                                             tripid={id}
@@ -161,7 +176,6 @@ export default class Trip extends React.Component
                             tripid={id}
                         />
                         <section className='trip-destination-list'>
-                            {/* <h3>Current Destinations</h3> */}
                             <ol>
                                 {destinations.map(destination => (
                                     <div className='list-section'key={destination.id}>
@@ -169,16 +183,31 @@ export default class Trip extends React.Component
                                             <strong> {destination.destination_name}</strong> 
                                         </li>
                                         <div className={'list-info-div ' +  (!destination.destination_date ? 'hidden' : '') }>
-                                            <span className='trip-details-title'>Date</span><i class="fas fa-caret-right"></i>
+                                            <span className='trip-details-title'>
+                                                Date
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
                                             <span className='trip-details'>
-                                            {format(destination.destination_date, 'MM-DD-YYYY')}
+                                                {format(destination.destination_date, 'MM-DD-YYYY')}
                                             </span>
                                         </div>
                                         <div className={'list-info-div ' +  (!destination.address ? 'hidden' : '') }>
-                                            <span className='trip-details-title'>Address</span><i class="fas fa-caret-right"></i><span className='trip-details'>{destination.address}</span>
+                                            <span className='trip-details-title'>
+                                                Address
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                                {destination.address}
+                                            </span>
                                         </div>
                                         <div className={'list-info-div ' +  (!destination.destination_notes ? 'hidden' : '') }>
-                                            <span className='trip-details-title'>Notes</span><i class="fas fa-caret-right"></i><span className='trip-details'>{destination.destination_notes}</span>
+                                            <span className='trip-details-title'>
+                                                Notes
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                                {destination.destination_notes}
+                                            </span>
                                         </div>
                                         <UpdateDestinationForm 
                                             tripid={id}
@@ -208,9 +237,14 @@ export default class Trip extends React.Component
                                             <strong>{item.item_name}</strong>  
                                         </li>
                                         <div className={'list-info-div ' +  (!item.list_notes ? 'hidden' : '') }>
-                                            <span className='trip-details-title'>Notes</span><i class="fas fa-caret-right"></i><span className='trip-details'>{item.list_notes}</span> 
+                                            <span className='trip-details-title'>
+                                                Notes
+                                            </span>
+                                            <i className="fas fa-caret-right"></i>
+                                            <span className='trip-details'>
+                                                {item.list_notes}
+                                            </span> 
                                         </div>
-                                        
                                         <UpdatePackingListForm
                                             tripid={id}
                                             itemid={item.id}

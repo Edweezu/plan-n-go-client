@@ -2,7 +2,7 @@ html {
     box-sizing: border-box;
     background-color: #fafafa;
 }
-  
+
 *,
 *:before,
 *:after {
@@ -37,11 +37,6 @@ body {
 
 .Header-in,
 .Header-not-in {
-    /* align-items: baseline;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 5%;
-    margin-right: 5%; */
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
@@ -60,13 +55,11 @@ h4 {
 }
 
 h1,
-h2{
+h2 {
     margin: 1rem;
 }
 
 .Header-links {
-    /* display: flex;
-    justify-content: space-between; */
     width: 100%;
     margin: 0 auto;
     margin-top: 0.5rem;
@@ -76,11 +69,6 @@ h2{
     margin-right: 8px;
     margin-left: 8px;
 }
-  
-
-/* .trip-flight-list {
-    margin-top: 1rem;
-} */
 
 .flight-results-list {
     list-style-type: none;
@@ -89,26 +77,16 @@ h2{
     font-size: 21px;
 }
 
-/* .container {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1000px
-} */
-
 a,
 a:visited,
 a:focus {
     text-decoration: none;
 }
 
-
-
 a:hover {
     text-decoration: underline;
     cursor: pointer;
-    /* background-color: #2c95ce; */
 }
-
 
 .btn:hover {
     background-color: #107ac5;
@@ -138,15 +116,13 @@ a:hover {
     margin-bottom: 1.6rem;
 }
 
-.astrik{
+.astrik {
     color: #ed5868;
     margin: 0 0 0 3px;
 }
 
 h1,
-h2
- {
-    /* font-family: 'Lato',  'sans-serif'; */
+h2 {
     font-weight: 900;
 }
 
@@ -193,11 +169,6 @@ h2
     font-weight: 500;
 }
 
-
-/* .login-demo {
-    text-align: left;
-} */
-
 .login-demo p  {
     margin: 0;
     font-size: 0.9rem;
@@ -231,6 +202,7 @@ h2
 .landing-descript-container {
     padding: 0 1rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .landing-descript-header {
@@ -257,8 +229,6 @@ h2
     text-align: left;
     width: 90%;
     border: 1px solid #EEE;
-    /* margin-left: 1rem;
-    margin-right: 1rem; */
     padding: 0;
 }
 
@@ -277,7 +247,6 @@ h2
 }
 
 .trip-item {
-    /* margin-bottom: 1rem; */
     border: 1px solid #EEE;
     padding-left: 1rem;
     padding-top: 0.8rem;
@@ -342,7 +311,6 @@ h2
     margin-left: 0.5rem;
 }
 
-
 .fa-trash-alt:hover {
     color: red;
     cursor: pointer;
@@ -354,7 +322,6 @@ h2
     color: #107ac5;
     cursor: pointer;
 }
-
 
 .flight-form-header,
 .destination-form-header,
@@ -374,7 +341,6 @@ h2
 }
 
 /* forms */
-
 label {
     display: inline-block;
     margin-bottom: 0.5rem;
@@ -401,7 +367,6 @@ label {
 .main-form {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-    /* max-width: 500px; */
 }
 
 .submit-button {
@@ -461,7 +426,7 @@ ol {
 }
 
 .back-dash-btn {
-    margin-top: 1.2rem;
+    margin-top: 2rem;
     text-align: center;
 }
 
@@ -498,7 +463,6 @@ li {
     margin: 1rem;
 }
 
-
 .trip-details {
     color: rgb(72, 72, 72);
     font-style: italic;
@@ -517,19 +481,8 @@ li {
 }
 
 
-
 /* Responsive Design */
-
-/* @media only screen and (min-width: 480px) {
-    
-} */
-
 @media only screen and (min-width: 768px) {
-
-    .landing-descript-container {
-        margin-top: 3.5rem;
-    }
-
     .landing-descript-header {
         margin-bottom: 3.5rem;
         margin-top: 3.5rem;
@@ -567,12 +520,6 @@ li {
     .landing-descript-container {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2rem;
-        margin-top: 2rem;
-    }
-
-    .back-dash-btn {
-        margin-top: 2rem;
     }
 
     .landing-descript-two {

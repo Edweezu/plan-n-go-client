@@ -1,8 +1,4 @@
 
-// export const findTrip = (trips = [], tripId) => {
-//     return trips.find(trip => trip.id == tripId)
-// }
-
 export const findTrip = (trips=[], tripid) => (
     (!tripid)
       ? trips

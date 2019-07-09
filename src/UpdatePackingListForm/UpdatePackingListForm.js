@@ -8,9 +8,6 @@ class UpdatePackingListForm extends React.Component {
 
     static contextType = TripsContext
 
-   
-
-   
     handleDeleteItem = () => {
         let { tripid, itemid } = this.props
 
@@ -57,11 +54,8 @@ class UpdatePackingListForm extends React.Component {
         })
     }
     
-
-
-
+    
     render () {
-
         return (
             <div className='btn-div'>
                 <i onClick={() => this.context.handleCheckItem(this.props.itemid)}className="fas fa-check"></i>

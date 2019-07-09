@@ -49,6 +49,7 @@ class UpdateDestinationForm extends React.Component {
                 destination_name: responseJson.destination_name,
                 destination_date: responseJson.destination_date,
                 destination_notes: responseJson.destination_notes,
+                address: responseJson.address,
                 trip_id: responseJson.trip_id
             })
         })
@@ -68,8 +69,6 @@ class UpdateDestinationForm extends React.Component {
             destination_notes, 
             trip_id
         }
-
-        console.log('newDestinationnn', newDestination)
 
         fetch(`${config.API_ENDPOINT}/trips/${tripid}/destinations/${destinationid}`, {
             method: 'PATCH',
@@ -188,22 +187,14 @@ class UpdateDestinationForm extends React.Component {
         })
     }
 
-
     render () {
-
         const { destination_name, destination_date, address, destination_notes, showForm} = this.state
 
         return (
             <main className='UpdateFlightForm'>
                 <div className='btn-div'>
                     <i onClick={this.handleEditForm}className="far fa-edit"></i>
-                    {/* <button onClick={this.handleEditForm}>
-                        Edit
-                    </button> */}
                     <i onClick={this.handleDeleteForm}className="far fa-trash-alt"></i>
-                    {/* <button onClick={this.handleDeleteDestination}>
-                        Delete
-                    </button> */}
                 </div>
                 {showForm ? (
                     <form className='main-form' onSubmit={this.handleEditDestination}>
@@ -240,9 +231,7 @@ class UpdateDestinationForm extends React.Component {
                         </div>    
                     </form>
                 ) : null}
-                
-            </main>
-            
+            </main> 
         )
     }
 }
