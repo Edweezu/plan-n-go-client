@@ -107,7 +107,7 @@ export default class Trip extends React.Component {
         const trip = findTrip(tripList, id)
 
         return (
-            <main className='trip-main'>
+            <main id="main-top" className='trip-main'>
                 <ul>
                     {error ? <p className='error'><strong>Error! You have been logged out. Please log back in to continue.</strong></p>
                     : ''}
@@ -268,6 +268,11 @@ export default class Trip extends React.Component {
                         Back to Dashboard
                     </button>
                 </section>
+                <div className='scroll-up-div'>
+                    <a href="#main-top">
+                       <i className="fa fa-chevron-up"></i>          
+                    </a>                   
+                </div>
             </main>
         )
     }

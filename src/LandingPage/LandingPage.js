@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
                     </section>
                 </section>   
                 <section className='landing-page-reminder'>
-                    <Link className="link btn" to='/register'>Lets Get Started</Link>
+                    <Link className="link btn" to='/register'>Get Started</Link>
                 </section>
             </main>
         )

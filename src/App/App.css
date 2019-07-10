@@ -89,14 +89,18 @@ a:hover {
 }
 
 .btn:hover {
-    background-color: #107ac5;
+    /* background-color: #107ac5; */
+    background-color: #298c63;
     cursor: pointer;
     text-decoration: none;
 }
 
 
 .btn {
-    background-color: #2c95ce;
+    /* background-color: #2c95ce; */
+    /* background-color: #39c088; */
+    background-color: #30a474;
+    /* background-color: #2d848A; */
     color: white;
     font-weight: 500;
     border-radius: 3px;
@@ -200,7 +204,6 @@ h2 {
 }
 
 .landing-descript-container {
-    padding: 0 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
@@ -238,6 +241,10 @@ h2 {
    padding: 1rem;
    text-align: center;
    color: #107ac5;
+   /* color: #39c088; */
+   /* color: #30a474; */
+   /* color: #2d898B; */
+   /* color: #2d848A; */
 }
 
 .trips-dashboard-container ul {
@@ -274,11 +281,11 @@ h2 {
     margin: 1rem;
 }
 
-.trip-main,
 .add-trip {
     width: 90%;
     margin: 0 auto;
     margin-top: 8rem;
+    max-width: 800px;
 }
 
 .trip-main h1 {
@@ -303,23 +310,34 @@ h2 {
 .fa-trash-alt,
 .fa-plus-circle {
     margin-left: 0.8rem;
-    color: #373a36;
 }
 
-.fa-edit {
-    color: #373a36;
+
+
+.fa-edit,
+.fa-plus-circle,
+.fa-check
+ {
+    color: #30a474;
     margin-left: 0.5rem;
 }
 
+.fa-trash-alt {
+    color: rgba(0, 0, 0, 0.3);
+}
+
 .fa-trash-alt:hover {
-    color: red;
+    /* color: red; */
+    color: rgba(0, 0, 0, 0.6);
     cursor: pointer;
 }
 
 .fa-plus-circle:hover,
 .fa-edit:hover,
 .fa-check:hover {
-    color: #107ac5;
+    /* color: #107ac5; */
+    /* color: #30a474; */
+    color: #298c63;
     cursor: pointer;
 }
 
@@ -329,6 +347,10 @@ h2 {
 .trip-name-header {
     background-color: #EEE;
     color: #107ac5;
+    /* color: #39c088; */
+    /* color: #30a474; */
+    /* color: #2d898B; */
+    /* color: #2d848A; */
     text-align: center;
 }
 
@@ -367,30 +389,34 @@ label {
 .main-form {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    max-width: 800px;
 }
 
 .submit-button {
     border-radius: 0.3rem;
-    margin-right: 0.4rem;
+    margin-right: 0.6rem;
     cursor: pointer;
-    font-size: 0.95rem;
-    background-color: #107ac5;
+    font-size: 1.1rem;
+    /* background-color: #107ac5; */
+    /* background-color: #39c088; */
+    background-color: #30a474;
     color: white;
-    padding: 0.2rem 0.4rem;
+    padding: 0.3rem 0.6rem;
 }
 
 .submit-button:hover {
     box-shadow: 0 2px 4px #CCC;
 }
 
-.cancel-button {
+.cancel-button,
+.back-dash-btn button {
     border-radius: 0.3rem;
-    margin-right: 0.4rem;
+    margin-right: 0.6rem;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     background-color: lightgray;
     color: rgb(51,51,51);
-    padding: 0.2rem 0.4rem;
+    padding: 0.3rem 0.6rem;
 }
 
 .cancel-button:hover {
@@ -430,11 +456,17 @@ ol {
     text-align: center;
 }
 
-.back-dash-btn button {
+/* .back-dash-btn button {
+    background-color: #30A474;
+    color: white;
     border-radius: 0.3rem;
     cursor: pointer;
-    font-size: 0.95rem;
-    padding: 0.2rem 0.4rem;
+    font-size: 1.1rem;
+    padding: 0.3rem 0.6rem;
+} */
+
+.back-dash-btn button:hover {
+    box-shadow: 0 2px 4px #CCC;
 }
 
 li {
@@ -443,6 +475,9 @@ li {
 
 .trip-main {
     text-align: left;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 8rem;
 }
 
 .list-info-div {
@@ -480,6 +515,25 @@ li {
     margin: 0.4rem;
 }
 
+.scroll-up-div a {
+    display: block;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999999999;
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all .25s ease;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.scroll-up-div a:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
 
 /* Responsive Design */
 @media only screen and (min-width: 768px) {
@@ -503,8 +557,9 @@ li {
     }
 
     .main-form {
+        margin: 0 auto;
         margin-top: 1.5rem;
-        margin-bottom: 4.5rem;
+        margin-bottom: 4.5rem; 
     }
 
     .add-trip-element {
@@ -514,10 +569,16 @@ li {
     .button-container {
         margin-top: 2rem;
     }
+
+    .scroll-up-div a {
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
     .landing-descript-container {
+        padding: 0 1rem;
         display: flex;
         justify-content: space-between;
     }

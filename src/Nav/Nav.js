@@ -62,7 +62,7 @@ class Nav extends React.Component {
         
     render () {
         return (
-            <nav className='nav'>
+            <nav id="navbar" className='nav'>
                 {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()
