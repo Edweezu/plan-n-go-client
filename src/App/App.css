@@ -206,6 +206,12 @@ h2 {
 .landing-descript-container {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.trip-descript-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .landing-descript-header {
@@ -578,6 +584,11 @@ li {
 
 @media only screen and (min-width: 1024px) {
     .landing-descript-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .trip-descript-container {
         padding: 0 1rem;
         display: flex;
         justify-content: space-between;

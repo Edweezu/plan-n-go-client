@@ -119,7 +119,7 @@ export default class Trip extends React.Component {
                     tripid={id}
                     redirectDashboard={this.redirectDashboard}
                 />
-                <section className='landing-descript-container'>
+                <section className='trip-descript-container'>
                     <section className='flights landing-descript-one'>
                         <FlightForm 
                             tripid={id}
