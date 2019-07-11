@@ -10,7 +10,9 @@ export default class LoginForm extends React.Component {
     static contextType = TripsContext
 
     state = {
-        error: null
+        error: null,
+        password: 'Testing123!',
+        username: 'demo'
     }
 
     handleSubmit = (e) => {
@@ -38,9 +40,22 @@ export default class LoginForm extends React.Component {
             })
     }
 
+    handleChangeUser = (e) => {
+        this.setState({
+            username: e.target.value
+        })
+    }
+
+    handleChangePassword = (e) => {
+        this.setState({
+            password: e.target.value
+        })
+    }
+
+
 
     render () {
-        const { error } = this.state
+        const { error, username, password } = this.state
         return (
             <form className='login-form' onSubmit={this.handleSubmit}>
                 <div role='alert'>
@@ -56,7 +71,7 @@ export default class LoginForm extends React.Component {
                         </span>
                     </div>
                     <div className='signup-input'>
-                        <input id='username' name='username' type='text' placeholder='demo' required/>
+                        <input id='username' name='username' type='text' placeholder='demo' value={username} onChange={this.handleChangeUser} required/>
                     </div>
                     
                 </div>
@@ -68,7 +83,7 @@ export default class LoginForm extends React.Component {
                         <span className='astrik'>*</span>
                     </div>
                     <div className='signup-input'>
-                        <input id='password' name='password' type='password' placeholder='Testing123!' required/>
+                        <input id='password' name='password' type='password' placeholder='Testing123!' value={password} onChange={this.handleChangePassword} required/>
                     </div> 
                 </div>
                 <div className='signin-button'>
