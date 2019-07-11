@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component renders the given component 1`] = `
+<nav
+  className="nav"
+  id="navbar"
+>
+  <div
+    className="Header-not-in"
+  >
+    <h3>
+      <Link
+        to="/"
+      >
+        <i
+          className="fas fa-plane"
+        />
+        Plan-n-Go
+      </Link>
+    </h3>
+    <div
+      className="Header-links"
+    >
+      <Link
+        to="/register"
+      >
+        Create an Account
+      </Link>
+      <span
+        className="Header-space"
+      />
+      <Link
+        to="/login"
+      >
+        Login
+      </Link>
+    </div>
+  </div>
+</nav>
+`;

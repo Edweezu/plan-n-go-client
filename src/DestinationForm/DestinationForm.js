@@ -6,6 +6,10 @@ import TripsContext from '../TripsContext';
 
 class DestinationForm extends React.Component {
 
+    static defaultProps = {
+        
+    }
+    
     static contextType = TripsContext
 
     state = {

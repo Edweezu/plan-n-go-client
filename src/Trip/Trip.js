@@ -15,6 +15,11 @@ import UpdateTripForm from '../UpdateTripForm/UpdateTripForm'
 
 export default class Trip extends React.Component {
 
+   static defaultProps = {
+       match: {},
+       params: {}
+   }
+
    static contextType = TripsContext
 
     state = {
@@ -101,6 +106,7 @@ export default class Trip extends React.Component {
     }
 
     render () {
+
         const { id } = this.props.match.params
         const { flights=[], tripList=[], destinations=[], packing_list=[] } = this.context
         const { error } = this.state

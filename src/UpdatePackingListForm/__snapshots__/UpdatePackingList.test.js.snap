@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdatePackingListForm component renders the component's given props 1`] = `
+<div
+  className="btn-div"
+>
+  <i
+    className="fas fa-check"
+    onClick={[Function]}
+  />
+  <i
+    className="far fa-trash-alt"
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`UpdatePackingListForm component renders the given component 1`] = `
+<div
+  className="btn-div"
+>
+  <i
+    className="fas fa-check"
+    onClick={[Function]}
+  />
+  <i
+    className="far fa-trash-alt"
+    onClick={[Function]}
+  />
+</div>
+`;

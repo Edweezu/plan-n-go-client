@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Trip component renders the given component 1`] = `
+<main
+  className="trip-main"
+  id="main-top"
+>
+  <ul />
+  <UpdateTripForm
+    redirectDashboard={[Function]}
+    trip={Array []}
+    tripid={1}
+  />
+  <section
+    className="trip-descript-container"
+  >
+    <section
+      className="flights landing-descript-one"
+    >
+      <FlightForm
+        tripid={1}
+      />
+      <section
+        className="trip-flight-list "
+      >
+        <ol />
+      </section>
+    </section>
+    <section
+      className="destinations landing-descript-two"
+    >
+      <DestinationForm
+        tripid={1}
+      />
+      <section
+        className="trip-destination-list"
+      >
+        <ol />
+      </section>
+    </section>
+    <section
+      className="packing-lists landing-descript-two"
+    >
+      <section
+        className="trip-packing-list"
+      >
+        <PackingListForm
+          tripid={1}
+        />
+      </section>
+      <section
+        className="trip-packing-results"
+      >
+        <ol />
+      </section>
+    </section>
+  </section>
+  <section
+    className="back-dash-btn"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Back to Dashboard
+    </button>
+  </section>
+  <div
+    className="scroll-up-div"
+  >
+    <a
+      href="#main-top"
+    >
+      <i
+        className="fa fa-chevron-up"
+      />
+    </a>
+  </div>
+</main>
+`;

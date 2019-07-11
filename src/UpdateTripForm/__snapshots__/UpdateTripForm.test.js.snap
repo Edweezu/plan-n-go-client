@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateTripForm component renders the component's given props 1`] = `
+<main
+  className="UpdateTripForm"
+>
+  <header
+    className="trip-name-header"
+  >
+    <h1>
+      Seattle
+       
+      <i
+        className="far fa-edit"
+        onClick={[Function]}
+      />
+    </h1>
+    <p>
+      Jun 26 - Jul 5, 2019
+    </p>
+  </header>
+  <div
+    className="back-dash-btn"
+  >
+    <button>
+      Back to Dashboard
+    </button>
+  </div>
+</main>
+`;
+
+exports[`UpdateTripForm component renders the given component 1`] = `
+<main
+  className="UpdateTripForm"
+>
+  <header
+    className="trip-name-header"
+  >
+    <h1>
+       
+      <i
+        className="far fa-edit"
+        onClick={[Function]}
+      />
+    </h1>
+    <p />
+  </header>
+  <div
+    className="back-dash-btn"
+  >
+    <button>
+      Back to Dashboard
+    </button>
+  </div>
+</main>
+`;

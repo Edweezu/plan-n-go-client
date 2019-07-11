@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DestinationForm component renders the component's given props 1`] = `
+<section
+  className="trip-destination-form"
+>
+  <header
+    className="destination-form-header"
+  >
+    <h2>
+      Activities
+      <i
+        className="fas fa-plus-circle"
+        onClick={[Function]}
+      />
+    </h2>
+  </header>
+</section>
+`;
+
+exports[`DestinationForm component renders the given component 1`] = `
+<section
+  className="trip-destination-form"
+>
+  <header
+    className="destination-form-header"
+  >
+    <h2>
+      Activities
+      <i
+        className="fas fa-plus-circle"
+        onClick={[Function]}
+      />
+    </h2>
+  </header>
+</section>
+`;

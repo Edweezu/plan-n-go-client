@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TripItem component renders the component's given props 1`] = `
+<section
+  className="trip-item"
+>
+  <h2
+    className="trip-item-title"
+  >
+    <Link
+      to="/trip/undefined"
+    >
+      Seattle
+    </Link>
+    <i
+      className="far fa-trash-alt"
+      onClick={[Function]}
+    />
+  </h2>
+  <p>
+    Jul 17 - 25, 2019
+  </p>
+</section>
+`;
+
+exports[`TripItem component renders the given component 1`] = `
+<section
+  className="trip-item"
+>
+  <h2
+    className="trip-item-title"
+  >
+    <Link
+      to="/trip/undefined"
+    />
+    <i
+      className="far fa-trash-alt"
+      onClick={[Function]}
+    />
+  </h2>
+  <p>
+    Invalid Date - Invalid Date
+  </p>
+</section>
+`;

@@ -26,7 +26,7 @@ export default class Dashboard extends React.Component {
     }
 
     renderTrips() {
-        const { tripList } = this.context
+        const { tripList = [] } = this.context
         return tripList.map(trip => 
             <li key={trip.id}>
                 <TripItem

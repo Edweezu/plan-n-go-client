@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PackingListForm component renders the component's given props 1`] = `
+<section
+  className="add-form-fields"
+>
+  <h2
+    className="packing-list-header"
+  >
+    Packing List
+    <i
+      className="fas fa-plus-circle"
+      onClick={[Function]}
+    />
+  </h2>
+</section>
+`;
+
+exports[`PackingListForm component renders the given component 1`] = `
+<section
+  className="add-form-fields"
+>
+  <h2
+    className="packing-list-header"
+  >
+    Packing List
+    <i
+      className="fas fa-plus-circle"
+      onClick={[Function]}
+    />
+  </h2>
+</section>
+`;

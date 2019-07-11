@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTrip component renders the given component 1`] = `
+<main
+  className="add-trip"
+>
+  <h2
+    className="trip-name-header"
+  >
+    Add a Trip
+  </h2>
+  <form
+    className="main-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-flex-container"
+    >
+      <div
+        className="add-trip-element"
+      >
+        <label
+          htmlFor="city"
+        >
+          City
+        </label>
+        <span
+          className="astrik"
+        >
+          *
+        </span>
+        <input
+          className="form-input add-trip-input"
+          id="city"
+          name="city"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="add-trip-element"
+      >
+        <label
+          htmlFor="trip-name"
+        >
+          Trip Name
+        </label>
+        <span
+          className="astrik"
+        >
+          *
+        </span>
+        <input
+          className="form-input add-trip-input"
+          id="trip_name"
+          name="trip_name"
+          required={true}
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="form-flex-container"
+    >
+      <div
+        className="add-trip-element"
+      >
+        <label
+          htmlFor="start-date"
+        >
+          Start Date
+        </label>
+        <span
+          className="astrik"
+        >
+          *
+        </span>
+        <input
+          className="form-input add-trip-input"
+          id="start_date"
+          name="start_date"
+          required={true}
+          type="date"
+        />
+      </div>
+      <div
+        className="add-trip-element"
+      >
+        <label
+          htmlFor="end-date"
+        >
+          End Date
+        </label>
+        <span
+          className="astrik"
+        >
+          *
+        </span>
+        <input
+          className="form-input add-trip-input"
+          id="end_date"
+          name="end_date"
+          required={true}
+          type="date"
+        />
+      </div>
+    </div>
+    <div
+      className="button-container"
+    >
+      <button
+        className="submit-button"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        className="cancel-button"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</main>
+`;

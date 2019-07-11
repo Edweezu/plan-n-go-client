@@ -38,7 +38,6 @@ class PackingListForm extends React.Component {
             checked: false
         }
 
-        console.log('newItemmm', newItem)
         fetch(`${config.API_ENDPOINT}/trips/${tripid}/packing_list`, {
             method: 'POST',
             headers: {

@@ -23,8 +23,6 @@ export default class AddTrip extends React.Component {
             start_date: start_date.value,
             end_date: end_date.value,
         }
-
-        console.log('new trippp', newTrip)
         
         return fetch(`${config.API_ENDPOINT}/trips`, {
             method: 'POST',

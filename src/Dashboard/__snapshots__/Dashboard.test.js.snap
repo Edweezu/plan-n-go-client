@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard component renders the given component 1`] = `
+<main
+  className="dashboard"
+>
+  <section
+    className="trips-dashboard-container"
+  >
+    <h1
+      className="dashboard-header"
+    >
+      Dashboard
+      <i
+        className="fas fa-plus-circle"
+        onClick={[Function]}
+      />
+    </h1>
+    <ul />
+  </section>
+</main>
+`;

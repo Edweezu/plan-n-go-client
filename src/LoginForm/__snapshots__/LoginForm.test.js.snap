@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm component renders the given component 1`] = `
+<form
+  className="login-form"
+  onSubmit={[Function]}
+>
+  <div
+    role="alert"
+  />
+  <div
+    className="signup-element"
+  >
+    <div
+      className="signup-label"
+    >
+      <label
+        htmlFor="username"
+      >
+        Username
+      </label>
+      <span
+        className="astrik"
+      >
+        *
+      </span>
+    </div>
+    <div
+      className="signup-input"
+    >
+      <input
+        id="username"
+        name="username"
+        placeholder="demo"
+        required={true}
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    className="signup-element"
+  >
+    <div
+      className="signup-label"
+    >
+      <label
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <span
+        className="astrik"
+      >
+        *
+      </span>
+    </div>
+    <div
+      className="signup-input"
+    >
+      <input
+        id="password"
+        name="password"
+        placeholder="Testing123!"
+        required={true}
+        type="password"
+      />
+    </div>
+  </div>
+  <div
+    className="signin-button"
+  >
+    <button
+      className="btn btn-sign-in"
+      type="submit"
+    >
+      Sign In
+    </button>
+  </div>
+  <div
+    className="login-demo"
+  >
+    <h4>
+      Demo Account
+    </h4>
+    <p>
+      Username: demo
+    </p>
+    <p>
+      Password: Testing123!
+    </p>
+  </div>
+  <div
+    className="login-form-redirect"
+  >
+    <Link
+      to="/register"
+    >
+      Don't have an account? Create one.
+    </Link>
+  </div>
+</form>
+`;

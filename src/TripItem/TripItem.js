@@ -65,7 +65,7 @@ class TripItem extends React.Component {
         })
     }
 
-    formatDate = (startdate, enddate) => {
+    formatDate = (startdate='', enddate='') => {
         let [startYear, startMonth, startDay ] = startdate.substr(0, 10).split('-')
         let [endYear, endMonth, endDay ] = enddate.substr(0, 10).split('-')
         if (startMonth !== endMonth) {

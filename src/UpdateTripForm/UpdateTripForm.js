@@ -155,12 +155,12 @@ class UpdateTripForm extends React.Component {
 
     render () {
         let { trip_name, city, start_date, end_date, showForm } = this.state
-        let { trip } = this.props
+        let { trip = [] } = this.props
 
         return (
             <main className='UpdateTripForm'>
                 <header className='trip-name-header'>
-                    <h1>{trip.length === 0 ? trip.trip_name : trip[0].trip_name} <i onClick={this.handleEditForm}className="far fa-edit"></i></h1>
+                    <h1>{trip.length === 0 ? '' : trip[0].trip_name} <i onClick={this.handleEditForm}className="far fa-edit"></i></h1>
                     <p>
                         {trip.length === 0 ? trip.start_date : this.formatDate(trip[0].start_date, trip[0].end_date)}
                     </p>  
