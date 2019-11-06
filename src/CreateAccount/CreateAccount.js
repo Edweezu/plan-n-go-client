@@ -94,7 +94,7 @@ export default class CreateAccount extends React.Component {
                         <Link to='/login'>Already have an Account?</Link>
                     </div>
                 </form>
-            </main>   
+            </main>
         )
     }  
 }

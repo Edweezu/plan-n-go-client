@@ -50,11 +50,8 @@ class App extends React.Component {
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
-    // if (!this.state.expired) {
-    //   this.setState({
-    //     expired: true
-    //   })
-    // }
+ 
+    this.props.history.push('/login')
     this.forceUpdate()
   }
 

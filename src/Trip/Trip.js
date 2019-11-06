@@ -28,7 +28,6 @@ export default class Trip extends React.Component {
 
    componentDidMount() {
     const tripid = this.props.match.params
-
     Promise.all([
         fetch(`${config.API_ENDPOINT}/trips`, {
           method: 'GET',
