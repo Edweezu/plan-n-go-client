@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import TripsContext from '../TripsContext.js'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
@@ -259,4 +259,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
